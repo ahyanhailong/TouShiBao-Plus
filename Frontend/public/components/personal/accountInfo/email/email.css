@@ -1,0 +1,42 @@
+#email .tsb-box-show {
+  background: #2e2e2e;
+}
+#email .tsb-box-show .form-horizontal {
+  width: 600px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+#email .tsb-box-show .form-horizontal .form-group {
+  margin-bottom: 20px;
+}
+#email .tsb-box-show .widget {
+  min-height: 150px;
+}
+
+#email #inputEmail3,#inputPassword3{
+  /*border-color: #66afe9;*/
+  border: 1px solid #353434;
+  outline: 0;
+
+}
+
+#email #inputEmail3.emailError,#email #inputPassword3.checkCode{
+  border-color: #D0280D;
+}
+
+#email #inputEmail3.emailError:focus{
+  border-color: #D0280D;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #D0280D;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #D0280D;
+}
+#email #inputPassword3.checkCode:focus{
+  border-color: #D0280D;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #D0280D;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #D0280D;
+}
+#email #inputEmail3:focus,#inputPassword3:focus{
+  border-color: #66afe9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}

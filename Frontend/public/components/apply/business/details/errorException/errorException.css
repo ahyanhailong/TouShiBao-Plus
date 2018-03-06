@@ -1,0 +1,22 @@
+/*快照分析*/
+#errorException{
+
+}
+#errorException .response-chart{
+  height: 335px;
+  min-height: 335px;
+  margin-top: 0px;
+}
+#errorException .error-content{
+  width: 49.3%; float: left;
+}
+#errorException .abnormal-content{
+  width: 49.3%; float: right;
+}
+#errorException .error-content .error-chart,
+#errorException .abnormal-content .abnormal-chart
+{
+height: 200px;
+  min-height: 200px;
+  margin-top: 0;
+}

@@ -1,0 +1,54 @@
+<div id="email">
+  <div class="content_title">
+    <ul class="bread-crumb">
+      <li>账户</li>
+      <li>&gt;</li>
+      <li><a ui-sref="navigation.personal.accountInfo">账户信息</a></li>
+      <li>&gt;</li>
+      <li>修改邮箱</li>
+    </ul>
+  </div>
+  <div class="padding-lr-16 tsb-main">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        修改邮箱
+        <div class="tsb-btn-group pull-right" ng-if="btnShow">
+          <button class="btn btn-blue border-radius20" id="btn-save" ng-click="saveEmail()">保存</button>
+          <button class="btn btn-gray border-radius20 margin-l-5"><a href="#/navigation/personal/accountInfo">取消</a></button>
+        </div>
+      </div>
+      <div class="widget padding-16">
+        <form class="form-horizontal">
+          <div class="form-group has-error">
+            <label for="inputEmail3" class="col-sm-2 control-label">新邮箱地址：</label>
+            <div class="col-sm-7">
+              <input type="email" class="form-control " ng-class="{'emailError' : emailIsError}" id="inputEmail3" placeholder="请输入新邮箱" aria-describedby="helpBlock1" ng-keyup="emailChange()">
+              <span id="helpBlock1" class="help-block">{{emailError}}</span>
+
+            </div>
+            <div class="col-sm-3">
+              <button href="javascript:void(0)" class="btn btn-gray border-radius20 margin-l-5" ng-click="getCheckCode(event)" ng-if="!disabled">{{sendEmail}}</button>
+
+              <button href="javascript:void(0)" class="btn btn-gray border-radius20 margin-l-5" ng-click="getCheckCode(event)" ng-if="disabled" disabled>{{sendEmail}}</button>
+            </div>
+          </div>
+          <div class="form-group has-error">
+            <label for="inputPassword3" class="col-sm-2 control-label">验证码:</label>
+            <div class="col-sm-10">
+              <input type="Password" class="form-control" ng-class="{'checkCode':checkIsCode}" id="inputPassword3" placeholder="请输入验证码" aria-describedby="helpBlock2" ng-keyup="checkChange()">
+              <span id="helpBlock2" class="help-block">{{checkCode}}</span>
+            </div>
+          </div>
+        </form>
+        <!--保存成功之后显示完成修改成功的代码-->
+        <div class="finish-state" style="display: none">
+          <div class="text"><i class="icon-finish"></i>邮箱修改成功</div>
+          <div class="tsb-btn-group">
+            <button class="btn btn-gray border-radius20 padding-lr-16"><a href="#/navigation/personal/accountInfo">完成</a></button>
+          </div>
+        </div>
+        <!--保存成功之后显示完成修改成功的代码-->
+      </div>
+    </div>
+  </div>
+</div>

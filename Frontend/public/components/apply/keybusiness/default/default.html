@@ -1,0 +1,98 @@
+<div class="padding-lr-16 tsb-main" id="default-page" >
+  <!--header-->
+  <div class="clearfix margin-b-16 header-content">
+    <div class="pull-left">事务列表</div>
+    <div class="pull-right">
+      <div class="btn-group tsb-btn-group pull-left" id="orderBy">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          {{searchName}} <span class="fa fa-long-arrow-down"></i></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="javascript:void(0)" data-item="resp_time">响应时间<i class="fa fa-sort fa-sort-desc"></i></a></li>
+          <li><a href="javascript:void(0)" data-item="rpm">吞吐率<i class="fa fa-sort"></i></a></li>
+          <li><a href="javascript:void(0)" data-item="error_rate">错误率<i class="fa fa-sort"></i></a></li>
+          <li><a href="javascript:void(0)" data-item="error_count">错误数<i class="fa fa-sort"></i></a></li>
+          <li><a href="javascript:void(0)" data-item="exception_count">异常数<i class="fa fa-sort"></i></a></li>
+        </ul>
+      </div>
+      <div class="tsb-search tsb-search-i pull-left">
+        <input class="input-search" placeholder="按事务名称搜索" id="key_transaction" data-onkey="13" ng-model="surf" ng-change="change()"/>
+        <i class="icon-search pos-a" ng-click="search($event)"></i>
+      </div>
+      <a href="#/navigation/apply/setting//{{app_id}}" class="btn btn-blue border-radius20 pull-left"><i class="icon-add-white"></i>添加事务</a>
+    </div>
+  </div>
+  <!--header-->
+  <div class="event-content margin-b-16 clearfix">
+
+    <div class="tsb-box-show2e div-box" ng-repeat="item in respon.data.list">
+      <h3 data-uri="{{item.uri}}"><a href="{{clickURI(item.uri)}}">{{item.uri}}</a></h3>
+      <ul>
+        <li>
+          <div class="color-green" ng-if="item.health=='app_normal'">
+            <i class="state-circle-normal"></i> 正常
+          </div>
+          <div class="color-red" ng-if="item.health=='app_error'">
+            <i class="state-circle-error"></i> 错误
+          </div>
+          <div class="color-yellow" ng-if="item.health=='app_slow'">
+            <i class="state-circle-markYellow"></i> 缓慢
+          </div>
+          <div class="color-orange" ng-if="item.health=='app_very_slow'">
+            <i class="state-circle-markRed"></i> 非常缓慢
+          </div>
+          <div class="color-gray" ng-if="item.health=='app_nodata'">
+            <i class="state-circle-noData"></i> 暂无数据
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="number"><span class="font-18">{{item.resp_time}}</span> ms</div>
+            <div class="text">响应时间</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="number"><span class="font-18">{{item.rpm}}</span>rpm</div>
+            <div class="text">吞吐率</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="number"><span class="font-18">{{item.error_rate}}</span>%</div>
+            <div class="text">错误率</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="number"><span class="font-18">{{item.error_count}}</span></div>
+            <div class="text">错误数</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="number"><span class="font-18">{{item.exception_count}}</span></div>
+            <div class="text">异常数</div>
+          </div>
+        </li>
+
+      </ul>
+      <div class="right-content">
+        <div class="action-btn">
+          <a href="#/navigation/apply/setting/{{item.business_id}}/{{app_id}}" class="action-edit" title="设置" data-id="{{item.business_id}}"></a>
+          <a href="" class="action-trash" title="删除" data-id="{{item.business_id}}" ng-click="deleteUri($event)"></a>
+        </div>
+        <div class="action-btn action-btn-hover">
+          <a href="#/navigation/apply/setting/{{item.business_id}}/{{app_id}}" class="action-edit-hover" title="设置" data-id="{{item.business_id}}"></a>
+          <a href="" class="action-trash-hover" title="删除" data-id="{{item.business_id}}" ng-click="deleteUri($event)"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pager-widget">
+    <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+    <div class="PageList" oc-lazy-load="['pageList']">
+      <div page-list change="changeSqlList()" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+    </div>
+  </div>
+</div>

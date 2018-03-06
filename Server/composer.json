@@ -1,0 +1,23 @@
+{
+    "require": {
+        "elasticsearch/elasticsearch": "~1.0",
+        "illuminate/database": "5.1.*",
+        "illuminate/events": "5.1.*",
+        "illuminate/cache": "5.1.*",
+        "predis/predis": "1.0.*",
+        "illuminate/redis": "5.1.*",
+        "respect/validation": "^1.1",
+        "swiftmailer/swiftmailer": "5.4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        },
+        "classmap" : [
+            "app/library/cloudwise/tsb/datasource/base/PHPExcel/PHPExcel.php"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    }
+}

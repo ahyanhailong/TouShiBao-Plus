@@ -1,0 +1,49 @@
+<div class="content_title" style="padding-right: 16px; padding-left: 16px;"
+     oc-lazy-load="['dateTime', 'breadCrumbs']">
+    <!--面包屑-->
+    <div oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js']" style="padding-right: 16px; padding-left: 16px;">
+        <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+    </div>
+    <!--日期过滤-->
+    <div style="line-height: 32px;float: right;margin-top: 4px;" timer-start-time="start_time1" timer-end-time="end_time1" timer></div>
+</div>
+
+<div class="padding-lr-16">
+    <div id="Tab">
+        <div style="height: 100%;width: 100%;margin: 0 auto;border-bottom: 1px solid #4FABFC;">
+            <ul style="width: 300px; margin: 16px auto; overflow: hidden; margin-bottom: 0 ">
+                <li style="float:left;list-style: none">
+                    <a href="{{HrefLink($event,'timeanalyFirst')}}" style="display: block;padding: 0 35px;height: 24px; line-height: 24px;" ng-class="{active:timeAnaly == true}" ng-click="TabTime()">时间分析</a>
+                </li>
+                <li style="float:left;list-style: none">
+                    <a href="{{HrefLink($event,'erroranalyFirst')}}" style="display: block;padding: 0 35px;height: 24px; line-height: 24px;" ng-class="{active:timeAnaly == false}" ng-click="TabError()">异常分析</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--关键词过滤-->
+    <div oc-lazy-load="['filterKey', 'filterWhere']">
+
+        <div filter-where
+             change="change()"
+             wheres="wheres"
+             apis="whereApis"
+             where-list="whereList"></div>
+
+        <!--<div filter-key></div>-->
+    </div>
+
+    <!-- 过滤 -->
+    <!--<div filter-where
+         ng-repeat="(field,condition) in conditions"
+         condition="condition"
+         field="field"
+         cancel="cancelCondition(key)"
+         ok="okCondition(key,data)"
+         list="filterList(field)"
+            >
+    </div>-->
+    <!-- 过滤 -->
+    <div class="dataBaseTabView" ui-view></div>
+</div>
+

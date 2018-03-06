@@ -1,0 +1,544 @@
+#overview {
+    color: #fff;
+}
+
+#overview .overview-content {
+    position: relative;
+    width: 1366px;
+    height: 900px;
+    color: #ffffff;
+    font-family: SimHei, '榛戜綋', Helvetica, "Microsoft Yahei", Arial, sans-serif;
+    background: #222;
+    z-index: 11;
+
+}
+
+#overview .overview-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../../../img/apply/overview/overview-bg.png") 38px 30px no-repeat;
+}
+
+/*模板结果*/
+#overview .overview-result {
+    padding: 15px 0;
+    overflow: hidden;
+}
+
+#overview .overview-result .ul-list {
+    list-style: none;
+}
+
+#overview .overview-result .ul-list > li {
+    width: 14.2857%;
+    float: left;
+}
+
+#overview .overview-result .ul-list > li > div {
+    border: 1px solid #444545;
+    border-radius: 4px;
+    padding: 30px 0;
+    margin: 0 7px;
+}
+
+#overview .overview-result .ul-list > li:first-child > div {
+    margin-left: 0;
+
+}
+
+#overview .overview-result .ul-list > li:last-child > div {
+    margin-right: 0;
+
+}
+
+#overview .overview-result .ul-list > li .div-box {
+    width: 90px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#overview .overview-result .ul-list > li .div-text {
+    color: #fff;
+    font-size: 12px;
+    float: left;
+    margin-left: 10px;
+}
+
+#overview .overview-result .ul-list > li .div-text .number > span {
+    font-size: 24px;
+}
+
+#overview .overview-result .ul-list > li .div-box .span-color {
+    width: 2px;
+    height: 42px;
+    margin-top: 5px;
+    display: block;
+    float: left;
+    position: relative;
+}
+
+#overview .span-color:before {
+    content: '';
+    position: absolute;
+    right: -8px;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    border: 4px solid;
+    top: 17px;
+
+}
+
+#overview .blue-color {
+    background: #0B78E3;
+}
+
+#overview .blue-color:before {
+    border-color: transparent transparent transparent #0B78E3;
+}
+
+#overview .cyan-color {
+    background: #56B2BA;
+}
+
+#overview .cyan-color:before {
+    border-color: transparent transparent transparent #56B2BA;
+}
+
+#overview .green-color {
+    background: #7ED221;
+}
+
+#overview .green-color:before {
+    border-color: transparent transparent transparent #7ED221;
+}
+
+#overview .orange-color {
+    background: #EA5611;
+}
+
+#overview .orange-color:before {
+    border-color: transparent transparent transparent #EA5611;
+}
+
+#overview .orange-red-color {
+    background: #F43808;
+}
+
+#overview .orange-red-color:before {
+    border-color: transparent transparent transparent #F43808;
+}
+
+#overview .red-color {
+    background: #D0021B;
+}
+
+#overview .red-color:before {
+    border-color: transparent transparent transparent #D0021B;
+}
+
+#overview .purple-color {
+    background: #8B09B5;
+}
+
+#overview .purple-color:before {
+    border-color: transparent transparent transparent #8B09B5;
+}
+
+#overview .overview-result .response {
+    background: url("../../../img/apply/overview/response-bg.png") right bottom no-repeat #323232;
+}
+
+#overview .overview-result .rate {
+    background: url("../../../img/apply/overview/rate-bg.png") right bottom no-repeat #323232;
+}
+
+#overview .overview-result .normal {
+    background: url("../../../img/apply/overview/normal-bg.png") right bottom no-repeat #323232;
+}
+
+#overview .overview-result .slow {
+    background: url("../../../img/apply/overview/slow-bg.png") right bottom no-repeat #323232;
+}
+
+#overview .overview-result .abnormal {
+    background: url("../../../img/apply/overview/abnormal-bg.png") right bottom no-repeat #323232;
+}
+
+/*chart图*/
+#overview .overview-data .ul-list {
+    list-style: none;
+}
+
+#overview .overview-data .ul-list > li {
+    width: 33.333333%;
+    float: left;
+}
+
+#overview .overview-data .ul-list > li > div {
+    border: 1px solid #444545;
+    border-radius: 4px;
+    height: 215px;
+    margin: 15px;
+    background: #323232;
+}
+
+#overview .overview-data .ul-list > li:first-child > div {
+    margin-left: 0px;
+}
+
+#overview .overview-data .ul-list > li:last-child > div {
+    margin-right: 0px;
+
+}
+
+#overview .overview-data .ul-list > li .div-box {
+    /*padding: 16px;*/
+}
+
+#overview .overview-data .ul-list > li .div-box .title {
+    position: relative;
+    margin: 16px;
+}
+
+#overview .overview-data .ul-list > li .div-box .title > div.line {
+    height: 1px;
+    background: #3E3F3F;
+    width: 100%;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#overview .overview-data .ul-list > li .div-box .title > h3 {
+    color: #CDCBCB;
+    position: absolute;
+    top: -7px;
+    padding: 0 10px;
+    left: 40%;
+    font-size: 14px;
+    text-align: center;
+    background: #323232;
+    z-index: 1;
+    margin: 0;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover {
+    border-color: #4FABFC;
+    cursor: pointer;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover .title > div.line {
+    background: #4FABFC;
+
+}
+
+#overview .overview-data .ul-list > li .div-box:hover .title > h3 {
+    color: #4FABFC;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover .title > h3 {
+    color: #4FABFC;
+}
+
+#overview .overview-data .block {
+    margin-top: 0;
+    background: none;
+}
+
+#overview .overview-data .scatter-chart {
+    height: 130px;
+    min-height: 130px;
+    margin: 16px;
+    margin-top: 0;
+}
+
+#overview .overview-data .line-chart {
+    height: 25px;
+}
+
+#overview .overview-data .pie-chart {
+    height: 160px;
+    min-height: 160px;
+    margin: 0;
+}
+
+#overview .overview-data .table > thead > tr > th {
+    font-weight: normal;
+}
+
+#overview .overview-data .table > tbody > tr > td {
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+}
+
+#overview .ul-pie-list .table > tbody > tr > td {
+    padding-top: 2px;
+}
+
+#overview .overview-data .table > thead > tr > th:last-child, #overview .overview-data .table > tbody > tr > td:last-child {
+    padding-right: 10px;
+}
+
+#overview .overview-data .ul-pie-list li:first-child {
+    width: 40%;
+    float: left;
+}
+
+#overview .overview-data .ul-pie-list li:last-child {
+    width: 60%;
+    float: left;
+}
+
+#overview .overview-data .service .table {
+    padding-top: 30px;
+}
+
+#overview .overview-data .service .table > tbody > tr > td {
+    padding: 8px;
+}
+
+/*主机*/
+#overview .overview-data .widget .text-mark {
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+}
+
+#overview .overview-data .widget .text-mark span:nth-child(1) {
+    font-size: 24px;
+    color: #FC8034
+}
+
+#overview .overview-data .widget .text-mark span:nth-child(2) {
+    padding: 0 5px;
+}
+
+#overview .overview-data .widget .text-mark span:nth-child(3) {
+    font-size: 14px;
+    color: #CDCBCB
+}
+
+/*icon*/
+#overview .overview-data i.t-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 17px;
+    height: 17px;
+    margin-right: 5px;
+}
+
+#overview .overview-data i.icon01 {
+    background: url("../../../img/apply/overview/icon/icon01.png") no-repeat;
+    background-size: 17px;
+
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon01 {
+    background: url("../../../img/apply/overview/icon/icon01-hover.png") no-repeat;
+    background-size: 17px;
+
+}
+
+#overview .overview-data i.icon02 {
+    background: url("../../../img/apply/overview/icon/icon02.png") no-repeat;
+    background-size: 14px;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon02 {
+    background: url("../../../img/apply/overview/icon/icon02-hover.png") no-repeat;
+    background-size: 14px;
+}
+
+#overview .overview-data i.icon03 {
+    background: url("../../../img/apply/overview/icon/icon03.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon03 {
+    background: url("../../../img/apply/overview/icon/icon03-hover.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data i.icon04 {
+    background: url("../../../img/apply/overview/icon/icon04.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon04 {
+    background: url("../../../img/apply/overview/icon/icon04-hover.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data i.icon05 {
+    background: url("../../../img/apply/overview/icon/icon05.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon05 {
+    background: url("../../../img/apply/overview/icon/icon05-hover.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data i.icon06 {
+    background: url("../../../img/apply/overview/icon/icon06.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon06 {
+    background: url("../../../img/apply/overview/icon/icon06-hover.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data i.icon07 {
+    background: url("../../../img/apply/overview/icon/icon07.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon07 {
+    background: url("../../../img/apply/overview/icon/icon07-hover.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data i.icon08 {
+    background: url("../../../img/apply/overview/icon/icon08.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .overview-data .ul-list > li .div-box:hover i.icon08 {
+    background: url("../../../img/apply/overview/icon/icon08-hover.png") no-repeat;
+    background-size: 17px;
+}
+
+#overview .host-list-box {
+    height: 120px;
+}
+
+#overview .host-item {
+    width: 24px;
+    height: 24px;
+    float: left;
+    padding: 4px;
+}
+
+#overview .host-circle {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #ee5f5b;
+    border-radius: 50%;
+}
+
+#overview .host-legends {
+    margin-top: 8px;
+}
+
+#overview .host-legend {
+    float: left;
+    margin-right: 16px;
+    font-size: 12px;
+}
+
+#overview .host-legend-mark {
+    display: inline-block;
+    float: left;
+    margin-top: 1px;
+    margin-right: 8px;
+    margin-left: 4px;
+    width: 14px;
+    height: 14px;
+    background: #ee5f5b;
+    border-radius: 50%;
+}
+
+#overview .host-list-info {
+    margin-top: 10px;
+}
+
+#overview .host-warn {
+    color: #FC8034;
+    font-size: 24px;
+}
+
+#overview .host-total {
+    color: #CDCBCB;
+    font-size: 14px;
+}
+
+#overview .green {
+    background: #7ED221;
+}
+
+#overview .orange {
+    background: #FC8034;
+}
+
+#overview .red {
+    background: #D22600;
+}
+
+#overview .bg-normal {
+    fill: #7ED221;
+    background: #7ED221;
+}
+
+#overview .bg-slow {
+    fill: #E7BF16;
+    background: #E7BF16;
+}
+
+#overview .bg-very-slow {
+    fill: #E66948;
+    background: #E66948;
+}
+
+#overview .pack-scatter-title {
+    fill: #ffffff;
+    background: #ffffff;
+}
+
+#overview .db-list-info {
+    text-align: center;
+}
+
+#overview .db-legends {
+    overflow: hidden;
+    display: inline-block;
+}
+
+#overview .db-legend {
+    float: left;
+    margin-right: 16px;
+    font-size: 12px;
+}
+
+#overview .db-legend-mark {
+    display: inline-block;
+    float: left;
+    margin-top: 1px;
+    margin-right: 8px;
+    margin-left: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+#overview .pack-scatter-node text {
+    visibility: hidden;
+}
+
+#overview .pack-scatter-node:hover text {
+    visibility: visible;
+}
+
+.ui-widget-shadow {
+    opacity: 1;
+    box-shadow: none;
+    background: #222222;
+    color: #ffffff;
+    padding: 4px 10px;
+}

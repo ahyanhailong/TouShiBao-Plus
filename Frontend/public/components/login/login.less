@@ -1,0 +1,670 @@
+#login {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("../../img/login/loginBg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  .content {
+    background: url("../../img/login/contentBg.png") no-repeat;
+    background-size: 100%;
+    width: 709px;
+    height: 402px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -354px;
+    margin-top: -201px;
+  }
+  //中间内容页面整体慢慢缩小动画
+  @-webkit-keyframes scaleDraw {
+    0% {
+      -webkit-transform:scale(1);
+    }
+    25% {
+      -webkit-transform:scale(0.8,0.8);
+    }
+    50% {
+      -webkit-transform:scale(0.6,0.6);
+    }
+    75% {
+      -webkit-transform:scale(0.5,0.5);
+    }
+    100% {
+      -webkit-transform:scale(0.4,0.4);
+    }
+  }
+  .content-scaleDraw{
+    animation:scaleDraw 0.3s infinite;
+    //-webkit-animation-timing-function: ease-in-out;
+    -webkit-animation:scaleDraw 0.3s infinite; /* Safari 和 Chrome */
+    animation-iteration-count:1;
+    -webkit-animation-fill-mode:forwards; //运行后停留在最后的地方
+
+    width: 526px;
+    height: 288px;
+    left: 50%;
+    top: 50%;
+    margin-left: -263px;
+    margin-top: -144px;
+    .tsb-form {
+      .tsb-formContent{
+        width: 296px;
+        height: 361px;
+        border-radius: 4px;
+        background: #fff;
+        position: absolute;
+        left: 114px;
+        top:-30px;
+      }
+    }
+  }
+
+  //共用样式
+  .action-btn{
+    z-index: 0;
+    .btn-noBg{
+      width: 150px;
+      height:46px;
+      font-size: 20px;
+      line-height: 46px;
+      border: 2px solid #FFFFFF ;
+      text-align: center;
+      padding: 0;
+      color: #fff;
+      font-family: "PingFang SC";
+      font-weight: lighter;
+    }
+    .login-logo{
+      background: url("../../img/login/login-logo.png") no-repeat;
+      width: 58px;
+      height: 74px;
+      background-size: 100%;
+      margin: 0 auto;
+      margin-top: 68px;
+      margin-bottom: 90px;
+    }
+
+    .sigin{
+      width: 50%;
+      float: left;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .register{
+      width: 50%;
+      float: right;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+  //表单
+  //form去除outline的边框效果的写法
+  :focus {outline:none;} /*for IE*/
+  ::-moz-focus-inner {border-color: transparent;} /*for mozilla*/
+  .tsb-form{
+    position: relative;z-index: 10;
+    .tsb-formContent{
+      width: 363px;
+      height: 470px;
+      border-radius: 4px;
+      background: #fff;
+      position: absolute;
+      left: 23px;
+      top:-30px;
+    }
+    //从左往右移动
+    .tsb-formContent-right{
+      animation:rightMove 0.3s infinite;
+      -webkit-animation:rightMove 0.3s infinite; /* Safari 和 Chrome */
+      animation-iteration-count:1;
+      left: inherit;
+      right: 23px;
+    }
+    @keyframes rightMove
+    {
+      from {left:23px;}
+      to {left:323px;}
+    }
+
+    @-webkit-keyframes rightMove /*Safari and Chrome*/
+    {
+      from {left:23px;}
+      to {left:323px;}
+    }
+    //从右往左移动
+    .tsb-formContent-left{
+      animation:leftMove 0.3s infinite;
+      -webkit-animation:leftMove 0.3s infinite; /* Safari 和 Chrome */
+      animation-iteration-count:1;
+      right: inherit;
+      left: 23px;
+    }
+    @keyframes leftMove
+    {
+      from {left:323px;}
+      to {left:23px;}
+    }
+
+    @-webkit-keyframes leftMove /*Safari and Chrome*/
+    {
+      from {left:323px;}
+      to {left:23px;}
+    }
+    //从左往中间移动
+    .tsb-formContent-center{
+      animation:centerMove 0.3s infinite;
+      -webkit-animation:leftMove 0.3s infinite; /* Safari 和 Chrome */
+      animation-iteration-count:1;
+      right: inherit;
+      left: 23px;
+    }
+    @keyframes centerMove
+    {
+      from {left:23px;}
+      to {left:177px;}
+    }
+
+    @-webkit-keyframes centerMove /*Safari and Chrome*/
+    {
+      from {left:23px;}
+      to {left:177px;}
+    }
+
+    .form-control{
+      border-radius: 4px;
+      border: 2px solid #E4E4E4;
+      background: none;
+      color: #4a4a4a;
+      font-size: 14px;
+      font-weight: lighter;
+      box-shadow:none;
+    }
+    .form-control:focus {
+      border-color: #E4E4E4;
+      outline: 0;
+      box-shadow: none;
+    }
+    //错误提示
+    .errorTip{
+      position: relative;
+      color: #D0021B;
+      font-size: 12px;
+      top: -6px;
+    }
+    .has-error .form-control {
+      border-color: #D0280D;
+      right: 0px;
+    }
+    .help-block{
+      right: 0;
+    }
+    .form-control-feedback{
+      right: -22px;
+    }
+    //密码强弱
+    .strongWeak{
+      right: 0;
+      margin-top: -2px;
+      >span{
+        background: #D8D8D8;
+        margin-right: 3px;
+      }
+      >span.orange-bg{
+        background: #FF8235;
+      }
+    }
+
+  }
+  .btn-blue{
+    width: 150px;
+    height: 46px;
+    line-height: 46px;
+    padding: 0;
+    border-radius: 50px;
+    background: #0B78E3;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    margin: 0 auto;
+    &:hover,&:focus,&:active{
+      background: #4FABFC;
+      border-color: #4FABFC ;
+    }
+  }
+  .btn-blue-border{
+    width: 150px;
+    height: 46px;
+    line-height: 46px;
+    padding: 0;
+    border-radius: 50px;
+    background: #fff;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #0B78E3;
+    color: #0B78E3;
+    &:hover,&:focus,&:active{
+      background: #4FABFC;
+      border-color: #4FABFC ;
+      color: #fff;
+    }
+  }
+  .btn-white{
+    height: 32px;
+    line-height: 30px;
+    padding: 0;
+    border-radius: 4px;
+    background: #ffffff;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #E4E4E4;
+    font-size: 14px;
+    color: #B2B2B2;
+    font-weight: lighter;
+    //&:focus{
+    //  box-shadow: none;
+    //}
+  }
+  .Hor-line{
+    width: 100%; height: 2px; display: block;
+    >li{
+      width: 25%;float: left; height: 2px;
+      &:nth-child(1){
+        background: #3C99FC;
+      }
+      &:nth-child(2){
+        background: #EE1C24;
+      }
+      &:nth-child(3){
+        background: #FFF200;
+      }
+      &:nth-child(4){
+        background: #38B54A;
+      }
+    }
+
+  }
+  .modify-success{
+    >div{
+      background: url(../../img/login/modify-success.png) no-repeat;
+      background-size: 100%;
+      width: 119px;
+      height: 96px;
+      vertical-align: middle;;
+      margin: 0 auto;
+
+    }
+    >p{
+      margin-top: 10px;
+      font-size: 20px;
+      text-align: center;
+      color: #012B72;
+      font-weight: 200;
+    }
+  }
+  //共用样式
+  //登录
+  .tsb-login{
+    .title{
+      margin-bottom: 50px;
+      h2{
+        font-size: 36px; color: #0B78E3;font-weight:200;text-align: center;    margin-top: 55px;
+        margin-bottom: 30px;
+      }
+    }
+    .login-form{
+      width: 250px;
+      margin: 0 auto;
+      .form-group{
+        position: relative;
+        margin-bottom:22px;
+        .form-control{
+          height: 46px;
+          padding: 6px 12px;
+          padding-left: 40px;
+        }
+        .span-icon{
+          position: absolute;
+          padding: 10px;
+          .icon-user{
+            background: url("../../img/login/icon-user.png") no-repeat;
+            display: block;
+            height: 26px;
+            width: 26px;
+            vertical-align: middle;
+            padding: 10px;
+            background-size: 100%;
+          }
+          .icon-psw{
+            background: url("../../img/login/icon-psw.png") no-repeat;
+            display: block;
+            height: 26px;
+            width: 26px;
+            vertical-align: middle;
+            padding: 10px;
+            background-size: 22px 24px;
+          }
+        }
+      }
+      //选择框
+      .form-group{
+        .checkbox-check{
+          height: 25px;
+          color: #B2B2B2;
+          left: -8px;
+          width: 100px;
+          float: left;
+          >label{
+            padding-left: 5px;
+            line-height: 20px;
+            font-size: 14px;
+          }
+        }
+        a.forgotPsw{
+          color:#4FABFC;
+          float: right;
+          &:hover{
+            color: #0B78E3;
+          }
+        }
+      }
+      .form-group.submit{
+        margin-top: 25px;
+        text-align: center;
+      }
+      //checkbox
+      .checkbox-check { position: relative;  cursor: pointer;font-size: 12px; }
+      .checkbox-check > input { position: absolute; left: 10px;  top: -3px; width: 20px; height:20px; opacity: 0; }
+      .checkbox-check > label { position: absolute; left: 30px; line-height: 13px; top: 0px; font-weight: normal; }
+      .checkbox-check > label:before { border-radius: 4px; content: ''; position: absolute; left: -20px; top: 0px; display: inline-block; width: 20px; height: 20px; border: 2px solid #E4E4E4; transition: all 0.3s ease; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease; }
+      .checkbox-check > label:after {
+        content: ''; position: absolute; left: -20px; top: 0px; display: inline-block;  margin-top:4px; margin-left: 4px; transition: all 0.3s ease;
+        -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease;
+      }
+      .checkbox-check input[type='checkbox']:checked + label:before { border-color: #4FABFC;  background:#4FABFC }
+      .checkbox-check input[type='checkbox']:checked + label:after {
+        content: "";
+        position: absolute;
+        left: -21px;
+        top: -1px;
+        width: 13px;
+        height: 8px;
+        border: 2px solid #fff;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        -ms-transform: rotate(-60deg);
+        -moz-transform: rotate(-60deg);
+        -webkit-transform: rotate(-60deg);
+        transform: rotate(-45deg);
+
+      }
+    }
+
+  }
+  //注册
+  .tsb-register{
+    .title{
+      padding-top: 5px;
+      h2{
+        font-size: 20px; color: #0B78E3;font-weight:200;text-align: left;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 19px;
+        span{
+        color: #B2B2B2;
+          font-size: 12px;
+        }
+      }
+    }
+    .register-form{
+      padding: 0 10px;
+      margin: 0 auto;
+      .form-horizontal {
+        .control-label{
+          font-weight: lighter;
+          color: #858484;
+          font-size: 16px;
+          padding-top: 4px;
+        }
+        .form-group{
+          margin-right: 0px;
+          margin-left: 0px;
+          margin-bottom:13px;
+          .col-md-8{
+            padding-right: 0;
+          }
+          .form-control{
+            height: 32px;
+            padding: 6px 12px;
+          }
+          .validation{
+            .btn-white{
+              width: 100%;
+            }
+          }
+
+        }
+        .form-group.has-error .help-block{
+          margin-top: -3px;
+          margin-bottom: 0;
+        }
+        .resend-code{
+          .col-md-5{
+            padding-right: 0;
+          }
+          .btn-white{
+            width: 84px;
+          }
+        }
+
+      }
+
+      .form-group.submit{
+        margin-top: 15px;
+        text-align: center;
+      }
+
+    }
+  }
+
+  //找回密码
+  .tsb-findPsw{
+    .title{
+      padding-top: 5px;
+      h2{
+        font-size: 20px; color: #0B78E3;font-weight:200;text-align: left;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 11px;
+        span{
+          color: #858484;
+          font-size: 14px;
+          margin-left: 10px;
+        }
+      }
+    }
+    .findPsw-form{
+      padding: 0 10px;
+      margin: 0 auto;
+      .form-horizontal {
+        .control-label{
+          font-weight: lighter;
+          color: #858484;
+          font-size: 16px;
+          padding-top: 4px;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .form-group{
+          margin-right: 0px;
+          margin-left: 0px;
+          margin-bottom:25px;
+          .col-md-8{
+            padding-right: 0;
+          }
+          .form-control{
+            height: 32px;
+            padding: 6px 12px;
+          }
+
+          .validation{
+            .btn-white{
+              width: 100%;
+            }
+          }
+
+        }
+        .resend-code{
+          .col-md-5{
+            padding-right: 0;
+          }
+          .btn-white{
+            width: 84px;
+          }
+        }
+
+      }
+
+      .form-group.submit{
+        margin-top:100px;
+        text-align: center;
+      }
+      .form-group.submit-step02{
+        margin-top:50px;
+        >.btn{
+          width: 120px;
+          margin: 0 20px;
+        }
+      }
+      .form-group.submit-step03{
+        margin-top:45px;
+      }
+
+
+    }
+
+    //tab
+    .nav-tabs{
+      border-bottom: 2px solid #F1F4F9;
+      margin-top: 30px;
+      >li{
+        width: 33.3333%;
+        margin: 0 auto;
+        text-align: center;
+        top: 14px;
+        >span{
+          width: 26px;
+          height: 26px;
+          background: #F1F4F9;
+          color: #858484;
+          display: inline-block;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 26px;
+          font-size: 16px;
+          cursor: pointer;
+          font-weight: lighter;
+        }
+        >div{
+          position: absolute;
+          width: 100%;
+          color: #B2B2B2;
+          font-weight: 200;
+          font-size: 14px;
+        }
+      }
+      >li.active{
+        >span{
+          background: #0B78E3;
+          color: #fff;
+        }
+        >div{
+          color: #0B78E3;
+        }
+      }
+    }
+    .tab-content{
+      margin-top: 70px;
+    }
+  }
+
+  //登录成功后的动画效果
+  .icon-hook{
+    background: url(../../img/login/icon-hook.png) no-repeat;
+    background-size: 100%;
+    width: 165px;
+    height: 180px;
+    vertical-align: middle;;
+    margin: 0 auto;
+    display: inline-block;
+  }
+  .tsb-login-success,.tsb-register-success{
+    .icon-hook{
+      float: right;
+      margin-right: 35px;
+      opacity: 0.3;
+    }
+    .icon-hook-topLeft{
+      opacity: 1;
+      width: 92px;
+      height: 91px;
+      background-size: 92px 91px;
+      margin-top: 32%;
+      margin-right: 30%;
+      animation:topLeftMove 0.3s infinite;
+      -webkit-animation:topLeftMove 0.3s infinite; /* Safari 和 Chrome */
+      animation-iteration-count:1;
+      animation-timing-function: linear;
+      -webkit-animation-fill-mode:forwards; //运行后停留在最后的地方
+
+    }
+    @-webkit-keyframes topLeftMove{
+      0% {
+        -moz-transform: translate(0,0);
+        -webkit-transform: translate(0,0);
+        -o-transform: translate(0,0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0,0);
+      }
+
+      25% {
+        -moz-transform: translate(0,10px);
+        -webkit-transform: translate(0,10px);
+        -o-transform: translate(0,10px);
+        -ms-transform: translate(0, 10px);
+        transform: translate(0,10px);
+      }
+      50% {
+        -moz-transform: translate(0,20px);
+        -webkit-transform: translate(0,20px);
+        -o-transform: translate(0,20px);
+        -ms-transform: translate(0, 20px);
+        transform: translate(0, 20px);
+      }
+
+      75% {
+        -moz-transform: translate(0,30px);
+        -webkit-transform: translate(0,30px);
+        -o-transform: translate(0,30px);
+        -ms-transform: translate(0, 30px);
+        transform: translate(0,30px);
+      }
+
+      100% {
+        -moz-transform: translate(0,40px);
+        -webkit-transform: translate(0,40px);
+        -o-transform: translate(0,40px);
+        -ms-transform: translate(0, 40px);
+        transform: translate(0,40px);
+      }
+    }
+
+  }
+
+}

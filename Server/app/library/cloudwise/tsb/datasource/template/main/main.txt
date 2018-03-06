@@ -1,0 +1,3 @@
+local params = <?php echo json_encode($params,JSON_UNESCAPED_UNICODE);?>;
+local common_es = import "<?php echo $main;?>main_es.txt";
+local common_druid = import "<?php echo $main;?>main_druid.txt";

@@ -1,0 +1,83 @@
+<!--web应用 Created by bert on 2017/10/23.-->
+<div class="tsb-content-left">
+  <div class="page-sidebar navbar-collapse collapse" style="position: fixed;top:52px;left: 0;height: 100%">
+    <div class="slimScrollDiv  scrollbar-dynamic" data-jquery-scrollbar="jqueryScrollbarOptions">
+      <div class="bar-toggle">
+        <div class="tsb-toggle toggle-show">
+          <!--隐藏样式toggle-hide-->
+        </div>
+      </div>
+      <ul class="page-sidebar-menu" style="padding: 0;">
+        <li ng-class="{active:sideBarKey == 'overview'}">
+          <a href="{{hrefLink($event,'overview')}}">
+            <i id="overview"></i>
+            <span style="display: block;">概览</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'topology'}">
+          <a href="{{hrefLink($event,'topology')}}">
+            <i id="topology"></i>
+            <span style="display: block;">拓扑图</span>
+          </a>
+        </li>
+
+        <li ng-class="{active:sideBarKey == 'keybusiness'}">
+          <a href="{{hrefLink($event,'keybusiness/default')}}" ng-click="reloadRoute()">
+            <i id="keybusiness"></i>
+            <span style="display: block;">关键事务</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'business'}">
+          <a href="{{hrefLink($event,'business')}}">
+            <i id="business"></i>
+            <span style="display: block;">事务分析</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'database'}">
+          <a href="{{hrefLink($event,'database/timeanalyFirst')}}">
+            <i id="dataSource"></i>
+            <span style="display: block;">数据库</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'contrastiveAnalysis'}">
+          <a href="{{hrefLink($event,'contrastiveAnalysis')}}">
+            <i id="contrastiveAnalysis"></i>
+            <span style="display: block;">对比分析</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'externalServices'}">
+          <a href="{{hrefLink($event,'externalServices/default')}}">
+            <i id="externalServices"></i>
+            <span style="display: block;">外部服务</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'messageQueue'}">
+          <a href="{{hrefLink($event,'messageQueue/producers')}}">
+            <i id="messageQueue"></i>
+            <span style="display: block;">消息队列</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'NoSQL'}">
+          <a href="{{hrefLink($event,'NoSQL')}}">
+            <i id="NoSQL"></i>
+            <span style="display: block;">NoSQL</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'error'}">
+          <a href="{{hrefLink($event,'error')}}">
+            <i id="error"></i>
+            <span style="display: block;">错误</span>
+          </a>
+        </li>
+        <li ng-class="{active:sideBarKey == 'set'}">
+          <a href="{{hrefLink($event,'set')}}">
+            <i id="set"></i>
+            <span style="display: block;">设置</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div ui-view></div>
+</div>

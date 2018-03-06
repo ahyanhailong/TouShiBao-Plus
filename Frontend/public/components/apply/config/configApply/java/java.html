@@ -1,0 +1,275 @@
+<div id="java">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-click="stateClick($event)">
+      <div class="panel-heading collapse-toggle" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <div role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="pannel-number">1</i>
+            获取授权编号
+          </div>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <p>您的授权编号(License Key):</p>
+          <div class="clearfix">
+            <div class="black-content col-md-10" id="LicenseKey">
+              J45Engw88NfH3RP2whc09m87a/0gWAfUKduIZn5oILIB5rWOG1w3sGlCz6AzI98s
+            </div>
+            <div class="col-md-2">
+              <div class="action-copy" id="LicenseKeyBtn"><i class="action-copy-hover"></i>复制</div>
+            </div>
+          </div>
+          <p>您的License Key 已成功生成,用于配置和身份识别。</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-click="stateClick($event)">
+      <div class="panel-heading collapse-toggle" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <i class="pannel-number">2</i>
+            安装java Agent
+          </div>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          <div class="nav-tab-panel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><span href="#linux" aria-controls="linux" role="tab" data-toggle="tab" ng-click="Linux()">Linux</span></li>
+              <li role="presentation"><span href="#windows" aria-controls="windows" role="tab" data-toggle="tab" ng-click="Windows()">Windows</span></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="linux">
+                <div class="margin-b-16">
+                  <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20" ng-click="download($event,SendProxy[1].old.url)">
+                    <i class="action-download"></i>下载SendProxy for Linux({{SendProxy[1].old.version}})
+                  </a>
+                </div>
+                <div class="clearfix">
+                  <div class="black-content col-md-10" id="SendProxyLinux">
+                    wget {{SendProxy[1].old.url}}
+                  </div>
+                  <div class="col-md-2">
+                    <div class="action-copy" id="SendProxyLinuxBtn"><i class="action-copy-hover"></i>复制</div>
+                  </div>
+                </div>
+                <p>将下载的压缩包拷贝到系统某个目录（如/data），解压并执行文件夹中的SendProxy.sh脚本完成安装，示例如下：</p>
+                <div class="clearfix">
+                  <div class="black-content col-md-12">
+                    <p>cd /data/{{SendProxy[1].old.package.substring(0, SendProxy[1].old.package.lastIndexOf('.'))}}</p>
+                    <p>chmod u+x ./SendProxy.sh</p>
+                    <p>./SendProxy.sh start</p>
+                  </div>
+                </div>
+
+              </div>
+              <div role="tabpanel" class="tab-pane" id="windows">
+                <div class="margin-b-16">
+                  <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20" ng-click="download($event,SendProxy[2].old.url)">
+                    <i class="action-download"></i>下载SendProxy for Windows({{SendProxy[2].old.version}})
+                  </a>
+                </div>
+                <p>将下载的压缩包拷贝到系统某个目录（如D:\），解压并执行文件夹中的SendProxy.bat脚本完成安装，示例如下：</p>
+                <div class="clearfix">
+                  <div class="black-content col-md-12">
+                    <p>cd D:\{{SendProxy[2].old.package.substring(0, SendProxy[2].old.package.lastIndexOf('.'))}}</p>
+                    <p>.\SendProxy.bat start</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-click="stateClick($event)">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">3</i>
+            下载Java Agent
+          </div>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          <div class="nav-tab-panel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><span href="#JDK1" aria-controls="JDK1" role="tab" data-toggle="tab" ng-click="tabJDK16">JDK1.6及以上</span></li>
+              <li role="presentation"><span id="tabClick" href="#JDK2" aria-controls="JDK2" role="tab" data-toggle="tab" ng-click="tabJDK15($event)">JDK1.5</span></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="JDK1">
+                <div class="margin-b-16">
+                  <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20" ng-click="download($event,java[1].old.url)">
+                    <i class="action-download"></i>下载Java Agent for 1.6(v{{java[1].old.version}})
+                  </a>
+                </div>
+                <div class="clearfix">
+                  <div class="black-content col-md-10" id="JDK6">
+                    wget {{java[1].old.url}}
+                  </div>
+                  <div class="col-md-2">
+                    <div class="action-copy" id="JDKBtn6"><i class="action-copy-hover"></i>复制</div>
+                  </div>
+                </div>
+                <p>提示：支持Linux、Windows、Aix操作系统</p>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="JDK2" >
+                <div class="margin-b-16">
+                  <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20"  ng-click="download($event,java[1]['jdk_1.5'].url)">
+                    <i class="action-download"></i>下载Java Agent for 1.5 (v {{java[1]['jdk_1.5'].version}})
+                  </a>
+                </div>
+                <div class="clearfix">
+                  <div class="black-content col-md-10" id="JDK5">
+                    wget {{java[1]['jdk_1.5'].url}}
+                  </div>
+                  <div class="col-md-2">
+                    <div class="action-copy" id="JDKBtn5"><i class="action-copy-hover"></i>复制</div>
+                  </div>
+                </div>
+                <p>提示：支持Linux、Windows、Aix操作系统</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-click="stateClick($event)">
+      <div class="panel-heading" role="tab" id="headingFour">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">4</i>
+            安装Java Agent
+          </div>
+        </h4>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+          <div class="nav-tab-panel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><span href="#in-linuxAix" aria-controls="linuxAix" role="tab" data-toggle="tab">Linux & Aix</span></li>
+              <li role="presentation"><span href="#in-windows" aria-controls="in-windows" role="tab" data-toggle="tab">Windows</span></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="linuxAix">
+                <p>1、创建cloudwise文件夹，并确保拥有读写权限(如/var/cloudwise)</p>
+                <div class="black-content margin-l-16">
+                  mkdir -p /var/cloudwise
+                </div>
+                <p>2、解压缩安装包到cloudwise目录</p>
+                <div class="black-content margin-l-16">
+                  unzip {{java[1].old.package.substring(0, java[1].old.package.lastIndexOf('.'))}} -d /var/cloudwise
+                </div>
+                <p>3、进入{{java[1].old.package.substring(0, java[1].old.package.lastIndexOf('.'))}}目录，配置License Key</p>
+                <div class="black-content margin-l-16">
+                  java -jar javaagent-bootstrap.jar -l 'J45Engw88NfH3RP2whc09m87a/0gWAfUKduIZn5oILIB5rWOG1w3sGlCz6AzI98s'
+                </div>
+                <p>4、(可选)默认设置由本机SendProxy发送数据，如果从其他主机发送数据，则需要配置可用的SendProxy地址</p>
+                <div class="black-content margin-l-16">
+                  java -jar javaagent-bootstrap.jar -s 'http://10.0.3.46:26789'
+                </div>
+                <p>5、安装JavaAgent</p>
+                <div class="black-content margin-l-16">
+                  java -jar javaagent-bootstrap.jar start
+                </div>
+                <p>6、配置Web容器</p>
+                <div class="margin-l-16">
+                  安装Java插件后，您需要根据应用的服务器配置对应的Web容器：
+                  <ul class="ul-text-list">
+                    <li>如果Web容器为Tomcat，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b0" target="_blank" class="text-link">手动配置Tomcat</a>”中的说明配置Tomcat的JVM运行参数。</li>
+                    <li>如果Web容器为JBoss，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b1" target="_blank" class="text-link">手动配置JBoss</a>”中的说明配置JBoss的JVM运行参数。</li>
+                    <li>如果Web容器为Weblogic，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b2" target="_blank" class="text-link">手动配置Weblogic</a>”中的说明配置Weblogic的JVM运行参数。</li>
+                    <li>如果Web容器为Jetty，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b3" target="_blank" class="text-link">手动配置Jetty</a>”中的说明配置Jetty的JVM运行参数。</li>
+                    <li>如果Web容器为WebSphere，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b4" target="_blank" class="text-link">手动配置WebSphere</a>”中的说明配置WebSphere的JVM运行参数。</li>
+                    <li>如果Web容器为Resin，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b5" target="_blank" class="text-link">手动配置Resin</a>”中的说明配置Resin的JVM运行参数。</li>
+                    <li>如果Web容器为Karaf，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b6" target="_blank" class="text-link">手动配置Karaf</a>”中的说明配置Karaf的JVM运行参数。</li>
+                    <li>如果Web容器为WildFly，请参考“<a href="http://help.cloudwise.com/help/19/26/458#b7" target="_blank" class="text-link">手动配置WildFly</a>”中的说明配置WildFly的JVM运行参数。</li>
+                  </ul>
+                  注：配置完成后，请重启对应的Web容器。
+                </div>
+                <p>7、监控Java虚拟机</p>
+                <div class="margin-l-16">
+                  <p>安装JavaAgent并配置Web容器后，可以在透视宝的“主机→JVM”页面查看JVM运行状态。</p>
+                  <p>要深入监控JVM，请参考“<a href="http://help.cloudwise.com/help/19/26/458#d0" target="_blank" class="text-link">Java插件配置项说明</a>”配置相关参数。</p>
+                </div>
+                <p>8、监控Docker</p>
+                <div class="margin-l-16">
+                  <p>安装JavaAgent在docker中，需要下载<a href="/static/plugin/AgentService_v1.0.0.zip" class="text-link">AgentService</a>，才能更好的展示Docker中的应用，请参考“<a href="https://help.cloudwise.com/help/19/26/527" target="_blank" class="text-link">Docker安装说明</a>”按流程安装。</p>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="in-windows">
+                <p>1、解压缩安装包</p>
+                <p>2、进入{{java[1].old.package.substring(0, java[1].old.package.lastIndexOf('.'))}}目录，配置License Key</p>
+                <div class="black-content margin-l-16">
+                  java -jar javaagent-bootstrap.jar -l J45Engw88NfH3RP2whc09m87a/0gWAfUKduIZn5oILIB5rWOG1w3sGlCz6AzI98s
+                </div>
+                <p>3、(可选)默认设置由本机SendProxy发送数据，如果从其他主机发送数据，则需要配置可用的SendProxy地址</p>
+                <div class="black-content margin-l-16">
+                  java -jar javaagent-bootstrap.jar -s http://10.0.3.46:26789
+                </div>
+                <p>4、安装JavaAgent</p>
+                <div class="black-content margin-l-16">
+                  java -jar javaagent-bootstrap.jar start
+                </div>
+                <p>5、配置Web容器</p>
+                <div class="margin-l-16">
+                  安装Java插件后，您需要根据应用的服务器配置对应的Web容器：
+                  <ul class="ul-text-list">
+                    <li>如果Web容器为Tomcat，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c0" target="_blank" class="text-link">手动配置Tomcat</a>”中的说明配置Tomcat的JVM运行参数。</li>
+                    <li>如果Web容器为JBoss，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c1" target="_blank" class="text-link">手动配置JBoss</a>”中的说明配置JBoss的JVM运行参数。</li>
+                    <li>如果Web容器为Weblogic，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c2" target="_blank" class="text-link">手动配置Weblogic</a>”中的说明配置Weblogic的JVM运行参数。</li>
+                    <li>如果Web容器为Jetty，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c3" target="_blank" class="text-link">手动配置Jetty</a>”中的说明配置Jetty的JVM运行参数。</li>
+                    <li>如果Web容器为WebSphere，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c4" target="_blank" class="text-link">手动配置WebSphere</a>”中的说明配置WebSphere的JVM运行参数。</li>
+                    <li>如果Web容器为Resin，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c5" target="_blank" class="text-link">手动配置Resin</a>”中的说明配置Resin的JVM运行参数。</li>
+                    <li>如果Web容器为Karaf，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c6" target="_blank" class="text-link">手动配置Karaf</a>”中的说明配置Karaf的JVM运行参数。</li>
+                    <li>如果Web容器为WildFly，请参考“<a href="http://help.cloudwise.com/help/19/26/458#c7" target="_blank" class="text-link">手动配置WildFly</a>”中的说明配置WildFly的JVM运行参数。</li>
+                  </ul>
+                  注：配置完成后，请重启对应的Web容器。
+                  <p>6、监控Java虚拟机</p>
+                  <div class="margin-l-16">
+                    <p>安装JavaAgent并配置Web容器后，可以在透视宝的“主机→JVM”页面查看JVM运行状态。</p>
+                    要深入监控JVM，请参考“<a href="http://help.cloudwise.com/help/19/26/458#d0" target="_blank" class="text-link">Java插件配置项说明</a>”配置相关参数。
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default" ng-click="stateClick($event)">
+      <div class="panel-heading" role="tab" id="headingFive">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">5</i>
+            完成
+          </div>
+        </h4>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+        <div class="panel-body">
+          <p>恭喜！配置已经完成，大致两分钟后您就可以在“应用”模块中查看数据。 注：从来没人访问过的应用不会出现在应用清单中，所以请确认这点。</p>
+          <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20">
+            <i class="action-download"></i>进入应用列表查看 <i class="icon-enterIN"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

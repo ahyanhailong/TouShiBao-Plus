@@ -1,0 +1,113 @@
+<div id="setting">
+  <div class="content_title">面包屑位置</div>
+  <!--设置 start-->
+  <div class="padding-lr-16 tsb-main">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        设置
+        <div class="tsb-btn-group pull-right">
+          <button type="button" class="btn btn-blue border-radius20" id="ok" ng-click="btnSure()">保存</button>
+          <button type="button" class="btn btn-gray border-radius20" ng-click="btnCancel()">取消</button>
+        </div>
+      </div>
+      <div class="widget clearfix">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="name" class="col-sm-3 control-label">事务名称</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control w-550" id="name" placeholder="请输入事务名称" ng-model="name" ng-change="ApdexChange()">{{name}}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Apdex时间阈值：</label>
+            <div class="col-sm-9">
+              <div class="btn-group tsb-btn-group tsb-select">
+                <button type="button" class="btn btn-default dropdown-toggle w-550" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  {{Apdex}}ms <span class="fa fa-caret"></span>
+                </button>
+                <ul class="dropdown-menu w-550">
+                  <li ng-repeat="item in ApdexConfig"><a href="javascript:void(0)" ng-click="ApdexSet(item)">{{item}}ms</a></li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">事务类型：</label>
+            <div class="col-sm-9">
+              <div class="radio-check pull-left">
+                <input type='radio' name='test' id='single' checked="checked" value="1"/>
+                <label for='single' class>单一事务</label>
+              </div>
+              <div class="radio-check pull-left">
+                <input type='radio' name='test' id='combine' value="2"/>
+                <label for='combine' class>事务归类</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group single">
+            <label class="col-sm-3 control-label">选择请求：</label>
+            <div class="col-sm-9">
+              <div class="btn-group tsb-btn-group tsb-select">
+                <button type="button" class="btn btn-default dropdown-toggle w-550" data-toggle="dropdown">
+                  {{UriListValue}} <span class="fa fa-caret"></span>
+                </button>
+                <ul class="dropdown-menu w-550">
+                  <li ng-repeat="item in URiList.data"><a href="javascript:void(0)" ng-click="UriListClick(item)">{{item}}ms</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="combine" style="display: none">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">选择请求：</label>
+              <div class="col-sm-9">
+                <div class="tsb-search tsb-search-i pull-left" >
+                  <input class="input-search" placeholder="请输入要归类的请求，归类部分用*站位" id="businessClass" data-onkey="13" value="{{uri}}">
+                  <i class="icon-search pos-a" ng-click="selectRequest($event)"></i>
+                </div>
+                <div class="clearfix"></div>
+                <p class="help-block">您可以对URL中包括ID等相类似请求进行归类，请求中需要归类的内容用*占位。具体示例参看页面下方。</p>
+                <div class="search-box" ng-show="searchBox">
+                  <div>
+                    <div class="pull-left">满足条件的事务</div>
+                    <div class="pull-right">共 {{businessList.num}} 条</div>
+                  </div>
+                  <ul>
+                    <li ng-repeat="item in businessList.data">{{item}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="form-group example">
+              <label class="col-sm-3 control-label">事务归类的具体示例：</label>
+              <div class="col-sm-9">
+                <div class="example-widget pull-left">
+                  <div>示例一</div>
+                  <ul>
+                    <li>/employee/115249/dykyOrgUrl</li>
+                    <li>/employee/115249/dykyOrgUrl</li>
+                    <li>将/employee开头和dyKyOrgUrl结尾的请求归类处理，可以输入：</li>
+                  </ul>
+                  <p>*java.lang.Exception</p>
+                </div>
+                <div class="example-widget pull-left">
+                  <div>示例二</div>
+                  <ul>
+                    <li>/employee/115249/dykyOrgUrl</li>
+                    <li>/employee/115249/dykyOrgUrl</li>
+                    <li>将/employee开头的请求归类处理，可以输入：</li>
+                    <li>&nbsp;</li>
+                  </ul>
+                  <p>*java.lang.Exception</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--设置 end-->
+</div>

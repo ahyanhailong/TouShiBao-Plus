@@ -1,0 +1,218 @@
+.page-sidebar.navbar-collapse{
+  -moz-box-shadow:6px 2px 14px rgba(0,0,0,0.11);
+  -webkit-box-shadow:6px 2px 14px rgba(0,0,0,0.11);
+  box-shadow:6px 2px 14px rgba(0,0,0,0.11);
+}
+.page-sidebar.navbar-collapse.collapse {
+    overflow-y: auto!important;
+    z-index: 0;
+    height: 100% !important;
+    background:#222 url('../../img/bg.png');
+    background-size: 8px;
+}
+
+.sqldb_overview_filter {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #4A4A4A;
+    margin-bottom: 10px;
+    clear: both;
+    text-indent: 1em;
+}
+.page-sidebar .page-sidebar-menu li{
+  border-right: 2px solid transparent;
+}
+.page-sidebar .page-sidebar-menu li.active,.page-sidebar .page-sidebar-menu li:hover{
+	border-right: 2px solid #4FABFC;
+	color: #4FABFC;
+  -moz-box-shadow:7px 1px 5px  rgba(0,0,0,0.5) inset;
+  -webkit-box-shadow:7px 1px 5px  rgba(0,0,0,0.5) inset;
+  box-shadow:7px 1px 5px  rgba(0,0,0,0.5) inset;
+  background: #222;
+}
+.page-sidebar .page-sidebar-menu li span.active{
+	color: #4FABFC;
+}
+.page-sidebar .page-sidebar-menu li:last-child{
+	margin-bottom: 80px;
+}
+/*分页样式*/
+
+.page_container > .pages {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 6px;
+    left: 50%;
+}
+
+.page_container > .pages > a {
+    float: left;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 28px;
+    color: white;
+    margin-left: 8px;
+    background-color: #4A4A4A;
+    border: 1px solid #ccc;
+    /*margin-top: 8px;*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 15px;
+}
+
+.page_container > .pages > a:first-child {
+}
+
+.page_container > .pages > a.currentPage {
+    background: #6a7e9a;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    background: #4FABFC;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius:15px;
+}
+
+.page_container > .pages > a.disabled {
+    color: #c7c7c7;
+    cursor: default;
+}
+
+.page_container > .page_rows_select {
+    display: inline-block;
+    *display: inline;
+    position: relative;
+    margin:0 10px;
+}
+
+.page_mark > .page_rows_select {
+    display: inline-block;
+    *display: inline;
+    position: relative;
+    margin-right: 10px;
+}
+
+.page_container > .page_rows_select select {
+    padding: 4px;
+    background: rgba(174, 206, 255, 0.1);
+}
+.page_container > .page_rows_select select option{
+    padding-left: 8px;
+    background: #51606e;
+}
+
+
+
+/*应用模块 左侧列表图标*/
+.page-sidebar .page-sidebar-menu>li.active>a>span{
+    color: #4FABFC;
+}
+.scroll-wrapper{
+    height: 100%;
+}
+.page-sidebar .page-sidebar-menu>li>a>i#overview{
+	background: url(../../img/apply/overview.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#overview{
+	background: url(../../img/apply/overviewactive.png) no-repeat;
+	background-size: 24px;
+}
+/*拓扑*/
+.page-sidebar .page-sidebar-menu>li>a>i#topology{
+	background: url(../../img/apply/topology.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#topology{
+	background: url(../../img/apply/topologyactive.png) no-repeat;
+	background-size: 24px;
+}
+/*关键事务*/
+.page-sidebar .page-sidebar-menu>li>a>i#keybusiness{
+	background: url(../../img/apply/keybusiness.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#keybusiness{
+	background: url(../../img/apply/keybusinessactive.png) no-repeat;
+	background-size: 24px;
+}
+/*事务分析*/
+.page-sidebar .page-sidebar-menu>li>a>i#business{
+	background: url(../../img/apply/business.png) no-repeat;
+	background-size: 24px ;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#business{
+	background: url(../../img/apply/businessactive.png) no-repeat;
+	background-size: 24px ;
+}
+/*数据库*/
+.page-sidebar .page-sidebar-menu>li>a>i#dataSource{
+	background: url(../../img/apply/dataSource.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#dataSource{
+	background: url(../../img/apply/dataSourceactive.png) no-repeat;
+	background-size: 24px;
+}
+/*对比分析*/
+.page-sidebar .page-sidebar-menu>li>a>i#contrastiveAnalysis{
+	background: url(../../img/apply/contrastiveAnalysis.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#contrastiveAnalysis{
+	background: url(../../img/apply/contrastiveAnalysisactive.png) no-repeat;
+	background-size: 24px;
+}
+/*外部服务*/
+.page-sidebar .page-sidebar-menu>li>a>i#externalServices{
+	background: url(../../img/apply/externalServices.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#externalServices{
+	background: url(../../img/apply/externalServicesactive.png) no-repeat;
+	background-size: 24px;
+}
+/*消息队列*/
+.page-sidebar .page-sidebar-menu>li>a>i#messageQueue{
+	background: url(../../img/apply/messageQueue.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#messageQueue{
+	background: url(../../img/apply/messageQueueactive.png) no-repeat;
+	background-size: 24px;
+}
+/*NoSQL*/
+.page-sidebar .page-sidebar-menu>li>a>i#NoSQL{
+	background: url(../../img/apply/NoSQL.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#NoSQL{
+	background: url(../../img/apply/NoSQLactive.png) no-repeat;
+	background-size: 24px;
+}
+/*错误*/
+.page-sidebar .page-sidebar-menu>li>a>i#error{
+	background: url(../../img/apply/error.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#error{
+	background: url(../../img/apply/erroractive.png) no-repeat;
+	background-size: 24px;
+}
+/*设置*/
+.page-sidebar .page-sidebar-menu>li>a>i#set{
+	background: url(../../img/apply/set.png) no-repeat;
+	background-size: 24px;
+}
+.page-sidebar .page-sidebar-menu>li.active>a>i#set{
+	background: url(../../img/apply/setactive.png) no-repeat;
+	background-size: 24px;
+}

@@ -1,0 +1,92 @@
+/*错误分析*/
+#error{
+
+}
+#error > .padding-lr-50{padding: 0 50px;}
+#error > .padding-lr-50 .title{height: 58px ;line-height: 58px; text-align: center;font-size: 18px; color: #fff;}
+#error .response-chart{
+ height: 335px;
+ min-height: 335px;
+ margin-top: 0;
+}
+#error .pager-widget{
+ border-top: 1px solid #979797;
+}
+
+#error .tab-card >li{
+ float: left;
+ padding: 0 5px;
+}
+#error .tab-card >li.active >a{
+ color: #4FABFC;
+}
+#error .error-chart,#error .abnormal-chart{
+ height: 225px;
+ min-height: 225px;
+ margin-top: 0;
+}
+#error .error-abnormal .left-content{
+ width: 50%;float: left;
+}
+#error .error-abnormal .left-content .tsb-box-show{
+ margin-right: 8px;
+}
+#error .error-abnormal .right-content{
+ width: 50%;float: right;
+}
+#error .error-abnormal .right-content .tsb-box-show{
+ margin-left: 8px;
+}
+#error .error-content ul > li > div{
+ line-height: 35px;
+}
+#error .error-content ul > li > div:first-child{
+ color: #9B9B9B;
+}
+#error .error-content ul > li > div:last-child{
+ color: #FFFFFF;
+}
+
+#error .carousel-control.left{ text-align: left; margin-left: 16px; margin-top: 15px;}
+#error .carousel-control.right{ text-align: right; margin-right: 16px;margin-top: 15px;}
+#error .carousel-caption{color: #fff}
+#error  .silder-content{border: 1px solid rgba(255,255,255,0.18); padding-bottom: 16px;}
+#error  .silder-content .carousel{border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 10px; color: #fff}
+#error .carousel-inner{padding: 10px; margin-top: 16px;}
+#error .car-title{
+ background: #3E3E3E;
+ height: 46px;
+ line-height: 46px;
+ font-size: 16px;
+ text-align: center;
+ width: 250px;
+ border-radius: 4px;
+ margin: 0 auto;
+ position: relative;
+}
+#error .car-title:before{
+ bottom: -24px;
+ left: 48%;
+ content: '';
+ position: absolute;
+ width: 0;
+ height: 0;
+ font-size: 0;
+ border: 15px solid;
+ border-color: #3E3E3E transparent transparent transparent;
+}
+#error .slider-list{
+ padding: 16px;
+}
+#error .slider-list .form-group{font-size: 14px; width: 100%; overflow: hidden;}
+#error .slider-list .form-group >label { color: #9B9B9B;font-weight: normal;}
+#error .slider-list .form-group > div { color: #fff}
+#error .slider-list .table{width: 50%; }
+#error .slider-list .table>thead>tr>th{background: none;color: #fff}
+#error .slider-list .table>tbody>tr>td{background: none; border-bottom: 1px solid rgba(255,255,255,0.18);color: #fff}
+
+
+
+.tsb-box-show{
+ padding-bottom: 0;
+}

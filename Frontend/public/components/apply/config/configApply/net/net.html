@@ -1,0 +1,125 @@
+<div id="php">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <div role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="pannel-number">1</i>
+            获取授权编号
+          </div>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <p>您的授权编号(License Key):</p>
+          <div class="clearfix">
+            <div class="black-content col-md-10" id="LicenseKey">
+              J45Engw88NfH3RP2whc09m87a/0gWAfUKduIZn5oILIB5rWOG1w3sGlCz6AzI98s
+            </div>
+            <div class="col-md-2">
+              <div class="action-copy" id="LicenseKeyBtn"><i class="action-copy-hover"></i>复制</div>
+            </div>
+          </div>
+          <p>您的License Key 已成功生成,用于配置和身份识别。</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <i class="pannel-number">2</i>
+            安装Sendproxy
+          </div>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          <p>SendProxy是主机与透视宝平台通讯的插件，如果已安装或主机不能与透视宝平台直接通讯，即可跳过此步骤继续安装。 若监控Docker，则在可通讯的宿主机上安装Sendproxy即可。</p>
+          <div class="margin-b-16">
+            <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20" ng-click="download($event,SendProxy[2].old.url)">
+              <i class="action-download"></i>下载SendProxy for Windows(v{{SendProxy[2].old.version}})
+            </a>
+          </div>
+          <p>将下载的压缩包拷贝到系统某个目录（如D:\），解压并执行文件夹中的SendProxy.bat脚本完成安装，示例如下：</p>
+          <div class="clearfix">
+            <div class="black-content col-md-12">
+              <p>cd D:\{{SendProxy[2].old.package.substring(0, SendProxy[2].old.package.lastIndexOf('.'))}}</p>
+              <p>.\SendProxy.bat start</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">3</i>
+            下载DotNet Agent
+          </div>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          <div class="margin-b-16">
+            <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20" ng-click="download($event,net[2].old.url)">
+              <i class="action-download"></i>下载DotNet Agent({{net[2].old.version}})
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFour">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">4</i>
+            安装DotNet Agent
+          </div>
+        </h4>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+          <p>1、解压安装包</p>
+          <p>2、注册DotNet Agent，进入解压目录执行命令</p>
+          <div class="black-content margin-l-16">
+            .\DotNetAgent.bat init
+          </div>
+          <p>3、输入已生成的License Key</p>
+          <p>4、输入SendProxy IP地址，直接回车默认IP为127.0.0.1</p>
+          <p>5、输入SendProxy UDP端口，直接回车默认UDP端口为26799</p>
+          <p>6、输入SendProxy TCP端口，直接回车默认TCP端口为26789</p>
+          <div class="margin-l-16">
+            <img src="public/img/config/dotnet_start.jpg" alt="">
+          </div>
+          <p>7、启动DotNet Agent，输入Y后，会重启IIS服务</p>
+          <div class="black-content margin-l-16  margin-b-16">
+            .\DotNetAgent.bat start
+          </div>
+          <div class="margin-l-16">
+            <img src="public/img/config/dotnet_init.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFive">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">5</i>
+            完成
+          </div>
+        </h4>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+        <div class="panel-body">
+          <p>恭喜！配置已经完成，大致两分钟后您就可以在“应用”模块中查看数据。 注：从来没人访问过的应用不会出现在应用清单中，所以请确认这点。</p>
+          <a href="#/navigation/applyListdefault/applyList" class="btn btn-gray btn-lg border-radius20">
+            <i class="action-download"></i>进入应用列表查看 <i class="icon-enterIN"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

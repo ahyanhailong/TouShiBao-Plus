@@ -1,0 +1,21 @@
+<div id="externalServices">
+    <div class="content_title" oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js','./public/components/apply/applyDirective/applyTimer.js']" style="padding-right: 16px; padding-left: 16px;">
+        <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+        <!--日期过滤-->
+        <div style="line-height: 32px;float: right;margin-top: 4px;" apply-timer></div>
+    </div>
+    <div id="Tab" class="padding-lr-16">
+        <div style="height: 100%;width: 100%;margin: 0 auto;border-bottom: 1px solid #4FABFC;">
+            <ul style="width: 300px; margin: 16px auto; overflow: hidden; margin-bottom: 0 ">
+                <li style="float:left;list-style: none">
+                    <nav-button><a ui-sref="navigation.apply.messageQueue.producers({app_id:appId})" ui-sref-active="active" style="display: block;padding: 0 35px;height: 24px; line-height: 24px;">生产者</a></nav-button>
+                </li>
+                <li style="float:left;list-style: none">
+                    <nav-button><a ui-sref="navigation.apply.messageQueue.consumer({app_id:appId})" ui-sref-active="active" style="display: block;padding: 0 35px;height: 24px; line-height: 24px;">消费者</a></nav-button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div ui-view></div>
+
+</div>

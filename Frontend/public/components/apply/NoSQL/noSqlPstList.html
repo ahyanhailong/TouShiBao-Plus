@@ -1,0 +1,36 @@
+<div class="block-title">
+    <ul class="time-range clearfix">
+        <li>方法列表</li>
+        <li>
+            <div class="line"></div>
+        </li>
+        <!--<li>
+            <div class="search">
+                <input placeholder="按事务名称搜索"/><i class="fa fa-search"></i>
+            </div>
+        </li>-->
+    </ul>
+</div>
+<div class="block-content" data-table style="min-height: 324px;height: 324px;">
+    <table class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th data-item="order" width="10%">序号</th>
+            <th data-item="method_name" width="38%">方法名称</th>
+            <th data-item="uri" width="20%">事务</th>
+            <th data-item="execute_count" width="20%">执行次数<i class="fa fa-sort"></i></th>
+            <th data-item="execute_time" width="12%" data-tip="ms">耗时<i class="fa fa-sort"></i></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+    <div class="PageList" oc-lazy-load="['pageList']">
+        <div page-list change="changePage(currentPage,perPage)"
+             page_no="{{page_no}}"
+             total_row="total_row"
+             sum_per_page="{{sum_per_page}}"></div>
+    </div>
+</div>

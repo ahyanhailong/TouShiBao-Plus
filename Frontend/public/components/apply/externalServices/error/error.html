@@ -1,0 +1,78 @@
+
+<div class="tsb-texture-title">
+    <!-- Nav tabs -->
+    <ul id="myTabs" class="nav nav-tabs pull-left" role="tablist">
+        <li role="presentation"><a href="{{btnHref('performance')}}" >性能分析</a></li>
+        <li>|</li>
+        <li role="presentation" class="active"><a href="{{btnHref('error')}}">错误</a></li>
+    </ul>
+    <a ng-click="backDefault()" class="btn-back backTrigger" >
+        <i class="fa fa-angle-left"></i> 返回外部服务页
+    </a>
+</div>
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane" id="errorRate" style="display: block">
+        <!--网络错误率-->
+        <div class="widget">
+            <ul class="time-range clearfix">
+                <li>网络错误类型（TOP5）</li>
+                <li>
+                    <div class="line"></div>
+                </li>
+            </ul>
+            <ul class="clearfix chart-box" >
+                <li>
+                    <div>
+                        <div class="block block-chart" id="netWorkErrorRate">
+
+                            <div class="block-content" data-chart></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--错误列表-->
+        <div class="widget">
+            <ul class="time-range clearfix error-list">
+                <li>错误列表</li>
+                <li>
+                    <div class="line"></div>
+                </li>
+                <li>
+                    <div class="tsb-search tsb-search-i">
+                        <input class="input-search" placeholder="按事务名称搜索">
+                        <i class="icon-search pos-a"></i>
+                    </div>
+                </li>
+            </ul>
+            <div class="margin-t-30">
+                <div class="block block-table" id="errorTable">
+                    <div class="block-content" data-table>
+                        <table class="table table-no-bg">
+                            <thead>
+                                <tr>
+                                    <th width="8%" data-item="order">序号</th>
+                                    <th width="16%" data-item="first_time">第一次发生时间</th>
+                                    <th width="16%" data-item="last_time"> 最后一次发生时间</th>
+                                    <th width="15%" data-item="uri"> 事务</th>
+                                    <th width="30%" data-item="error_type">消息</th>
+                                    <th width="15%" data-item="error_count">发生次数<i class="fa fa-sort fa-sort-desc"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+                <div class="PageList" oc-lazy-load="['pageList']">
+                    <div page-list change="changeSqlList()" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

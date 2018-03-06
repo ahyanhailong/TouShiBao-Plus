@@ -1,0 +1,141 @@
+.bread-crumb{
+  padding: 0 16px;
+  >li{
+    float: left;
+    padding-right: 10px;
+  }
+}
+#accountInfo {
+  .pager-widget {
+    border-top: 1px solid #979797;
+  }
+  .tab-card > li {
+    float: left;
+    padding: 0 5px;
+  }
+  .tab-card > li.active > a {
+    color: #4FABFC;
+  }
+  .error-chart, .abnormal-chart {
+    height: 225px;
+    min-height: 225px;
+    margin-top: 0;
+  }
+
+  .left-content {
+    width: 50%;
+    float: left;
+    .tsb-box-show {
+      margin-right: 8px;
+    }
+
+  }
+  .right-content {
+    width: 50%;
+    float: right;
+    .tsb-box-show {
+      margin-left: 8px;
+    }
+
+  }
+
+  .info{
+    .widget{
+      height: 225px;
+    }
+    .content{
+      margin-top: 30px;
+      .img-div{
+        float: left; width: 133px; height: 133px;
+      }
+      .ul-list{
+        width: 430px; float: left; margin-left: 15px;
+        >li{
+          padding: 5px 0;
+          >label{
+            font-size: 14px; color: #CDCBCB;font-weight: normal;
+          }
+          >label.name{
+            vertical-align: top;
+            margin-top: 10px;
+          }
+          >div{
+            display: inline-block;color: #fff;
+            .form-control{
+            width: 220px; background: #3F3F3F; display: inline-block;
+            }
+            a{
+              color: #4FABFC;
+              &:hover{
+                color: #0B78E3;
+              }
+            }
+          }
+        }
+        .span-edit{
+          margin-top: 10px;
+        }
+        .span-save{
+          display: none;
+        }
+      }
+    }
+    .quota{
+      .table{
+        margin-top: 30px;
+        tbody>tr>td{
+          background: transparent;
+          padding: 12px 8px;
+          color: #fff;
+          span{
+            font-size: 22px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+
+  }
+  //使用期限
+  .ul-period{
+    >li{
+      width: 20%;
+      float: left;
+      >.div-box{
+        height: 276px;
+        margin: 0 5px;
+        border-radius: 4px;
+        background: rgba(216,216,216,0.18);
+        .title{
+          padding-left: 16px;
+          padding-top: 16px;
+          height: 75px;
+          background: #343434;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          line-height: 25px;
+          >div:first-child{
+          font-size: 12px;
+            color: #CDCBCB;
+          }
+          >div:last-child{
+            font-size: 16px;
+            color: #ffffff;
+            span{
+              font-size: 12px;
+              color: #CDCBCB;
+            }
+          }
+        }
+        .ring-chart{
+          min-height: 175px;
+          background: none;
+          >div.block-content{
+            min-height: 175px;
+            height: 175px;
+          }
+        }
+      }
+    }
+  }
+}

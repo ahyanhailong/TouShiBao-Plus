@@ -1,0 +1,29 @@
+/*sql*/
+#sql{
+
+}
+#sql .pager-widget{
+  border-top: 1px solid #979797;
+}
+
+#sql .data-chart,#sql .time-chart{
+  height: 335px;
+  min-height: 335px;
+  margin-top: 0px;
+}
+#sql .error-content{
+  width: 49.3%; float: left;
+}
+#sql .abnormal-content{
+  width: 49.3%; float: right;
+}
+#sql .error-content .error-chart,
+#sql .abnormal-content .abnormal-chart
+{
+height: 200px;
+  min-height: 200px;
+  margin-top: 0;
+}
+#sql .tsb-box-show{
+/*  padding-bottom: 0;*/
+}

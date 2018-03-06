@@ -1,0 +1,117 @@
+#topology{
+  color: #fff;
+}
+
+#topology #topology-wrap {
+
+  margin-top: 24px;
+  border-radius: 4px;
+}
+
+
+/*left*/
+#topology .left-content{
+  width: 65%; height: 686px;padding: 16px; float: left;
+  /*background:url("../../../img/apply/topology/grid-bg.png")  repeat;*/
+}
+#topology .left-content .block{
+  /*background: transparent;*/
+}
+/*right*/
+#topology .right-content{
+  width: 35%; float:right;
+}
+#topology .right-content .tsb-box-show{padding-bottom: 0;}
+#topology .right-content .widget{
+  padding-bottom: 10px;
+}
+#topology .right-content .app-title{
+  height: 55px;line-height: 58px; padding: 0 10px;
+  color: #CDCBCB;
+}
+.right-content .widget .widget-title{
+  border-bottom:1px solid #313131; color: #CDCBCB; margin-bottom:10px;padding-bottom: 5px;
+}
+#topology .right-content .ul-list{
+  list-style: none;
+}
+#topology .right-content .block.block-chart,#topology .right-content .block-content{
+  min-height: 100px;height: 100px;
+}
+
+#topology .right-content .ul-list>li{
+  width: 25%;
+  float: left;
+}
+#topology .right-content .ul-list>li>div {
+  border:1px solid #444545;
+  border-radius:4px;
+  height:95px;
+  margin:6px;
+  background: #323232;
+}
+#topology .right-content .ul-list>li:first-child>div{
+  margin-left:0px;
+}
+#topology .right-content .ul-list>li:last-child>div{
+  margin-right:0px;
+
+}
+#topology .right-content  .ul-list>li .div-box .title{
+  position: relative;
+}
+#topology .right-content  .ul-list>li .div-box .title > div.line{
+  height: 1px;background:#515151; width: 100%;line-height: 30px;    margin-top: 20px;
+  margin-bottom: 20px;
+}
+#topology .right-content  .ul-list>li .div-box .title >h3{
+  position: absolute;
+  top: -7px;
+  padding: 0 5px;
+  left: 30%; font-size: 14px; text-align: center;background: #323232;z-index: 1; margin: 0;
+}
+#topology .right-content  .ul-list>li .div-box .title h3.color-orange{
+  left: 10%;
+}
+#topology .right-content .ul-list>li .content{
+  padding: 0 5px;color: #CDCBCB;
+}
+
+#topology .right-content .ul-list>li .content .number{
+  text-align: center; margin-bottom: 10px;
+}
+#topology .right-content .ul-list>li .content span{
+  float: left; width: 50%;
+}
+#topology .right-content .area-chart{
+  height: 100px;
+}
+
+/*拓扑弹框*/
+#pop_up{
+  width: 460px;
+  background-color: #323232;
+  display: none;
+  position: absolute;
+  z-index: 100;
+}
+#pop_up button.close{
+  opacity: 1;
+}
+#pop_up button.close span{
+  display: block;
+  width: 20px;
+  height:20px;
+  font-size: 12px;
+  border-radius: 15px;
+  color: #E5EAEE;
+  line-height: 13px;
+  margin:5px;
+  border:1px solid #E5EAEE;
+}
+#pop_up table{
+  font-size: 12px;
+}
+#pop_up table th{
+  background: #222;
+}

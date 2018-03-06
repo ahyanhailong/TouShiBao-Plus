@@ -1,0 +1,257 @@
+<div class="bg_green_light_gary mobile_group">
+    <div class="clearfix mobile_group margin_bottom_5 margin-bottom-5">
+        <div class="dropdown pull-left" id="filter_keys">
+            <button id="dLabel" class="btn btn-default" type="button" data-toggle="dropdown">
+                <!--<i class="fa fa-filter color-blue"></i>添加条件
+                <span class="fa fa-angle-down"></span>-->
+            </button>
+            <ul class="dropdown-menu mobile_filter" role="menu" id="overview_show_filter" style="z-index: 1100;background:#4A4A4A">
+                <li class="filter_show">
+                    <a style="color: #F5FFF2;">
+                        <i class="fa fa-history"></i>
+                        已保存条件
+                    </a>
+                    <div class="filter_history">
+                        <div class="history">
+                        		<div ng-click="addHistory(item.id)" class="filter_history_main" ng-repeat="(index,item) in history" data-id="{{item.id}}">
+                        			<div class="bule-left-title">条件组合{{item.order}}
+                        				<a ng-click="deleteCondition(item.id)" class="fa fa-times-circle fa-lg pull-right delete_overview_filter" data-id="{{item.id}}"></a>
+                        			</div> 
+                        			<div class="filter_history_term">
+                        				<div ng-repeat="(key,list) in item.params_info">
+                        					<span ng-if="key == 'resptime'">{{filterConfig[key]}}:{{list[0]+'ms-'+list[1]+'ms'}}</span>
+                        					<span ng-if="key != 'resptime'">{{filterConfig[key]}}:{{list}}</span>
+                        				</div>
+                        			</div>
+                        		</div>
+
+                    </div>
+
+                </li>
+                <li data-type="resptime" class="show_field"><a>响应时间</a></li>
+                <li data-type="db_name" class="show_field"><a>数据库类型</a></li>
+                <li data-type="instance_raw" class="show_field"><a>实例</a></li>
+                <li data-type="db_table" class="show_field"><a>数据表</a></li>
+                <li data-type="db_oper_type" class="show_field"><a>操作指令</a></li>
+                <li data-type="reqUri_raw" class="show_field"><a>调用者</a></li>
+            </ul>
+        </div>
+        <div id="confirm_button" class="pull-right" style="width: 100px; height: 30px;">
+        		<span class="save"></span>
+        		<span class="delete reset_overview_filter"></span>
+        </div>
+    </div>
+    <div class="mobile_group margin_bottom_5 margin-bottom-5">
+        <ul class="filter_ul clearfix" id="overview_filter">
+            <li style="margin-top: 10px;margin-bottom: 10px;padding-right: 10px;position: relative;" class="dropdown1" id="domain_filter" ng-repeat="(field,condition) in conditions"  data-type="{{condition.type}}">
+               <!-- 响应时间 -->
+               <a href="javascript:;" style="height: 30px;" tsb-toggle ng-if="condition.type == 'resptime'">
+                    <div class="pull-left filter_overflow">
+                        <i class="fa fa-times" tsb-remove></i>
+                        {{filterConfig.resptime}}：<span id="domain_confirm_title" tsb-select-value tsb-select-value-radio
+                                 title="">{{wt_from}}ms - {{wt_to}}ms</span>
+                    </div>
+                    <span class="fa fa-angle-down pull-right"></span>
+                </a>
+               <!-- 数据库类型 -->
+               <a href="javascript:;" style="height: 30px;" tsb-toggle ng-if="condition.type == 'db_name'">
+                    <div class="pull-left filter_overflow">
+                        <i class="fa fa-times" tsb-remove></i>
+                        {{filterConfig.db_name}}：<span id="domain_confirm_title" tsb-select-value tsb-select-value-radio
+                                 title="">{{db_nameResult.length}}个{{filterConfig.db_name}}</span>
+                    </div>
+                    <span class="fa fa-angle-down pull-right"></span>
+                </a>
+               <!-- 实例 -->
+               <a href="javascript:;" style="height: 30px;" tsb-toggle ng-if="condition.type == 'instance_raw'">
+                    <div class="pull-left filter_overflow">
+                        <i class="fa fa-times" tsb-remove></i>
+                        {{filterConfig.instance_raw}}：<span id="domain_confirm_title" tsb-select-value tsb-select-value-radio
+                                 title="">{{instance_rawCheckList.length}}个{{filterConfig.instance_raw}}</span>
+                    </div>
+                    <span class="fa fa-angle-down pull-right"></span>
+                </a>
+                <!-- 数据表 -->
+               <a href="javascript:;" style="height: 30px;" tsb-toggle ng-if="condition.type == 'db_table'">
+                    <div class="pull-left filter_overflow">
+                        <i class="fa fa-times" tsb-remove></i>
+                        {{filterConfig.db_table}}：<span id="domain_confirm_title" tsb-select-value tsb-select-value-radio
+                                 title="">{{db_tableCheckList.length}}个{{filterConfig.db_table}}</span>
+                    </div>
+                    <span class="fa fa-angle-down pull-right"></span>
+                </a>
+                 <!-- 操作指令 -->
+               <a href="javascript:;" style="height: 30px;" tsb-toggle ng-if="condition.type == 'db_oper_type'">
+                    <div class="pull-left filter_overflow">
+                        <i class="fa fa-times" tsb-remove></i>
+                        {{filterConfig.db_oper_type}}：<span id="domain_confirm_title" tsb-select-value tsb-select-value-radio
+                                 title="">{{db_oper_typeCheckList.length}}个{{filterConfig.db_oper_type}}</span>
+                    </div>
+                    <span class="fa fa-angle-down pull-right"></span>
+                </a>
+                 <!-- 调用者 -->
+               <a href="javascript:;" style="height: 30px;" tsb-toggle ng-if="condition.type == 'reqUri_raw'">
+                    <div class="pull-left filter_overflow">
+                        <i class="fa fa-times" tsb-remove></i>
+                        {{filterConfig.reqUri_raw}}：<span id="domain_confirm_title" tsb-select-value tsb-select-value-radio
+                                 title="">{{reqUri_rawCheckList.length}}个{{filterConfig.reqUri_raw}}</span>
+                    </div>
+                    <span class="fa fa-angle-down pull-right"></span>
+                </a>
+				<!--响应时间下拉框-->
+                <div class="dropdown-menu padding_15 dropdown_check" role="menu"  data-type="{{condition.type}}" ng-if="condition.type == 'resptime'">
+                   <div class="row">
+			            <div class="col-md-6" style="position: relative;"><input style="padding: 6px 8px;padding-right: 24px;" class="form-control from" type="text"  value="{{wt_from}}"/><span style="position: absolute;top: 7px;right: 12px;">ms</span></div>
+			            <div class="col-md-6" style="position: relative;"><input style="padding: 6px 8px;padding-right: 24px;" class="form-control to" type="text" value="{{wt_to}}"/><span style="position: absolute;top: 7px;right: 12px;">ms</span></div>
+			        </div>
+			        <div class="clearfix">
+			            <button class="btn btn-default cancel" style="margin-left: 28px;">取消</button>
+			            <button class="btn btn-default reset" style="margin-left: 10px;">重置</button>
+			            <button class="btn btn-primary ok" style="margin-left: 10px;">确定</button>
+			        </div>
+                </div>
+                <!--数据库类型下拉框-->
+                <div class="dropdown-menu dropdown_check" role="menu" data-type="{{condition.type}}" ng-if="condition.type == 'db_name'">
+			        <!--<div>已选：{{domain}}</div>-->
+			        <div class="padding_15">
+				        <div class="input-group">
+				            <input type="text" class="form-control" placeholder="{{placeholderConfig[condition.type]}}">
+				            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				        </div>
+				        <div class="list">
+				            <div class="checkbox" ng-repeat="item in condition.list" name="{{item}}">
+				                <!--<label ng-click="changeItem($event,item)">
+				                    <input type="radio" ng-value="item"  name="filterRadio">{{item}}
+				                </label>-->
+				                <span ng-if="db_nameResult.indexOf(item) > -1"><input checked  type="checkbox" class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                <span ng-if="db_nameResult.indexOf(item) == -1 || db_nameResult == undefined"><input type="checkbox" class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				            		
+				            </div>
+				        </div>
+				    </div>  
+			        <div class="clearfix">
+			            <button class="btn btn-default cancel" style="margin-left: 28px;">取消</button>
+			            <button class="btn btn-default reset" style="margin-left: 10px;">重置</button>
+			            <button class="btn btn-primary ok" style="margin-left: 10px;">确定</button>
+			        </div>
+                </div>
+                 <!--实例下拉框-->
+                <div class="dropdown-menu dropdown_check" role="menu" data-type="{{condition.type}}" ng-if="condition.type == 'instance_raw'">
+                   <!--<div style="color: #fff;">已选：{{conditionRadio.length}}个版本</div>-->
+			       <div class="padding_15">
+				       <div class="input-group">
+				            <input type="text" class="form-control" placeholder="{{placeholderConfig[condition.type]}}">
+				            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				        </div>
+				        <div class="list">
+				            <div class="checkbox" ng-repeat="item in condition.list" name="{{item}}">
+				                <!--<label ng-click="changeItem($event,item.name)">
+				                    <input type="checkbox" ng-value="item.name" ng-checked="item.checked" name="filterRadio">{{item.name}}
+				                </label>-->
+				                
+				                <span ng-if="instance_rawCheckList.indexOf(item) > -1"><input checked type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                <span ng-if="instance_rawCheckList.indexOf(item) == -1 || instance_rawCheckList == undefined"><input checked type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                
+				            </div>
+				        </div>
+				    </div>    
+			        <div class="clearfix">
+			            <button class="btn btn-default cancel" style="margin-left: 28px;">取消</button>
+			            <button class="btn btn-default reset" style="margin-left: 10px;">重置</button>
+			            <button class="btn btn-primary ok" style="margin-left: 10px;">确定</button>
+			        </div>
+                </div>
+                 <!--数据表下拉框-->
+                <div class="dropdown-menu dropdown_check" role="menu" data-type="{{condition.type}}" ng-if="condition.type == 'db_table'">
+                   <!--<div style="color: #fff;">已选：{{conditionRadio.length}}个版本</div>-->
+			        <div class="padding_15">
+			        		<div class="input-group">
+				            <input type="text" class="form-control" placeholder="{{placeholderConfig[condition.type]}}">
+				            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				        </div>
+				        <div class="list">
+				            <div class="checkbox" ng-repeat="item in condition.list" style="overflow: hidden;" name="{{item}}">
+				                <!--<label ng-click="changeItem($event,item.name)">
+				                    <input type="checkbox" ng-value="item.name" ng-checked="item.checked" name="filterRadio">{{item.name}}
+				                </label>-->
+				                <span ng-if="db_tableCheckList.indexOf(item) > -1"><input checked type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                	<span ng-if="db_tableCheckList.indexOf(item) == -1 || db_tableCheckList == undefined"><input type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                
+				            </div>
+				        </div>
+			        </div>
+			        <div class="clearfix">
+			            <button class="btn btn-default cancel" style="margin-left: 28px;">取消</button>
+			            <button class="btn btn-default reset" style="margin-left: 10px;">重置</button>
+			            <button class="btn btn-primary ok" style="margin-left: 10px;">确定</button>
+			        </div>
+                </div>
+                
+                <!--操作指令下拉框-->
+                <div class="dropdown-menu dropdown_check" role="menu" data-type="{{condition.type}}" ng-if="condition.type == 'db_oper_type'">
+                   <!--<div style="color: #fff;">已选：{{conditionRadio.length}}个版本</div>-->
+			       <div class="padding_15">
+				       <div class="input-group">
+				            <input type="text" class="form-control" placeholder="{{placeholderConfig[condition.type]}}">
+				            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				        </div>
+				        <div class="list">
+				            <div class="checkbox" ng-repeat="item in condition.list" style="overflow: hidden;" name="{{item}}">
+				                <!--<label ng-click="changeItem($event,item.name)">
+				                    <input type="checkbox" ng-value="item.name" ng-checked="item.checked" name="filterRadio">{{item.name}}
+				                </label>-->
+				                <span ng-if="db_oper_typeCheckList.indexOf(item) > -1"><input checked type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                <span ng-if="db_oper_typeCheckList.indexOf(item) == -1 || db_oper_typeCheckList == undefined"><input type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                
+				                
+				            </div>
+				        </div>
+				    </div>
+			        <div class="clearfix">
+			            <button class="btn btn-default cancel" style="margin-left: 28px;">取消</button>
+			            <button class="btn btn-default reset" style="margin-left: 10px;">重置</button>
+			            <button class="btn btn-primary ok" style="margin-left: 10px;">确定</button>
+			        </div>
+                </div>
+                <!--调用者下拉框-->
+                <div class="dropdown-menu dropdown_check" role="menu" data-type="{{condition.type}}" ng-if="condition.type == 'reqUri_raw'">
+                   <!--<div style="color: #fff;">已选：{{conditionRadio.length}}个版本</div>-->
+			        <div class="padding_15">
+				        <div class="input-group">
+				            <input type="text" class="form-control" placeholder="{{placeholderConfig[condition.type]}}">
+				            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+				        </div>
+				        <div class="list">
+				            <div class="checkbox" ng-repeat="item in condition.list" style="overflow: hidden;" name="{{item}}">
+				                <!--<label ng-click="changeItem($event,item.name)">
+				                    <input type="checkbox" ng-value="item.name" ng-checked="item.checked" name="filterRadio">{{item.name}}
+				                </label>-->
+				                <span ng-if="reqUri_raw.indexOf(item) > -1"><input checked type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                <span ng-if="reqUri_raw.indexOf(item) == -1 || reqUri_raw == undefined"><input type="checkbox"class="input_check" name="{{item}}"  id="check3"><label for="check3"></label>&nbsp;&nbsp;{{item}}</span>
+				                
+				                
+				            </div>
+				        </div>
+				    </div> 
+			        <div class="clearfix">
+			            <button class="btn btn-default cancel" style="margin-left: 28px;">取消</button>
+			            <button class="btn btn-default reset" style="margin-left: 10px;">重置</button>
+			            <button class="btn btn-primary ok" style="margin-left: 10px;">确定</button>
+			        </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+    <!--<div class="mobile_group" id="confirm_button" style="display: none">
+        <button class="btn btn-default save_overview_filter" type="button">
+            <i class="fa fa-save color-blue "></i>保存条件
+        </button>
+        <button class="btn btn-default reset_overview_filter" type="button">
+            <i class="fa fa-rotate-left color-blue "></i>重置条件
+        </button>
+    </div>-->
+
+
+</div> 

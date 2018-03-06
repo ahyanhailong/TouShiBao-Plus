@@ -1,0 +1,304 @@
+<div id="dashboard">
+    <!--模块一 start-->
+    <div class="tsb-box-gray">
+        <div class="inner-bg module-one">
+            <div class="dashboard-execute">
+                <div class="text-number">{{headTime.request_time}}ms</div>
+                <ul class="data-state">
+                    <li ng-click="changeType('code')">
+                        <div class="content-text">
+                            <i class="icon-clock01"></i> 代码执行时间：<span>{{headTime.code_time}}ms</span>
+                        </div>
+                        <div class="progress progress-small-s">
+                            <div class="progress-bar progress-bar-orangeYellow" style="width: {{headProgress('code_time')}};"></div>
+                        </div>
+                    </li>
+                    <li ng-click="changeType('db')">
+                        <div class="content-text">
+                            <i class="icon-clock02"></i> 数据库调用时间：<span>{{headTime.db_time}}ms</span>
+                        </div>
+                        <div class="progress progress-small-s">
+                            <div class="progress-bar progress-bar-yellow" style="width: {{headProgress('db_time')}};"></div>
+                        </div>
+                    </li>
+                    <li ng-click="changeType('api')">
+                        <div class="content-text">
+                            <i class="icon-third"></i> 第三方调用：<span>{{headTime.api_time}}ms</span>
+                        </div>
+                        <div class="progress progress-small-s">
+                            <div class="progress-bar progress-bar-cyan" style="width: {{headProgress('api_time')}};"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="dashboard-toggle" style="">
+                <table class="table table-gray" id="table-toggle">
+                    <tbody>
+                    <tr ng-repeat="item in headlist" ng-class="{active:item.active}" ng-click="showRequestInfo($index)">
+                        <td width="80%" class="text-ellipsis"><a href="javascript:void(0)" class="accordion-link">{{item.mn}}</a></td>
+                        <td width="20%">{{item.method_total_time}}ms</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="clearfix accordion-collapse" ng-show="isShowRequestInfo">
+            <div class="div-one">
+                <div class="tsb-box-show">
+                    <div class="tsb-texture-title text-ellipsis">{{currentInfo.mn}}</div>
+                    <div class="content">
+                        平均响应时间 <span>{{currentInfo.contribute}}ms</span>
+                    </div>
+                </div>
+            </div>
+            <div class="div-two">
+                <div>{{currentInfo.method_call_rate}}%</div>
+                <div class="icon-longArrow"></div>
+                <div>{{currentInfo.method_request_count}}次</div>
+            </div>
+            <div class="div-three">
+                <div class="tsb-box-show">
+                    <div class="tsb-texture-title text-ellipsis">{{currentInfo.mn}}</div>
+                    <div class="average-response padding-lr-16">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td width="20%"></td>
+                                <td width="50%">总时间</td>
+                                <td width="30%">{{currentInfo.method_total_time}}ms</td>
+                            </tr>
+                            <tr>
+                                <td>X</td>
+                                <td>调用比例</td>
+                                <td>{{currentInfo.method_call_rate}}%</td>
+                            </tr>
+                            <tr>
+                                <td>X</td>
+                                <td>调用次数/请求</td>
+                                <td>{{currentInfo.method_request_count}}次</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td>=</td>
+                                <td>响应时间贡献值</td>
+                                <td>{{currentInfo.contribute}}ms</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td colspan="2">
+                                    <div class="progress progress-small-s">
+                                        <div class="progress-bar progress-bar-deepBlue" style="width: {{currentInfo.contribute/headTime.request_time}}%;"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="div-four">
+                <div class="icon-longArrow"></div>
+            </div>
+            <div class="div-five">
+                <div class="tsb-box-show">
+                    <div class="tsb-texture-title">
+                        相关请求快照TOP(5)
+                    </div>
+                    <div>
+                        <table class="table table-gray">
+                            <thead>
+                            <tr>
+                                <th width="10%">异常</th>
+                                <th width="10%">状态</th>
+                                <th width="50%">事务</th>
+                                <th width="30%">该代码执行时间</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="rItem in currentInfo.r_id_list">
+                                <td><i class="icon-abnormal" ng-if="rItem.exception==1"></i></td>
+                                <td>
+                                    <i class="state-icon-green" ng-if="rItem.status=='normal'"></i>
+                                    <i class="state-icon-red" ng-if="rItem.status=='error'"></i>
+                                    <i class="state-icon-yellow" ng-if="rItem.status=='slow'"></i>
+                                    <i class="state-icon-paleRed" ng-if="rItem.status=='very_slow'"></i>
+                                </td>
+                                <td>
+                                    <a ng-href="#/apply_snapshot/{{appId}}/overview?request_id={{rItem.request_id}}&r_id={{rItem.r_id}}&doc_id={{rItem.doc_id}}&name={{rItem.url}}" class="text-ellipsis display-b" target="_blank">{{rItem.url}}</a>
+                                </td>
+                                <td>{{rItem.resp_time}}ms</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--模块一 end-->
+    <!--响应时间和请求统计 start-->
+    <div class="clearfix margin-b-16">
+        <!--left-->
+        <div class="left-content tsb-box-show">
+            <div class="tsb-texture-title">
+                响应时间和请求数
+                <ul class="pull-right tab-card">
+                    <li ng-class="{active:respTimeMark=='all'}"><a href="javascript:void(0)" ng-click="drawRespTimeChart()">所有</a></li>
+                    <li>|</li>
+                    <li ng-class="{active:respTimeMark=='five_percent'}"><a href="javascript:void(0)" ng-click="drawRespTimeChart('five_percent')">5%缓慢</a></li>
+                    <li>|</li>
+                    <li ng-class="{active:respTimeMark=='ten_percent'}"><a href="javascript:void(0)" ng-click="drawRespTimeChart('ten_percent')">10%缓慢</a></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <div class="block block-chart noDefault response-chart" id="request_response">
+                    <div class="block-content request-chart" data-chart>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--right 默认页面-->
+        <div class="right-content">
+            <div class="tsb-box-show margin-l-16  tsb-box-show">
+                <div class="tsb-texture-title">
+                    请求统计
+                    <span class="pull-right">{{statistics.count}}次</span>
+                </div>
+                <!--环形chart-->
+                <div class="widget request-total">
+                    <table class="table table-no-bg">
+                        <tbody>
+                        <tr>
+                            <td width="20%">正常</td>
+                            <td width="38%">
+                                <div class="progress progress-default">
+                                    <div class="progress-bar progress-bar-green" style="width: {{statistics.normal.per}}%"></div>
+                                </div>
+                            </td>
+                            <td width="22%">{{statistics.normal.per}}%</td>
+                            <td width="20%">{{statistics.normal.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>缓慢</td>
+                            <td>
+                                <div class="progress progress-default">
+                                    <div class="progress-bar progress-bar-yellow" style="width: {{statistics.slow.per}}%"></div>
+                                </div>
+                            </td>
+                            <td>{{statistics.slow.per}}%</td>
+                            <td>{{statistics.slow.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>非常慢</td>
+                            <td>
+                                <div class="progress progress-default">
+                                    <div class="progress-bar progress-bar-orange" style="width: {{statistics.very_slow.per}}%"></div>
+                                </div>
+                            </td>
+                            <td>{{statistics.very_slow.per}}%</td>
+                            <td>{{statistics.very_slow.value}}</td>
+                        </tr>
+                        <tr>
+                            <td>非常慢</td>
+                            <td>
+                                <div class="progress progress-default">
+                                    <div class="progress-bar progress-bar-red" style="width: {{statistics.error_count.per}}%"></div>
+                                </div>
+                            </td>
+                            <td>{{statistics.error_count.per}}%</td>
+                            <td>{{statistics.error_count.value}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--响应时间和请求统计 end-->
+    <!--错误信息 start-->
+
+    <div class="tsb-box-show clearfix margin-b-16 error-info">
+        <div class="tsb-texture-title">
+            错误信息（TOP5）
+        </div>
+        <div class="padding-16">
+            <div class="pull-left left-content">
+                <div class="widget">
+                    <div class="block block-chart noDefault error-chart" id="error_chart">
+                        <div class="block-content error-chart" data-chart>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-left right-content">
+                <div class="widget padding-lr-16 padding-t-20">
+                    <table class="table table-no-bg">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>错误信息</th>
+                            <th>发生次数</th>
+                            <th>第一次发生时间</th>
+                            <th>最后一次发生时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="errorItem in errorList">
+                            <td>{{$index+1}}</td>
+                            <td><a href="javascript:void(0)">{{errorItem.error_code}}</a></td>
+                            <td>{{errorItem.error_count}}</td>
+                            <td>{{errorItem.happen_start}}</td>
+                            <td>{{errorItem.happen_end}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--错误信息 end-->
+    <!--异常元素 start-->
+    <div class="tsb-box-show margin-b-16">
+        <div class="tsb-texture-title">
+            异常元素（TOP5）
+        </div>
+        <div class="widget">
+            <table class="table table-gray">
+                <thead>
+                <tr>
+                    <th width="5%">序号</th>
+                    <th width="30%">趋势</th>
+                    <th width="15%">异常元素</th>
+                    <th width="15%">发生次数</th>
+                    <th width="15%">第一次发生时间</th>
+                    <th width="15%">最后一次发生时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in exceptionList">
+                    <td>{{$index+1}}</td>
+                    <td>
+                        <div class="trend-chart" oc-lazy-load="['miniBar']">
+                            <mini-bar data="item.line"></mini-bar>
+                        </div>
+                    </td>
+                    <td class="text-ellipsis"><a href="#">{{item.error_code}}</a></td>
+                    <td>{{item.error_count}}</td>
+                    <td>{{item.happen_start}}</td>
+                    <td>{{item.happen_end}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--异常元素 end-->
+</div>

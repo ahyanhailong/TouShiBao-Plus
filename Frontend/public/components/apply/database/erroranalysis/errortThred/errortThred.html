@@ -1,0 +1,76 @@
+<div class="block-title" style="text-align: center;color: #FFFFFF;height: 50px;line-height: 50px;">SQL分析快照</div>
+    <div id="SQL" class="block" style="width: 100%;box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000">
+        <div class="block-title" style="height: 50px;line-height: 50px;color: #FFF;padding: 0 10px;font-size: 14px">SQL语句</div>
+        <div id="Cont" class="Cont" style="line-height: 20px;color: #FFF;font-size: 14px;padding: 10px 10px;background: #232323" ng-cloak>{{msg.sql}}<br></div>
+    </div>
+    <div id="basicnIformation" class="block" style="width: 100%;box-shadow: 0 2px 16px #000, 0 0 1px #000, 0 0 1px #000">
+        <div class="block-title" style="height: 50px;line-height: 50px;color: #FFF;padding: 0 10px;font-size: 14px">基本信息</div>
+        <div id="Cont" class="Cont" style="line-height: 20px;color: #FFF;font-size: 14px;padding: 10px 10px;background: #232323">
+            <div style="width: 20%;display:table-cell;float: left">
+                <!--<div style="width: 50%;float: left;height: 100%">
+                    <span style="display: block;text-align: right">发生时间:</span>
+                    <span style="display: block;text-align: right">数据库类型:</span>
+                </div>
+                <div style="width: 50%;float: left;height: 100%;">
+                    <span style="display: block;text-align: left">2017-10-18 20:30:00</span>
+                    <span style="display: block;text-align: left">MySql</span>
+                </div>-->
+                <div style="margin: 0 auto;padding: 0 10px;">
+                    <div style="margin-top: 10px">
+                        <div style="font-size:12px;width: 30%;display: block;text-align: right;float: left">发生时间:</div>
+                        <div style="font-size:12px;width: 70%;display: block;text-align: left;float: left;word-wrap: break-word" ng-cloak>{{msg.happen_time}}</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div>
+                        <div style="font-size:12px;width: 30%;text-align: right;float: left">数据库类型:</div>
+                        <div style="font-size:12px;width: 70%;text-align: left;word-wrap: break-word;float: left" ng-cloak>{{msg.type}}</div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:1px;height: 40px;display:table-cell;float: left;border-left:1px solid #ccc ;margin-top: 10px"></div>
+            <div style="width: 20%;display:table-cell;float: left">
+                <div style="margin: 0 auto;padding: 0 10px;">
+                    <div style="margin-top: 10px">
+                        <div style="font-size:12px;width: 30%;display: block;text-align: right;float: left">响应时间:</div>
+                        <div style="font-size:12px;width: 70%;display: block;text-align: left;float: left;word-wrap: break-word" ng-cloak>{{msg.wt}}ms</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div>
+                        <div style="font-size:12px;width: 30%;text-align: right;float: left">数据表名称:</div>
+                        <div style="font-size:12px;width: 70%;text-align: left;word-wrap: break-word;float: left;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" title="{{msg.table}}">{{msg.table}}</div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:1px;height: 40px;display:table-cell;float: left;border-left:1px solid #ccc ;margin-top: 10px"></div>
+            <div style="width: 20%;display:table-cell;float: left">
+                <div style="margin: 0 auto;padding: 0 10px;">
+                    <div style="margin-top: 10px">
+                        <div style="font-size:12px;width: 30%;display: block;text-align: right;float: left">调用者:</div>
+                        <div style="font-size:12px;width: 70%;display: block;text-align: left;float: left;word-wrap: break-word;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"  title="{{msg.req_url}}" ng-cloak>{{msg.req_url}}</div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div>
+                        <div style="font-size:12px;width: 30%;text-align: right;float: left">数据库实例:</div>
+                        <div style="font-size:12px;width: 70%;text-align: left;float: left" ng-cloak>{{msg.instance}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix" style="clear: both"></div>
+        </div>
+    </div>
+    <div class="block block-table"  id="Trace">
+        <div class="block-title">Trace详情</div>
+        <div class="block-content" data-table>
+        		<table class="table table-hover table-bordered" cellpadding="0" style="border-collapse: collapse;">
+	            <thead>
+	            <tr>
+	                <th data-item="mn" width="40%">堆栈</th>
+	                <th data-item="wt" width="60%">响应时间</th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	
+	            </tbody>
+	        </table>
+        </div>
+    </div>

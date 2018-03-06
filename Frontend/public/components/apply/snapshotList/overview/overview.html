@@ -1,0 +1,132 @@
+<!--概览-->
+<div role="tabpanel" class="tab-pane active" id="overview">
+    <!--left-->
+    <div class="left-content ">
+        <!--基本信息-->
+        <div class="tsb-box-show margin-b-16">
+            <div class="tsb-texture-title">
+                基本信息
+            </div>
+            <div class="information padding-16">
+                <!--<div class="title">
+                    <label>请求状态：</label><span><i class="{{config[details.dashboard.status].clazz}}"></i>{{config[details.dashboard.status].name}}</span>
+                </div>-->
+                <ul class="ul-list">
+                    <li>url: {{details.dashboard.url}}</li>
+                    <li>code: {{details.dashboard.app_type}}</li>
+                    <li>请求时间: {{details.dashboard.collect_time}}</li>
+                    <li>主机实例: {{details.dashboard.host_instance_raw}}</li>
+                    <li>客户端IP: {{details.dashboard.cip}}</li>
+                    <li>响应时间: {{details.dashboard.time}}</li>
+                    <li>HTTP响应状态: {{details.dashboard.http_code}}</li>
+                </ul>
+            </div>
+        </div>
+        <!--潜在问题-->
+        <div class="tsb-box-show margin-b-16">
+            <div class="tsb-texture-title">
+                潜在问题
+            </div>
+            <div class="information problem padding-16">
+                <ul class="ul-list clearfix">
+                    <li ng-repeat="item in summary">
+                        <i class="{{sumaryConfig[item.type]}} pull-left"></i>
+                        <span>{{item.text}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--right-->
+    <div class="right-content ">
+        <div class="tsb-box-show margin-l-16">
+            <div class="tsb-texture-title">
+                拓扑图
+            </div>
+            <div class="widget padding-16">
+                <div class="block block-chart noDefault topo-chart" oc-lazy-load="['visTopo']">
+                    <div class="block-content topo-chart"
+                         vis-topo id="vis-topo"
+                         data="topoData"
+                         click="topoClick(event)">
+                    </div>
+                </div>
+            </div>
+            <!--错误列表-->
+            <div class="widget padding-16 clearfix" ng-show="isShowTopoList">
+                <ul class="time-range clearfix error-list pos-r">
+                    <li>调用选择</li>
+                    <li>
+                        <div class="line"></div>
+                    </li>
+                    <li>
+                        <i class="icon-delete" title="" ng-click="isShowTopoList=false"></i>
+                    </li>
+                </ul>
+                <div id="topo-list">
+                    <div data-table>
+                        <table class="table table-no-bg" apply-handle-business>
+                            <thead>
+                            <tr>
+                                <th data-item="order" width="10%">序号</th>
+                                <th data-item="call_url" width="25%">调用者</th>
+                                <th data-item="url" width="30%">调用请求</th>
+                                <th data-item="date" width="17%">
+                                    调用时间<i class="fa fa-sort"></i>
+                                </th>
+                                <th data-item="resp_time" data-tip="ms" width="10%" class="text-right">
+                                    调用耗时<i class="fa fa-sort"></i>
+                                </th>
+                                <th data-item="api_sql_exist" width="8%" class="text-right">
+                                    附加信息
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+                    <div class="PageList" oc-lazy-load="['pageList']">
+                        <div page-list change="changePage(currentPage,perPage)"
+                             page_no="{{page_no}}"
+                             total_row="total_row"
+                             sum_per_page="{{sum_per_page}}"></div>
+                    </div>
+                    <!--<div class="pager-widget">
+                        <div class="btn-group tsb-btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                5条 <span class="fa fa-angle-down"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0)">5条</a></li>
+                                <li><a href="javascript:void(0)">10条</a></li>
+                            </ul>
+                        </div>
+                        <div class="total-number">
+                            共123,234条
+                        </div>
+                        <nav class="pager-box">
+                            <ul class="pager">
+                                <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
+                                <li><a href="javascript:void(0)"> 1 </a></li>
+                                <li><a href="javascript:void(0)" class="current"> 2 </a></li>
+                                <li><a href="javascript:void(0)"> 3 </a></li>
+                                <li><a href="javascript:void(0)"> 4 </a></li>
+                                <li><a href="javascript:void(0)"> 5 </a></li>
+                                <li>...</li>
+                                <li><a href="javascript:void(0)"> 23 </a></li>
+                                <li><a href="javascript:void(0)"> 24 </a></li>
+                                <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>-->
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

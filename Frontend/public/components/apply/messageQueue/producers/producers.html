@@ -1,0 +1,148 @@
+<!--外部服务-->
+<div class="padding-lr-16 tsb-main">
+    <!--left-->
+    <div class="left-content">
+        <div class="tsb-texture-title">
+            排序字段：
+            <div class="btn-group tsb-btn-group response">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span>{{currentSort.name}}</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="">
+                    <li ng-repeat="sortItem in sortList"
+                        ng-click="changeSort(sortItem)"><a href="javascript:void(0)">{{sortItem.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <!--下拉菜单-->
+            <div class="tsb-dropDown" ng-repeat="dbnItem in dbnList">
+                <div class="collapsed tsb-dropDown-title">
+                    <a aria-expanded="true" class="text-ellipsis">
+                        <i class="caret-i caret-down" data-toggle="collapse" href="#transaction1"></i>
+                        <span class="pull-left text-ellipsis span1" ng-click="enterFirst(dbnItem)">{{dbnItem.instance}}</span>
+                        <span class="pull-right span2">{{showFieldUnit(dbnItem)}}</span>
+                    </a>
+                </div>
+                <div class="collapse tsb-dropDown-box" data-toggle="collapse" id="transaction1">
+                    <ul class="tsb-dropDown-content special">
+                        <li ng-repeat="item in dbnItem.list">
+                            <a href="javascript:void(0)" class="text-ellipsis subTrigger"
+                               title="{{item.dbn}}" ng-click="enterSecond(dbnItem,item)">
+                                <span class="pull-left text-ellipsis span1">{{item.dbn}}</span>
+                                <span class="pull-right span2">{{showFieldUnit(item)}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--right 默认页面-->
+    <div class="right-content" id="level-one" style="display: block">
+        <div class="tsb-box-show margin-l-16 ">
+            <div class="tsb-texture-title">
+                {{title.join(' > ')}}
+                <a href="javascript:void(0)" class="btn-back backTrigger" ng-show="!isOverview" ng-click="backOverview()">
+                    <i class="fa fa-angle-left"></i> 返回概览
+                </a>
+            </div>
+            <!--MQ服务总耗时(TOP5)-->
+            <div class="block block-chart noDefault" ng-show="isOverview"
+                 message-queue-bar-area data="mqTotalTime" option="mqTotalTimeOption">
+                <div class="block-title">
+                    <ul class="time-range clearfix">
+                        <li>MQ服务总耗时(TOP5)</li>
+                        <li>
+                            <div class="line"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-content" data-chart style="min-height: 324px;height: 324px;">
+
+                </div>
+            </div>
+            <!--每分钟消息数及平均耗时-->
+            <div class="block block-chart noDefault"
+                 message-queue-bar-area data="rpmTime" option="rpmTimeOption">
+                <div class="block-title">
+                    <ul class="time-range clearfix">
+                        <li>每分钟消息数及平均耗时</li>
+                        <li>
+                            <div class="line"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-content" data-chart style="min-height: 324px;height: 324px;"></div>
+            </div>
+            <!--每分钟流量-->
+            <div class="block block-chart noDefault"
+                 message-queue-bar-area data="flowPm" option="flowPmOption">
+                <div class="block-title">
+                    <ul class="time-range clearfix">
+                        <li>每分钟流量</li>
+                        <li>
+                            <div class="line"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-content" data-chart style="min-height: 324px;height: 324px;"></div>
+            </div>
+
+
+            <!--调用者耗时百分比(TOP5)-->
+            <div class="block block-chart noDefault" ng-show="!isOverview"
+                 message-queue-stack-bar data="callerRate">
+                <div class="block-title">
+                    <ul class="time-range clearfix">
+                        <li>调用者耗时百分比(TOP5)</li>
+                        <li>
+                            <div class="line"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-content" data-chart style="min-height: 324px;height: 324px;"></div>
+            </div>
+            <!--消费情况表-->
+            <div class="block block-table noDefault" id="js_producer_list" ng-show="!isOverview">
+                <div class="block-title">
+                    <ul class="time-range clearfix">
+                        <li>消费情况表</li>
+                        <li>
+                            <div class="line"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block-content" data-table style="min-height: 324px;height: 324px;">
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                            <th width="10%">序号</th>
+                            <th width="40%">消费者实例</th>
+                            <th width="30%">消费者</th>
+                            <th width="20%">消费者消息数占比</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in list">
+                            <td>{{item.order}}</td>
+                            <td><a ng-href="#/navigation/apply/messageQueue/consumer/{{item.consumer_app}}" target="_blank">{{item.consumer_instance}}</a></td>
+                            <td>{{item.consumer}}</td>
+                            <td>{{item.rate+'%'}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+                <div class="PageList" oc-lazy-load="['pageList']">
+                    <div page-list change="changePage(currentPage,perPage)"
+                         page_no="{{currentPage}}"
+                         total_row="totalItems"
+                         sum_per_page="{{perPage}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

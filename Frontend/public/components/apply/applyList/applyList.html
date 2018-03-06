@@ -1,0 +1,116 @@
+
+    <!--正常-->
+    <div class="tsb-box-show2e div-box clearfix" ng-repeat="item in list">
+      <div class="apply-check">
+        <div class="checkbox-check">
+          <input type="checkbox" name="test" id="{{item.app_id}}" ng-checked="checkedAll" ng-click="checkboxclick(item.app_id)">
+          <label  class="">&nbsp;</label>
+        </div>
+      </div>
+      <div class="apply-list">
+        <!--标题-->
+        <div class="apply-title">
+          <div class="text-div">
+            <a href="{{hrefLink($event,item.app_id)}}" class="title">{{item.app_name + item[0]}}</a>
+            <i class="action-edit-pen" ng-click="listEditor($event,item.app_id,item.app_name)"></i>
+          </div>
+          <div class="input-div">
+            <input type="text" class="form-control" value="{{item.app_name.split(':')[0]}}" ng-blur="listEditorInputBlur($event,item.app_id)">
+          </div>
+        </div>
+        <!--主机数-->
+        <div class="apply-setting clearfix">
+          <div class="btn-group tsb-btn-group pull-left">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              主机数 <span class="fa caret"></i></span>
+            </button>
+            <div class="dropdown-menu padding-16" tsb-noclick ='true'>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>主机</th>
+                    <th>cpu使用率</th>
+                    <th>内存使用率</th>
+                    <th>cpu负载</th>
+                  </tr>
+                </thead>
+                <tbdoy>
+                  <tr ng-repeat="lis in item.list">
+                    <td class="text-ellipsis">{{lis.host_name}}</td>
+                    <td>{{lis.cpu_used}}%</td>
+                    <td>{{lis.ram_used}}%</td>
+                    <td>{{lis.cpu_burden}}</td>
+                  </tr>
+
+                </tbdoy>
+              </table>
+            </div>
+          </div>
+          <div class="fen-group">
+            分组： {{item.group_name}}
+          </div>
+        </div>
+        <!--数据-->
+        <!--正常-->
+        <div class="apply-data clearfix">
+          <div class="right-content">
+            <ul class="apply-state">
+              <li>
+                <div class="color-green" ng-if="item.status == 'normal'">
+                  <i class="state-circle-normal"></i> 正常
+                </div>
+                <div class="color-yellow" ng-if="item.status == 'slow'">
+                  <i class="state-circle-markYellow"></i> 缓慢
+                </div>
+                <div class="color-orange" ng-if="item.status == 'very_slow'">
+                  <i class="state-circle-markRed"></i> 非常缓慢
+                </div>
+                <div class="color-orange" ng-if="item.status == 'error'">
+                  <i class="state-circle-error"></i> 错误
+                </div>
+                <div class="color-gray" ng-if="item.status == 'app_nodata' || item.status == undefined ">
+                  <i class="state-circle-noData"></i> 暂无数据
+                </div>
+              </li>
+            </ul>
+          </div>
+          <ul>
+            <li>
+              <div>
+                <div class="number"><span class="font-18">{{item.wt}}</span> ms</div>
+                <div class="text">响应时间</div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="number"><span class="font-18">{{item.rpm}}</span>rpm</div>
+                <div class="text">吞吐率</div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="number"><span class="font-18">{{item.error_rate}}</span>%</div>
+                <div class="text">错误率</div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="number"><span class="font-18">{{item.error_count}}</span></div>
+                <div class="text">错误数</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <!--分页-->
+    <div class="pager-widget">
+      <div class="pager-widget">
+        <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+        <div class="PageList" oc-lazy-load="['pageList']">
+          <div page-list change="changeSqlList(currentPage,perPage)" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+        </div>
+      </div>
+    </div>
+

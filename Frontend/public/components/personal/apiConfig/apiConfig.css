@@ -1,0 +1,200 @@
+#apiConfig .tsb-box-show {
+  background: #2e2e2e;
+  padding-bottom: 0px;
+}
+#apiConfig .tsb-box-show .form-horizontal {
+  width: 750px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+#apiConfig .tsb-box-show .form-horizontal .form-group {
+  margin-bottom: 20px;
+}
+#apiConfig .tsb-box-show .form-horizontal .action {
+  color: #4FABFC;
+  margin-top: 5px;
+  text-align: left;
+}
+#apiConfig .tsb-box-show .form-horizontal .action .action-copy-hover {
+  vertical-align: middle;
+}
+#apiConfig .tsb-box-show .widget {
+  min-height: 150px;
+}
+#apiConfig .tsb-box-show .instruct {
+  background: #3f3f3f;
+  color: #CDCBCB;
+}
+#apiConfig .host-bg {
+  background: url(../../../img/config/host.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 70px;
+  height: 22px;
+  vertical-align: top;
+  margin-top: 20px;
+}
+#apiConfig .browser-bg {
+  background: url(../../../img/config/browser.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 98px;
+  height: 22px;
+  vertical-align: top;
+  margin-top: 18px;
+}
+#apiConfig .mobile-bg {
+  background: url(../../../img/config/mobile.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 85px;
+  height: 24px;
+  vertical-align: top;
+  margin-top: 18px;
+}
+#apiConfig .java-bg {
+  background: url(../../../img/config/java.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 71px;
+  height: 26px;
+  vertical-align: top;
+  margin-top: 15px;
+}
+#apiConfig .php-bg {
+  background: url(../../../img/config/php.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 69px;
+  height: 22px;
+  vertical-align: top;
+  margin-top: 20px;
+}
+#apiConfig .net-bg {
+  background: url(../../../img/config/net.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 76px;
+  height: 23px;
+  vertical-align: top;
+  margin-top: 17px;
+}
+#apiConfig .python-bg {
+  background: url(../../../img/config/python.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 105px;
+  height: 33px;
+  vertical-align: top;
+  margin-top: 13px;
+}
+#apiConfig .nodeJs-bg {
+  background: url(../../../img/config/nodeJs.png) no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 83px;
+  height: 23px;
+  vertical-align: top;
+  margin-top: 20px;
+}
+#apiConfig .ul-list {
+  display: block;
+  height: 60px;
+  margin: 0;
+}
+#apiConfig .ul-list > li {
+  width: 148px;
+  float: left;
+  text-align: center;
+  margin: 5px auto;
+  padding: 0 10px;
+}
+#apiConfig .ul-list > li > a {
+  background: #3e3e3e;
+  height: 60px;
+  line-height: 60px;
+  border: 1px solid #535353;
+  border-radius: 6px;
+  display: block;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .host-bg,
+#apiConfig .ul-list li.active > a .host-bg {
+  background: url(../../../img/config/host-hover.png) no-repeat;
+  background-size: 100%;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .browser-bg,
+#apiConfig .ul-list li.active > a .browser-bg {
+  background: url(../../../img/config/browser-hover.png) no-repeat;
+  background-size: 100%;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .mobile-bg,
+#apiConfig .ul-list li.active > a .mobile-bg {
+  background: url(../../../img/config/mobile-hover.png) no-repeat;
+  background-size: 100%;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .java-bg,
+#apiConfig .ul-list li.active > a .java-bg {
+  background: url(../../../img/config/java-hover.png) no-repeat;
+  background-size: 100%;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .php-bg,
+#apiConfig .ul-list li.active > a .php-bg {
+  background: url(../../../img/config/php-hover.png) no-repeat;
+  background-size: 100%;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .net-bg,
+#apiConfig .ul-list li.active > a .net-bg {
+  background: url(../../../img/config/net-hover.png) no-repeat;
+  background-size: 100%;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .python-bg,
+#apiConfig .ul-list li.active > a .python-bg {
+  background: url(../../../img/config/python-hover.png) no-repeat;
+  background-size: 100%;
+}
+#apiConfig .ul-list li:hover > a,
+#apiConfig .ul-list li.active > a {
+  border-color: #4FABFC;
+}
+#apiConfig .ul-list li:hover > a .nodeJs-bg,
+#apiConfig .ul-list li.active > a .nodeJs-bg {
+  background: url(../../../img/config/nodeJs-hover.png) no-repeat;
+  background-size: 100%;
+}
+
+
+#api.form-control[disabled],#inputPassword2.form-control[disabled]{
+  background-color: #222;
+  opacity: 1;
+}
+#ZeroClipboardMovie_1{
+  margin-top: -13px;
+}

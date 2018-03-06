@@ -1,0 +1,26 @@
+#surfSearch{
+	float: left;
+    margin: 8px 5px;
+}
+.table-bordered{
+	border: 0;
+}
+.table-bordered thead th{
+	color: #9B9B9B;
+}
+.table-bordered thead,.table-bordered thead th,.table-bordered td{
+	border: 0;	
+}
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td{
+	border: 0;
+}
+
+#requestSlowestSql .download{
+	background: url(../../../../img/download.png) no-repeat;
+	background-size: 32px;
+}
+
+#requestQuickSqlSencond .download{
+	background: url(../../../../img/download.png) no-repeat;
+	background-size: 32px;
+}

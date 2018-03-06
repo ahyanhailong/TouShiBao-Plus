@@ -1,0 +1,107 @@
+#contrast{
+  color: #CDCBCB;
+}
+
+#contrast .contrast-content {
+  position: relative;
+  width: 1366px;
+  height: 900px;
+  color: #ffffff;
+  font-family: SimHei, '榛戜綋', Helvetica, "Microsoft Yahei", Arial, sans-serif;
+  background: #222;
+  z-index: 11;
+
+
+}
+
+#contrast #contrast-wrap {
+
+  margin-top: 24px;
+  border-radius: 4px;
+}
+
+#contrast .contrast-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*left*/
+#contrast .left-content{
+  width: 25%; float: left; background: #232323;-moz-box-shadow:-2px 2px 15px #000;
+  -webkit-box-shadow:-2px 2px 15px #000; box-shadow:-2px 2px 15px #000;  border-radius: 4px;padding-bottom: 40px;
+}
+#contrast .left-content .tsb-dropDown ul.tsb-dropDown-content li{
+  position: relative;}
+#contrast .left-content .tsb-dropDown ul.tsb-dropDown-content li i.icon-key{
+  position: absolute;
+  left: -24px;
+  top: 10px;
+}
+/*right*/
+#contrast .right-content{width: 75%; float: left;
+  padding-bottom: 15px;
+}
+#contrast .right-content >.margin-l-16{
+  background: #232323;-moz-box-shadow:-2px 2px 15px #000;
+  -webkit-box-shadow:-2px 2px 15px #000; box-shadow:-2px 2px 15px #000;  border-radius: 4px;padding-bottom: 40px;
+}
+#contrast .right-content .widget{
+  padding-bottom: 50px;
+  padding: 0 16px 50px 16px;
+}
+#contrast .right-content .time-range{
+  font-size: 14px;color: #BAB9B9;
+  padding-top: 10px;
+}
+#contrast .right-content .time-range > li{
+  float: left;
+  height: 32px;
+  line-height: 32px;
+}
+#contrast .right-content .time-range > li:nth-child(1){
+  width: 10%;
+}
+#contrast .right-content .time-range > li:nth-child(2){
+  width: 35%;
+}
+#contrast .right-content .time-range > li:nth-child(3){
+  width: 50%;
+}
+#contrast .right-content .time-range > li:nth-child(4){
+  width: 5%;
+}
+#contrast .right-content .tsb-btn-group .btn-default{
+  width: 123px;
+}
+#contrast .right-content .time-range > li > div.line{
+  height: 1px ;border: 1px solid #393939;overflow:hidden; width: 100%;
+  margin-top: 15px;
+}
+#contrast .right-content .chart-box{
+  padding-top: 30px;
+}
+#contrast .right-content .chart-box >li{
+  width: 33.333%; float: left
+}
+#contrast .right-content .chart-box >li>div{height: 233px;margin: 0 16px;}
+
+#requestCount1,#requestCount1>.block-content,#repTime1,#repTime1>.block-content,#errorCount1,#errorCount1>.block-content{
+  margin-top: 0;
+  height:233px;
+  min-height: 233px;
+  box-shadow: none;
+}
+#requestCount2,#requestCount2>.block-content,#repTime2,#repTime2>.block-content,#errorCount2,#errorCount2>.block-content{
+  margin-top: 0;
+  height:233px;
+  min-height: 233px;
+  box-shadow: none;
+}
+/*时间控件样式*/
+.main_filter_time > a {
+  height: 20px;
+  line-height: 20px;
+}

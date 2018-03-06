@@ -1,0 +1,229 @@
+
+<div class="tsb-texture-title">
+    <!-- Nav tabs -->
+    <ul id="myTabs" class="nav nav-tabs pull-left" role="tablist">
+        <li role="presentation" class="active"><a href="{{btnHref('performance')}}" >性能分析</a></li>
+        <li>|</li>
+        <li role="presentation"><a href="{{btnHref('error')}}">错误</a></li>
+    </ul>
+    <a ng-click="backDefault()" class="btn-back backTrigger" >
+        <i class="fa fa-angle-left"></i> 返回外部服务页
+    </a>
+</div>
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="performance">
+        <!--吞吐率及响应时间趋势（TOP5）-->
+        <div class="widget">
+            <ul class="time-range clearfix">
+                <li>吞吐率及响应时间趋势（TOP5）</li>
+                <li>
+                    <div class="line"></div>
+                </li>
+            </ul>
+            <ul class="clearfix chart-box" >
+                <li>
+                    <div>
+                        <div class="block block-chart"id="rspRespTime" >
+                            <div class="block-content" data-chart></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--调用者耗时百分比（TOP5）-->
+        <div class="widget">
+            <ul class="time-range clearfix">
+                <li>调用者耗时百分比（TOP5）</li>
+                <li>
+                    <div class="line"></div>
+                </li>
+            </ul>
+            <ul class="clearfix chart-box chart-box-small " >
+                <li>
+                    <div>
+                        <div class="block block-chart"id="caller" >
+                            <div class="block-content" data-chart=""></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--调用者列表-->
+        <div class="widget">
+            <ul class="time-range clearfix">
+                <li>调用者列表</li>
+                <li>
+                    <div class="line"></div>
+                </li>
+            </ul>
+            <div  class="margin-t-30">
+                <div class="block block-table" id="cellerList">
+                    <div class="block-content" data-table>
+                        <table class="table table-no-bg">
+                            <thead>
+                                <tr>
+                                    <th width="10%" data-item="order">序号</th>
+                                    <th width="38%" data-item="uri">事务</th>
+                                    <!--<th width="20%" data-item="db_curd"> 响应时间占比<span class="table-column-sorter"><a class="fa fa-caret-up"  href="javascript:void(0)"></a><a class="fa fa-caret-down" href="javascript:void(0)"></a></span></th>-->
+                                    <th width="20%" data-item="percent"> 响应时间占比<i class="fa fa-sort fa-sort-desc"></i></th>
+
+                                    <th width="20%" data-item="ct">平均响应时间<i class="fa fa-sort"</i></th>
+                                    <th width="12%" data-item="count" class="text-right">发生次数<i class="fa fa-sort"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td class="text-ellipsis">/update/huiyicourse/series_detail</td>
+                                    <td>7.24%</td>
+                                    <td>270.86ms</td>
+                                    <td class="text-right">108次</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="text-ellipsis">/update/huiyicourse/series_detail</td>
+                                    <td>7.24%</td>
+                                    <td>270.86ms</td>
+                                    <td class="text-right">108次</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+                <div class="PageList" oc-lazy-load="['pageList']">
+                    <div page-list change="changeSqlList(currentPage,perPage)" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="errorRate">
+        <!--网络错误率-->
+        <div class="widget">
+            <ul class="time-range clearfix">
+                <li>网络错误率（TOP5）</li>
+                <li>
+                    <div class="line"></div>
+                </li>
+            </ul>
+            <ul class="clearfix chart-box" >
+                <li>
+                    <div style="border: 1px solid red;"></div>
+                </li>
+            </ul>
+        </div>
+        <!--错误列表-->
+        <div class="widget">
+            <ul class="time-range clearfix error-list">
+                <li>网络错误率（TOP5）</li>
+                <li>
+                    <div class="line"></div>
+                </li>
+                <li>
+                    <div class="tsb-search tsb-search-i">
+                        <input class="input-search" placeholder="按事务名称搜索">
+                        <i class="icon-search pos-a"></i>
+                    </div>
+                </li>
+            </ul>
+            <div class="margin-t-30">
+                <table class="table table-no-bg">
+                    <thead>
+                    <tr>
+                        <th width="8%">序号</th>
+                        <th width="16%">第一次发生时间</th>
+                        <th width="16%">
+                            最后一次发生时间
+                        </th>
+                        <th width="15%">
+                            事务
+                        </th>
+                        <th width="30%">消息</th>
+                        <th width="15%" class="text-right">
+                            发生次数
+                            <span class="table-column-sorter">
+                <a class="fa fa-caret-up"  href="javascript:void(0)"></a>
+                <a class="fa fa-caret-down" href="javascript:void(0)"></a>
+              </span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2017-10-13 15：53</td>
+                        <td>2017-10-13 15：53</td>
+                        <td><a href="">/update/huiyicourse</a></td>
+                        <td>update/huiyicourseu pdate/huiyicour seupdate/huiyi courseupdate/huiyicourseup date/huiyicourseupdate/huiyicourse</td>
+                        <td class="text-right">108次</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2017-10-13 15：53</td>
+                        <td>2017-10-13 15：53</td>
+                        <td><a href="">/update/huiyicourse</a></td>
+                        <td>update/huiyicourseu pdate/huiyicour seupdate/huiyi courseupdate/huiyicourseup date/huiyicourseupdate/huiyicourse</td>
+                        <td class="text-right">108次</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>2017-10-13 15：53</td>
+                        <td>2017-10-13 15：53</td>
+                        <td><a href="">/update/huiyicourse</a></td>
+                        <td>update/huiyicourseu pdate/huiyicour seupdate/huiyi courseupdate/huiyicourseup date/huiyicourseupdate/huiyicourse</td>
+                        <td class="text-right">108次</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>2017-10-13 15：53</td>
+                        <td>2017-10-13 15：53</td>
+                        <td><a href="">/update/huiyicourse</a></td>
+                        <td>update/huiyicourseu pdate/huiyicour seupdate/huiyi courseupdate/huiyicourseup date/huiyicourseupdate/huiyicourse</td>
+                        <td class="text-right">108次</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>2017-10-13 15：53</td>
+                        <td>2017-10-13 15：53</td>
+                        <td><a href="">/update/huiyicourse</a></td>
+                        <td>update/huiyicourseu pdate/huiyicour seupdate/huiyi courseupdate/huiyicourseup date/huiyicourseupdate/huiyicourse</td>
+                        <td class="text-right">108次</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="pager-widget">
+                    <div class="btn-group tsb-btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            5条 <span class="fa fa-angle-down"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)">5条</a></li>
+                            <li><a href="javascript:void(0)">10条</a></li>
+                        </ul>
+                    </div>
+                    <div class="total-number">
+                        共123,234条
+                    </div>
+                    <nav class="pager-box">
+                        <ul class="pager">
+                            <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
+                            <li><a href="javascript:void(0)"> 1 </a></li>
+                            <li><a href="javascript:void(0)"  class="current"> 2 </a></li>
+                            <li><a href="javascript:void(0)" > 3 </a></li>
+                            <li><a href="javascript:void(0)" > 4 </a></li>
+                            <li><a href="javascript:void(0)" > 5 </a></li>
+                            <li>...</li>
+                            <li><a href="javascript:void(0)" > 23 </a></li>
+                            <li><a href="javascript:void(0)" > 24 </a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

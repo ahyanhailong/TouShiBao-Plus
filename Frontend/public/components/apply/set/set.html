@@ -1,0 +1,453 @@
+<div id="set">
+    <div class="content_title" oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js','./public/components/apply/applyDirective/applyTimer.js']" style="padding-right: 16px; padding-left: 16px;">
+        <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+        <!--日期过滤-->
+        <div style="line-height: 32px;float: right;margin-top: 4px;" apply-timer></div>
+    </div>
+    <div class="padding-lr-16">
+        <!--标题-->
+        <div class="header-title">
+            <br/>
+
+            <div class="form-group">
+                <label>应用名称:</label>
+                <span ng-show="!isUpdateName" class="margin-l-5">
+                    {{allSet.app_name}}
+                    <a href="#" class="action-edit-pen" ng-click="updateName($event)"></a>
+                </span>
+
+                <span ng-show="isUpdateName">
+                    <input type="text" class="form-control" ng-model="allSet.app_name" placeholder="应用名称">
+                    <button class="btn btn-blue border-radius20" ng-click="saveUpdateName()">保存</button>
+                    <button class="btn btn-gray border-radius20" ng-click="updateName($event)">取消</button>
+                </span>
+            </div>
+        </div>
+        <!--标题-->
+        <div class="clearfix margin-b-16">
+            <div class="set-widget">
+                <div class="col-md-6">
+                    <div class="tsb-box-show">
+                        <div class="tsb-texture-title">
+                            事务设置
+                            <div class="tsb-btn-group pull-right">
+                                <button class="btn btn-blue border-radius20" ng-click="basicSave()">保存</button>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-yellow"></i>缓慢</li>
+                                <li class="col-md-2">大于等于</li>
+                                <li class="col-md-4">
+                                    <div class="btn-group tsb-btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span>{{allSet.basic_setting.slow+'ms'}}</span> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li ng-repeat="msItem in msSelect"
+                                                ng-click="basicChange(msItem,'slow')"><a href="javascript:void(0)">{{msItem.name}}</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-orange"></i>非常缓慢</li>
+                                <li class="col-md-2">大于</li>
+                                <li class="col-md-4">
+                                    <div class="btn-group tsb-btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span>{{allSet.basic_setting.very_slow+'ms'}}</span> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li ng-repeat="msItem in msSelect"
+                                                ng-click="basicChange(msItem,'very_slow')"><a href="javascript:void(0)">{{msItem.name}}</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tsb-box-show">
+                        <div class="tsb-texture-title">
+                            拓扑图设置
+                            <div class="tsb-btn-group pull-right">
+                                <button class="btn btn-blue border-radius20" ng-click="topoSave()">保存</button>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <p class="help-block">拓扑图中应用的状态与事务设置相关，配置以下参数会在运行过慢或者出错时标识应用的健康状态</p>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-yellow"></i>缓慢</li>
+                                <li class="col-md-10">
+                                    <span class="pull-left margin-r-10">选定时间段内有</span>
+                  <span class="pull-left margin-r-10 pos-r">
+                    <input ng-model="allSet.topo_setting.slow" type="text" class="form-control w-86"/>
+                    <i class="text-percent">%</i>
+                  </span>
+                                    <span class="pull-left">的事务慢于事务所设置的最低参数的时候</span>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-orange2"></i>非常缓慢</li>
+                                <li class="col-md-10">
+                                    <span class="pull-left margin-r-10">选定时间段内有</span>
+                  <span class="pull-left margin-r-10 pos-r">
+                    <input ng-model="allSet.topo_setting.very_slow" type="text" class="form-control w-86"/>
+                    <i class="text-percent">%</i>
+                  </span>
+                                    <span class="pull-left">的事务慢于事务所设置的最低参数的时候</span>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-red"></i>错误</li>
+                                <li class="col-md-10">
+                                    <span class="pull-left margin-r-10">选定时间段内有</span>
+                  <span class="pull-left margin-r-10 pos-r">
+                    <input ng-model="allSet.topo_setting.error" type="text" class="form-control w-86"/>
+                    <i class="text-percent">%</i>
+                  </span>
+                                    <span class="pull-left">的事务慢于事务所设置的最低参数的时候</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix margin-b-16">
+            <div class="set-widget">
+                <div class="col-md-6">
+                    <div class="tsb-box-show">
+                        <div class="tsb-texture-title">
+                            主机设置
+                            <div class="tsb-btn-group pull-right">
+                                <button class="btn btn-blue border-radius20" ng-click="hostSave()">保存</button>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <ul class="row">
+                                <li class="col-md-10">
+                                    指标类型：
+                                    <div class="btn-group tsb-btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span>{{hostSelect[allSet.host_setting.type]}}</span> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li ng-repeat="(type,name) in hostSelect"
+                                                ng-click="hostChange(type)"><a href="javascript:void(0)">{{name}}</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-orange2"></i>警告</li>
+                                <li class="col-md-2">大于等于</li>
+                                <li class="col-md-4">
+                                    <span class="pos-r pull-left">
+                    <input ng-model="allSet.host_setting.warning" type="text" class="form-control w-148">
+                    <i class="text-percent">%</i>
+                  </span>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-orange"></i>严重警告</li>
+                                <li class="col-md-2">大于</li>
+                                <li class="col-md-4">
+                  <span class="pos-r pull-left">
+                    <input ng-model="allSet.host_setting.fatal_warning" type="text" class="form-control w-148">
+                    <i class="text-percent">%</i>
+                  </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tsb-box-show">
+                        <div class="tsb-texture-title">
+                            SQL设置
+                            <div class="tsb-btn-group pull-right">
+                                <button class="btn btn-blue border-radius20" ng-click="sqlSave()">保存</button>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-yellow"></i>缓慢</li>
+                                <li class="col-md-2">大于等于</li>
+                                <li class="col-md-4">
+                                    <div class="btn-group tsb-btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span>{{allSet.sql_setting.slow+'ms'}}</span> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li ng-repeat="msItem in msSelect"
+                                                ng-click="sqlChange(msItem,'slow')"><a href="javascript:void(0)">{{msItem.name}}</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-orange"></i>非常缓慢</li>
+                                <li class="col-md-2">大于</li>
+                                <li class="col-md-4">
+                                    <div class="btn-group tsb-btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span>{{allSet.sql_setting.very_slow+'ms'}}</span> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li ng-repeat="msItem in msSelect"
+                                                ng-click="sqlChange(msItem,'very_slow')"><a href="javascript:void(0)">{{msItem.name}}</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix margin-b-16">
+            <div class="set-widget">
+                <div class="col-md-6">
+                    <div class="tsb-box-show">
+                        <div class="tsb-texture-title">
+                            数据库表设置
+                            <div class="tsb-btn-group pull-right">
+                                <button class="btn btn-blue border-radius20" ng-click="dbSave()">保存</button>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <p class="help-block">SQL操作时间作为判断</p>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-yellow"></i>缓慢</li>
+                                <li class="col-md-10">
+                                    <span class="pull-left margin-r-10" style="width: 170px;">缓慢SQL数量占比大于等于</span>
+                  <span class="pull-left margin-r-10 pos-r">
+                    <input ng-model="allSet.db_setting.slow" type="text" class="form-control" value="20" style="width: 86px;"/>
+                    <i class="text-percent">%</i>
+                  </span>
+                                    <span class="pull-left">时</span>
+                                </li>
+                            </ul>
+                            <ul class="row">
+                                <li class="col-md-2"><i class="icon-square-orange2"></i>非常缓慢</li>
+                                <li class="col-md-10">
+                                    <span class="pull-left margin-r-10" style="width: 170px;">非常缓慢SQL数量占比大于等于</span>
+                  <span class="pull-left margin-r-10 pos-r">
+                    <input ng-model="allSet.db_setting.very_slow" type="text" class="form-control" value="20" style="width: 86px;"/>
+                    <i class="text-percent">%</i>
+                  </span>
+                                    <span class="pull-left">时</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--异常白名单-->
+        <div class="clearfix margin-b-16">
+            <div class="tsb-box-show">
+                <div class="tsb-texture-title">
+                    异常白名单
+                </div>
+                <div class="widget padding-16">
+                    <div class="add-box">
+                        <span class="help-block pull-left">异常白名单，设置为白名单的异常将不被统计</span>
+
+                        <div class="btn-group tsb-btn-group pull-right" id="js_exception_box">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-add"></i> 添加异常
+                            </button>
+                            <ul class="dropdown-menu" tsb-noclick='true'>
+                                <li>
+                                    <div class="title">
+                                        <div class="pull-left">添加异常</div>
+                                        <div class="pull-right margin-t-6">
+                                            <button data-toggle="dropdown" ng-click="saveException()"
+                                                    class="btn btn-blue border-radius4 pull-left margin-r-10 btn-ok">保存
+                                            </button>
+                                            <button data-toggle="dropdown" ng-click="cancelException()"
+                                                    class="btn btn-gray border-radius4 pull-left btn-cancel">取消
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <form class="form-horizontal">
+                                        <div class="combine">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">添加异常条件：</label>
+
+                                                <div class="col-sm-8">
+                                                    <div class="tsb-search tsb-search-i pull-left" exception-search>
+                                                        <input class="input-search" ng-model="currentException.description" placeholder="请输入要加入白名单的异常信息，非关键字部分用*替代">
+                                                        <i class="icon-search pos-a"></i>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <p class="help-block">您可以对异常信息中的非关键字部分用*占位，关键字部分用文字或字母显示，具体示例参看页面下方。</p>
+
+                                                    <div class="search-box" ng-show="searchExceptionList.length>0">
+                                                        <div>
+                                                            <div class="pull-left">满足条件的异常</div>
+                                                            <div class="pull-right">共 {{searchExceptionList.length}} 条</div>
+                                                        </div>
+                                                        <ul>
+                                                            <li ng-repeat="sItem in searchExceptionList">{{sItem}}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group example">
+                                                <label class="col-sm-3 control-label">示例：</label>
+
+                                                <div class="col-sm-9">
+                                                    <div class="example-widget pull-left">
+                                                        <div class="margin-b-16">示例一</div>
+                                                        <ul>
+                                                            <li>异常信息为：</li>
+                                                            <li class="margin-b-16">java.lang.Exception: --test exception !@#$%^&*()"+_? --</li>
+                                                            <li class="margin-b-16">如果您需要将所有包含java.lang.Exception异常加入白名单，可以输入：</li>
+                                                        </ul>
+                                                        <p>*java.lang.Exception*</p>
+                                                    </div>
+                                                    <div class="example-widget pull-left">
+                                                        <div class="margin-b-16">示例二</div>
+                                                        <ul>
+                                                            <li>异常信息为：</li>
+                                                            <li class="margin-b-16">java.lang.Exception: --test exception !@#$%^&*()"+_? --</li>
+                                                            <li class="margin-b-16">如果您需要将所有包含java.lang.Exception异常加入白名单，可以输入：</li>
+                                                        </ul>
+                                                        <p>*java.lang.Exception</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <app-table-list config="exceptionTable"></app-table-list>
+
+                </div>
+            </div>
+        </div>
+        <!--异常白名单-->
+
+        <!--HTTP状态码白名单设置-->
+        <div class="clearfix margin-b-16">
+            <div class="tsb-box-show">
+                <div class="tsb-texture-title">
+                    HTTP状态码白名单设置
+                </div>
+                <div class="widget padding-16">
+                    <div class="add-box">
+                        <span class="help-block pull-left">HTTP状态码白名单，设置为白名单的HTTP状态码将不统计为错误，默认400以上为错误HTTP状态码。</span>
+
+                        <div class="btn-group tsb-btn-group pull-right" id="js_error_box">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-add"></i> 添加状态码
+                            </button>
+                            <ul class="dropdown-menu" tsb-noclick='true'>
+                                <li>
+                                    <div class="title">
+                                        <div class="pull-left">添加状态码</div>
+                                        <div class="pull-right margin-t-6">
+                                            <button data-toggle="dropdown"
+                                                    ng-click="saveError($event)"
+                                                    class="btn btn-blue border-radius4 pull-left margin-r-10 btn-ok">保存
+                                            </button>
+                                            <button data-toggle="dropdown" class="btn btn-gray border-radius4 pull-left btn-cancel">取消</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <form class="form-horizontal">
+                                        <div class="combine">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">添加HTTP状态码：</label>
+
+                                                <div class="col-sm-9">
+                                                    <input ng-model="currentError.error_code" class="form-control w-340" placeholder="请输入需忽略的HTTP状态码">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">影响请求范围：</label>
+
+                                                <div class="col-sm-9 request-scope">
+                                                    <div class="left-content">
+                                                        <div class="tsb-search tsb-search-i" uri-search>
+                                                            <input ng-model="searchUriVal" class="input-search" placeholder="按请求名称搜索">
+                                                            <i class="icon-search pos-a"></i>
+                                                        </div>
+                                                        <ul class="ul-list">
+                                                            <li>
+                                                                <div class="checkbox-check">
+                                                                    <input type="checkbox" id="all_check_left"
+                                                                           ng-checked="allCheckLeft"
+                                                                           ng-init="allCheckLeft=false" ng-click="allCheck('left',allCheckLeft);allCheckLeft=!allCheckLeft">
+                                                                    <label for="all_check_left">请求</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <ul class="subUl-list">
+                                                                    <li ng-repeat="uriItem in errorUriList">
+                                                                        <div class="checkbox-check" ng-click="checkUri(uriItem,'left')">
+                                                                            <input ng-checked="checked.left[uriItem]" type="checkbox" name="errorUriList" id="{{uriItem}}">
+                                                                            <label for="{{uriItem}}">{{uriItem}}</label>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="center-content">
+                                                        <button type="button" class="btn btn-gray margin-b-16" ng-click="addUrl()">添加&nbsp;&nbsp;></button>
+                                                        <button type="button" class="btn btn-gray" ng-click="removeUrl()"><&nbsp;&nbsp;移除</button>
+                                                    </div>
+
+                                                    <div class="right-content">
+                                                        <ul class="ul-list">
+                                                            <li>
+                                                                <div class="checkbox-check">
+                                                                    <input type="checkbox" id="all_check_right"
+                                                                           ng-checked="allCheckRight"
+                                                                           ng-init="allCheckRight=false" ng-click="allCheck('right',allCheckRight);allCheckRight=!allCheckRight">
+                                                                    <label for="all_check_right">请求</label>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <ul class="subUl-list">
+                                                                    <li ng-repeat="uriItem in currentError.uri">
+                                                                        <div class="checkbox-check" ng-click="checkUri(uriItem,'right')">
+                                                                            <input ng-checked="checked.right[uriItem]" type="checkbox" name="currentError" id="{{uriItem+1}}">
+                                                                            <label for="{{uriItem+1}}">{{uriItem}}</label>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <app-table-list config="errorTable"></app-table-list>
+                </div>
+            </div>
+        </div>
+        <!--HTTP状态码白名单设置-->
+    </div>
+</div>

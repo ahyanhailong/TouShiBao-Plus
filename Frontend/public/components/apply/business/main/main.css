@@ -1,0 +1,9 @@
+#default-page .text-ellipsis {
+  display: block;
+}
+#default-page .modal-body {
+  padding: 0 15px;
+}
+#default-page .modal-body table {
+  margin-bottom: 0;
+}

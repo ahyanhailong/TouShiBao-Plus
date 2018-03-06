@@ -1,0 +1,196 @@
+<div id="topology">
+    <div class="content_title" style="padding-right: 16px; padding-left: 16px;"
+         oc-lazy-load="['dateTime', 'breadCrumbs']">
+        <!--面包屑-->
+        <div oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js']" style="padding-right: 16px; padding-left: 16px;">
+            <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+        </div>
+        <!--日期过滤-->
+        <div style="line-height: 32px;float: right;margin-top: 4px;" timer-start-time="start_time1" timer-end-time="end_time1" timer></div>
+    </div>
+    <!--拓扑内容start-->
+    <div class="padding-lr-16 tsb-main">
+        <div class="clearfix margin-b-16">
+            <!--拓扑图 模块-->
+            <div class="left-content">
+                <div class="block block-chart noDefault" style="height: 100%;" id="Topu">
+                    <div class="block-content" style="height: 100%;">
+                        <div class="block-content topo-chart"
+                             vis-topo id="vis-topo"
+                             data="topoData"
+                             click="topoClick(event,topo)"
+                             dragging="topoDragging(event,nodesPositionArr)"
+                             dragEnd="topoDragEnd(event,nodesPositionArr)"
+                             style="height: 100%">
+                        </div>
+                        <div id="pop_up" class="block block-table" node_id="m:10.0.2.24:5688">
+                            <button type="button" class="close close_pop_up" ng-click="closePope(event)"><span class="">x</span></button>
+                            <div class="" style="line-height:30px;height: 30px;">{{nodesMsg.label}}</div>
+                            <div class="" data-table="">
+                                <table class="table table-hover table-list">
+                                    <thead>
+                                    <tr>
+                                        <th data-item="app_name">应用名称</th>
+                                        <th data-item="dbname">数据库名称</th>
+                                        <th data-item="resp_time" data-tip="ms">平均响应时间</th>
+                                        <th data-item="request">请求次数</th>
+                                        <th data-item="rpm">请求次数/分钟</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in topoModelTableMsg">
+                                            <td>{{item.app_name}}</td>
+                                            <td><a href="/app/sqldb/overview/8175313882515191?db_name=Mysql&amp;dbn_raw=hotel_order_list&amp;instance_raw=10.0.2.24:5688">{{item.db_name}}</a></td>
+                                            <td>{{item.resp_time}}ms</td>
+                                            <td>{{item.request}} </td>
+                                            <td>{{item.rpm}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--拓扑图 模块-->
+            <!--应用模块-->
+            <div class="right-content">
+                <div class="tsb-box-show">
+                    <div class="tsb-texture-title text-ellipsis">
+                        应用：myappnamemyappnamemyappniuuiuiy34ame
+                    </div>
+                    <div class="padding-16">
+                        <!--请求统计-->
+                        <div class="widget">
+                            <div class="widget-title">
+                                请求统计
+                                <span class="pull-right">共{{requestStatisData.normal+requestStatisData.slow+requestStatisData.very_slow+requestStatisData.error_count}}次</span>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="ul-list clearfix">
+                                    <li>
+                                        <div class="div-box">
+                                            <div class="title">
+                                                <div class="line"></div>
+                                                <h3 class="color-green">正常</h3>
+                                            </div>
+                                            <div class="content">
+                                                <div class="number clearfix">
+                                                    <span>{{requestStatisData.normal_rate}}%</span>
+                                                    <span>{{requestStatisData.normal | filterCount}}次</span>
+                                                </div>
+                                                <div class="progress progress-small-s">
+                                                    <div class="progress-bar progress-bar-green" style="width: {{requestStatisData.normal_rate}}%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="div-box">
+                                            <div class="title">
+                                                <div class="line"></div>
+                                                <h3 class="color-yellow">缓慢</h3>
+                                            </div>
+                                            <div class="content">
+                                                <div class="number clearfix">
+                                                    <span>{{requestStatisData.slow_rate}}%</span>
+                                                    <span>{{requestStatisData.slow | filterCount}}次</span>
+                                                </div>
+                                                <div class="progress progress-small-s">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: {{requestStatisData.slow_rate}}%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="div-box">
+                                            <div class="title">
+                                                <div class="line"></div>
+                                                <h3 class="color-orange">非常缓慢</h3>
+                                            </div>
+                                            <div class="content">
+                                                <div class="number clearfix">
+                                                    <span>{{requestStatisData.very_slow_rate}}%</span>
+                                                    <span>{{requestStatisData.very_slow | filterCount}}次</span>
+                                                </div>
+                                                <div class="progress progress-small-s">
+                                                    <div class="progress-bar progress-bar-orange" style="width: {{requestStatisData.very_slow_rate}}%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="div-box">
+                                            <div class="title">
+                                                <div class="line"></div>
+                                                <h3 class="color-red">错误</h3>
+                                            </div>
+                                            <div class="content">
+                                                <div class="number clearfix">
+                                                    <span>{{requestStatisData.error_rate}}%</span>
+                                                    <span>{{requestStatisData.error_count | filterCount}}次</span>
+                                                </div>
+                                                <div class="progress progress-small-s">
+                                                    <div class="progress-bar progress-bar-red" style="width: {{requestStatisData.error_rate}}%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--请求数-->
+                        <div class="widget">
+                            <div class="widget-title">
+                                请求数
+                                <span class="pull-right">{{requestCountData.sum}}次  &nbsp;&nbsp; {{requestCountData.rpm}}次/分钟</span>
+                            </div>
+                            <div class="widget-content">
+                                <div class="block block-chart noDefault" id="requestCount">
+                                    <div class="block-content" data-chart>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--响应时间-->
+                        <div class="widget">
+                            <div class="widget-title">
+                                响应时间
+                                <span class="pull-right">平均值：{{repTimeData.title_avg}}ms</span>
+                            </div>
+                            <div class="widget-content">
+                                <div class="block block-chart noDefault" id="respTime">
+                                    <div class="block-content" data-chart>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--错误-->
+                        <div class="widget">
+                            <div class="widget-title">
+                                错误
+                                <span class="pull-right">{{ErrorData.sum}}次  &nbsp;&nbsp; {{ErrorData.rpm}}次/分钟</span>
+                            </div>
+                            <div class="widget-content">
+                                <div class="block block-chart noDefault" id="errorCount">
+                                    <div class="block-content" data-chart>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--应用模块-->
+        </div>
+    </div>
+    <!--拓扑内容end-->
+</div>

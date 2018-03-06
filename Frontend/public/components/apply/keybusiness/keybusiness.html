@@ -1,0 +1,12 @@
+<div id="keyBusiness">
+  <div class="content_title" style="padding-right: 16px; padding-left: 16px;"
+       oc-lazy-load="['dateTime', 'breadCrumbs']">
+    <!--面包屑-->
+    <div oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js']" style="padding-right: 16px; padding-left: 16px;">
+      <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+    </div>
+    <!--日期过滤-->
+    <div style="line-height: 32px;float: right;margin-top: 4px;" timer-start-time="start_time1" timer-end-time="end_time1" timer></div>
+  </div>
+  <div ui-view></div>
+</div>

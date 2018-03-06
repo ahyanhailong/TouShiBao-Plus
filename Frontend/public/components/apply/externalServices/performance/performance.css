@@ -1,0 +1,24 @@
+
+#rspRespTime{
+    box-shadow: none;
+    height: 420px;
+    min-height: 420px;
+    margin-top: 0;
+}
+#caller{
+    box-shadow: none;
+    height: 300px;
+    min-height: 300px;
+    margin-top: 0;
+}
+#caller>.block-content{
+    height: 300px;
+    min-height: 300px;
+}
+#rspRespTime>.block-content{
+    height: 420px;
+    min-height: 420px;
+}
+#cellerList{
+    box-shadow: none;
+}

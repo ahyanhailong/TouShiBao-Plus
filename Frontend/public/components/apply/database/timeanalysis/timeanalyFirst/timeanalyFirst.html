@@ -1,0 +1,53 @@
+<div class="block block-chart" id="databaseTrend">
+    <div class="block-title">数据库趋势图</div>
+
+    <div class="block-content" id="databaseTrendCont" data-chart style="min-height: 324px;height: 324px;">  </div>
+</div>
+<div class="block block-chart" id="timeDistribution">
+    <div class="block-title">时间分布</div>
+
+    <div class="block-content" data-chart style="min-height: 324px;height: 324px;">  </div>
+</div>
+<div class="clearfix"></div>
+<div class="block block-table" id="requestSlowestSql" ng-show="!callerOccupy" style="background: #4A4A4A;margin-bottom: 50px;">
+    <div class="block-title">SQL列表
+   	 	<div class="download" style="width: 32px;height: 32px;float: right;margin: 3px 0 0 10px;" ng-click="download()"></div>
+        <!--<div class="filter_search">
+            <input type="text"  id="slowestSqlSearch" placeholder="按SQL语句搜索" name="surf_content" data-onkey="13">
+            <span class="fa fa-search" id="surfSearch" data-onkey='13' ng-click="Search($event)"></span>
+        </div>-->
+    </div>
+    <div class="block-content" data-table>
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th data-item="order" width="5%">序号</th>
+                <th data-item="sql" width="20%">SQL语句</th>
+                <th data-item="wt" width="10%" data-tip="ms">响应时间<i class="fa fa-sort fa-sort-desc" ng-click="orderby($event)"></i></th>
+                <th data-item="rpm" width="10%" data-tip="cpm">吞吐率<i class="fa fa-sort" ng-click="orderby($event)"></i></th>
+                <th data-item="count" width="10%">发生次数<i class="fa fa-sort" ng-click="orderby($event)"></i></th>
+                <th data-item="min_real_time" width="10%" data-tip="">第一次发生时间<i class="fa fa-sort" ng-click="orderby($event)"></i></th>
+                <th data-item="max_real_time" width="14%" data-tip="" title="平均响应时间">最后一次发生时间<i class="fa fa-sort" ng-click="orderby($event)"></i></th>
+                
+            </tr>
+            </thead>
+            <tbody>
+				<tr ng-repeat="item in time_analysissql_list">
+					<td>{{item.order}}</td>
+					<td ng-click="clickSQL(item.sql)" style="cursor: pointer;color: #4FABFC;">{{item.sql}}</td>
+					<td>{{item.wt}} ms</td>
+					<td>{{item.rpm}} cpm</td>
+					<td>{{item.count}}</td>
+					<td>{{item.min_real_time}}</td>
+					<td>{{item.max_real_time}}</td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+    <div class="PageList" oc-lazy-load="['pageList']">
+        <div page-list change="changeSqlList(currentPage,perPage)" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+    </div>
+
+    
+</div>

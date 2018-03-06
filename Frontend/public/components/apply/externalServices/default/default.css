@@ -1,0 +1,10 @@
+#respTime,#rspRate,#netWorkRate{
+    box-shadow: none;
+    height: 420px;
+    min-height: 420px;
+    margin-top: 0;
+}
+#respTime>.block-content,#rspRate>.block-content,#netWorkRate>.block-content{
+    height: 420px;
+    min-height: 420px;
+}

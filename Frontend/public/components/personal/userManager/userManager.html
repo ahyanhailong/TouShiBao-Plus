@@ -1,0 +1,195 @@
+<div id="userManager">
+    <div class="content_title">
+        <ul class="bread-crumb">
+            <li>管理</li>
+            <li>&gt;</li>
+            <li>用户管理</li>
+        </ul>
+    </div>
+    <!--外部服务-->
+    <div class="padding-lr-16 tsb-main">
+        <!--left-->
+        <div class="left-content tsb-box-show">
+            <div class="tsb-texture-title">
+                <div class="padding-t-5">
+                    <div class="tsb-search tsb-search-i" user-manager-search-email>
+                        <input class="input-search" placeholder="按用户邮箱/姓名搜索">
+                        <i class="icon-search pos-a"></i>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!--下拉菜单-->
+                <div class="tsb-dropDown">
+                    <div class="collapsed tsb-dropDown-title current" href="#transaction1">
+                        <div aria-expanded="true" class="text-ellipsis">
+                            <span class="pull-left text-ellipsis span1"><i class="icon-member"></i>成员</span>
+                        </div>
+                    </div>
+                    <div class="collapse in padding-lr-16" data-toggle="collapse" id="transaction1">
+                        <ul class="tsb-dropDown-content special">
+                            <li ng-repeat="pcla in peopleClass"
+                                ng-class="{active:pcla.value==currentClass}"
+                                ng-click="changeClass(pcla)">
+                                <div class="subTrigger">
+                                    <span class="pull-left text-ellipsis span1">{{pcla.name}}（{{groupInfo[pcla.value]}}）</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!--下拉菜单-->
+                <div class="tsb-dropDown">
+                    <div class="collapsed tsb-dropDown-title current" href="#transaction2">
+                        <div aria-expanded="true">
+                            <span class="pull-left text-ellipsis span1"><i class="icon-department"></i> 部门</span>
+              <span class="pull-right add-btn" oc-lazy-load="['./public/components/personal/userManager/directives/group.js']">
+                            <user-manager-group group_user_list="groupUserList"></user-manager-group>
+							</span>
+                        </div>
+                    </div>
+                    <div class="collapse in padding-lr-16" data-toggle="collapse" id="transaction2">
+                        <ul class="tsb-dropDown-content special" droppable>
+                            <li ng-repeat="group in groupInfo.grouped_list"
+                                ng-class="{active:currentGroupId==group.group_id}">
+                                <div class="subTrigger" title="{{group.group_name}}">
+                                    <span class="pull-left text-ellipsis span1" ng-click="currentGroup(group.group_id)">{{group.group_name}}（{{group.user_num}}）</span>
+                  <span class="pull-right span2 margin-t-6">
+										<div class="btn-group tsb-btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="true">
+                                                <span><i class="icon-setting-gray"></i>设置</span> <span class="caret"></span>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a href="javascript:void(0)" ng-click="modifyGroup($event,group.group_id)">修改</a>
+                                                <a href="javascript:void(0)" ng-click="deleteGroup($event,group.group_id)">删除</a>
+                                            </div>
+                                        </div>
+									</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!--下拉菜单-->
+            </div>
+        </div>
+
+        <!--right 默认页面-->
+        <div class="right-content" id="level-one">
+            <div class="tsb-box-show margin-l-16 ">
+                <div class="tsb-texture-title">
+                    <span>{{currentClassName}}</span>
+
+                    <div class="btn-group tsb-btn-group pull-right margin-t-6 addUser">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="icon-add-white"></i> 添加成员
+                        </button>
+                        <ul class="dropdown-menu" tsb-noclick="true">
+                            <li>
+                                <div class="title">
+                                    <div class="pull-left">添加成员</div>
+                                    <div class="pull-right margin-t-6">
+                                        <button class="btn btn-blue border-radius4 pull-left margin-r-10 btn-ok">保存</button>
+                                        <button class="btn btn-gray border-radius4 pull-left btn-cancel">取消</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <form class="form-horizontal">
+                                    <div class="combine">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">邮箱：</label>
+
+                                            <div class="col-sm-9">
+                                                <input class="form-control border-radius4 w-260 margin-t-6" placeholder="请输入需忽略的HTTP状态码">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">权限：</label>
+
+                                            <div class="col-sm-9">
+                                                <ul class="radio-div">
+                                                    <li>
+                                                        <div class="radio-check">
+                                                            <input type="radio" name="test" id="manager">
+                                                            <label for="manager" class="">管理者</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="radio-check">
+                                                            <input type="radio" name="test" id="seniorUser">
+                                                            <label for="seniorUser" class="">高级用户</label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="radio-check">
+                                                            <input type="radio" name="test" id="ordinaryUser">
+                                                            <label for="ordinaryUser" class="">普通用户</label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">部门：</label>
+
+                                            <div class="col-sm-9">
+                                                <select name="" id="" class="form-control w-260">
+                                                    <option value="">无</option>
+                                                    <option value="">研发部</option>
+                                                    <option value="">产品部</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--ddf-->
+                </div>
+                <div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="10%">头像</th>
+                            <th width="30%">邮箱账号</th>
+                            <th width="10%">手机号码</th>
+                            <th width="10%">姓名</th>
+                            <th width="10%">部门</th>
+                            <th width="15%">权限</th>
+                            <th width="15%">状态设置</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr draggable ng-repeat="item in userList.list">
+                            <td><img class="img-circle border_white" ng-src="{{'public/img/user.png'}}"></td>
+                            <td>{{item.user_email}}</td>
+                            <td>{{item.user_mobile}}</td>
+                            <td>{{item.user_name}}</td>
+                            <td>{{item.group_name}}</td>
+                            <td>
+                                <user-permissions></user-permissions>
+                            </td>
+                            <td>
+                                <user-status></user-status>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+                    <div class="PageList" oc-lazy-load="['pageList']">
+                        <div page-list change="changePage(currentPage,perPage)"
+                             page_no="{{page_no}}"
+                             total_row="total_row"
+                             sum_per_page="{{sum_per_page}}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

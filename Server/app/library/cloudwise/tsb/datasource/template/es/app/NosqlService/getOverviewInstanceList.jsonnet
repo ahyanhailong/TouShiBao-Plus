@@ -1,0 +1,48 @@
+{
+    "content": {
+        "index": params.index,
+            "body": {
+            "size": 0,
+            "query": common_es.addQuery(params.query),
+            "aggs": {
+                "nest": {
+                    "nested": {
+                        "path": "nest_sub_methods"
+                    },
+                    "aggs": {
+                        "filter": {
+                            "filter": {
+                                "and": {
+                                    "filters": common_es.addFilters(params.nest_query)
+                                }
+                            },
+                            "aggs": {
+                                "instance": {
+                                    "terms": {
+                                        "field": "nest_sub_methods.instance_raw",
+                                        "size": params.aggs_size,
+                                        "order": {
+                                            [params.order]: params.sort
+                                        }
+                                    },
+                                    "aggs": {
+                                        "time": {
+                                            "avg": {
+                                                "field": "nest_sub_methods.wt"
+                                            }
+                                        },
+                                        "method_count": {
+                                            "cardinality": {
+                                                "field": "nest_sub_methods.mn_raw"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,195 @@
+#set .header-title {
+  color: #CDCBCB;
+  font-size: 14px;
+  text-align: center;
+}
+#set .header-title .form-group label {
+  font-weight: normal;
+}
+#set .header-title .form-control {
+  width: 220px;
+  display: inline-block;
+}
+#set .set-widget .col-md-6:last-child {
+  padding-right: 0 ;
+  padding-left: 8px;
+}
+#set .set-widget .col-md-6:first-child {
+  padding-left: 0 ;
+  padding-right: 8px;
+}
+#set .set-widget .tsb-box-show {
+  height: 287px;
+  background: #2e2e2e;
+  color: #FFFFFF;
+  font-size: 12px;
+}
+#set .set-widget .tsb-box-show .widget {
+  padding: 30px;
+}
+#set .set-widget .tsb-box-show .widget .row {
+  margin-bottom: 15px;
+  line-height: 32px;
+}
+#set .set-widget .tsb-box-show .widget .row .tsb-btn-group .btn {
+  width: 250px;
+  text-align: left;
+  color: inherit;
+}
+#set .set-widget .tsb-box-show .widget .row .tsb-btn-group .btn .caret {
+  float: right;
+  margin-top: 13px;
+}
+#set .set-widget .tsb-box-show .widget .row .tsb-btn-group .dropdown-menu {
+  width: 250px;
+}
+#set .set-widget .tsb-box-show .widget .row i.text-percent {
+  position: absolute;
+  color: #A4A3A3;
+  font-size: 14px;
+  right: 10px;
+  top: 0;
+}
+#set .tsb-box-show {
+  background: #2e2e2e;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-toggle {
+  color: #4FABFC;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-toggle i.icon-add {
+  vertical-align: top;
+  margin-top: 7px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu {
+  width: 751px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu > li > .title {
+  font-size: 14px;
+  height: 45px;
+  line-height: 45px;
+  border-bottom: 1px solid #3F3F3F;
+  padding: 0 10px;
+  color: #CDCBCB;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .combine {
+  margin-top: 30px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .combine .col-sm-8 {
+  width: 460px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .combine .tsb-search {
+  width: 100%;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .search-box {
+  border: 1px solid #535353;
+  width: 460px;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 12px;
+  background: #3E3E3E;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .search-box > div {
+  border-bottom: 1px solid #535353;
+  padding-bottom: 5px;
+  overflow: hidden;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .search-box > ul {
+  padding-top: 10px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .search-box > ul > li {
+  line-height: 30px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .example {
+  background: #3F3F3F;
+  padding: 20px 0 20px 0;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .example .example-widget {
+  width: 206px;
+  height: 244px;
+  float: left;
+  border: 1px solid #535353;
+  padding: 12px;
+  color: #fff;
+  font-size: 12px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .example .example-widget > p {
+  background: #535353;
+  border-radius: 4px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+}
+#set .tsb-box-show .tsb-btn-group .dropdown-menu .example .example-widget:first-child {
+  margin-right: 20px;
+}
+#set .add-box {
+  height: 42px;
+}
+#set .table {
+  margin-bottom: 0;
+  padding-top: 10px;
+}
+#set .table > tbody > tr > td {
+  background: transparent;
+}
+#set .request-scope .left-content {
+  float: left;
+  width: 224px;
+  height: 340px;
+  border: 1px solid #535353;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+#set .request-scope .left-content .input-search {
+  margin-left: 0;
+  border-radius: 4px;
+  background: #323232;
+}
+#set .request-scope .left-content .ul-list {
+  color: #fff;
+}
+#set .request-scope .center-content {
+  width: 70px;
+  text-align: center;
+  float: left;
+  margin-top: 125px;
+}
+#set .request-scope .right-content {
+  float: left;
+  width: 224px;
+  height: 340px;
+  border: 1px solid #535353;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+#set .request-scope .ul-list > li:first-child {
+  border-bottom: 1px solid #535353;
+  padding-bottom: 5px;
+}
+#set .request-scope .ul-list,
+#set .request-scope .subUl-list {
+  margin-top: 5px;
+  color: #fff;
+}
+#set .request-scope .ul-list > li,
+#set .request-scope .subUl-list > li {
+  min-height: 25px;
+  padding: 5px 0;
+}
+#set .request-scope .subUl-list {
+  height: 260px;
+  overflow: auto;
+}
+#set .form-control.w-340 {
+  width: 340px;
+}
+#set .form-control.w-86 {
+  width: 86px;
+}
+#set .form-control.w-148 {
+  width: 148px;
+}

@@ -1,0 +1,95 @@
+#noSql{
+  color: #CDCBCB;
+}
+
+#noSql .contrast-content {
+  position: relative;
+  width: 1366px;
+  height: 900px;
+  color: #ffffff;
+  font-family: SimHei, '榛戜綋', Helvetica, "Microsoft Yahei", Arial, sans-serif;
+  background: #222;
+  z-index: 11;
+}
+
+
+
+/*left*/
+#noSql .left-content{
+  width: 25%; float: left; background: #232323;-moz-box-shadow:-2px 2px 15px #000;
+  -webkit-box-shadow:-2px 2px 15px #000; box-shadow:-2px 2px 15px #000;  border-radius: 4px;padding-bottom: 40px;
+}
+#noSql .left-content .response .btn >span:first-child{
+  width: 120px; text-align: left; display: inline-block
+}
+#noSql .left-content .response .dropdown-menu{
+  width: 190px;
+}
+#noSql .left-content .module{
+  padding: 10px 0 10px 37px;
+}
+/*right*/
+#noSql .right-content{width: 75%; float: left;
+  padding-bottom: 15px;
+}
+#noSql .right-content >.margin-l-16{
+  background: #232323;
+  -moz-box-shadow:-2px 2px 15px #000;
+  -webkit-box-shadow:-2px 2px 15px #000;
+  box-shadow:-2px 2px 15px #000;
+  border-radius: 4px;
+  padding-bottom: 40px;
+}
+#noSql .right-content .widget{
+  padding-bottom: 50px;
+  padding: 0 16px 50px 16px;
+}
+#noSql .right-content .time-range{
+  font-size: 14px;color: #BAB9B9;
+}
+#noSql .right-content .time-range > li{
+  float: left;
+  height: 32px;
+  line-height: 32px;
+}
+#noSql .right-content .time-range > li:nth-child(1){
+  position: absolute;
+  background: #222222;
+  padding-right: 5px;
+}
+#noSql .right-content .time-range > li:nth-child(2){
+  width: 100%;
+}
+#noSql .right-content .time-range > li:nth-child(3){
+  position: absolute; right: 30px;
+  background: #222222;
+}
+#noSql .right-content .tsb-btn-group .btn-default{width: auto;}
+#noSql .right-content .time-range > li > div.line{
+  height: 1px ;border: 1px solid #393939;overflow:hidden; width: 100%;
+  margin-top: 15px;
+}
+#noSql .right-content .chart-box{
+  padding-top: 30px;
+}
+#noSql .right-content .chart-box >li{
+  width: 100%;
+}
+#noSql .right-content .chart-box >li>div{height: 420px;margin: 0 16px;}
+#noSql .right-content .chart-box-small >li>div{height: 260px;margin: 0 16px;}
+#noSql .right-content .nav > li:first-child > a{
+  padding-left: 0;
+}
+
+#noSql .table>tbody>tr>td{
+	background: #232323;
+}
+
+#noSql .tsb-dropDown-title > a .span1,
+#noSql .tsb-dropDown-content > li > a .span1{
+    width: auto;
+}
+
+
+
+

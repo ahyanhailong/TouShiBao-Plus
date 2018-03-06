@@ -1,0 +1,26 @@
+
+<div class="page_container" style="position: relative;">
+    <div class="page_rows_select" style="color: #aaaaaa;">
+        <select id="page_rows_select" ng-model="sum_per_page" ng-init="sum_per_page = 10" ng-change="changeNums()" style=" width:80px;color: #fff;border-radius: 5px;height: 28px;background: #222;border: 0;">
+        		<option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>&nbsp;条
+    </div>
+    <p style="margin-left: 10px;display: inline-table;color: #aaaaaa;">共{{total_row}}条</p>
+    <div class="pages">
+
+        <a href='javascript:void(0)' ng-click="prevPage(page_no - 1)" ng-class="{disabled:page_no==1}" ng-disabled="{disabled:page_no==1}" >&laquo;</a>
+        <a href='javascript:void(0)' ng-click="changePage(1)" ng-if="pageBool">1</a>
+		
+		<a href='javascript:void(0)' ng-if="page_no > pageRange && totalPage !== pageRange">...</a>
+		
+		
+        <a ng-repeat="(index,page) in pages track by index" ng-click="changePage(page)" ng-class="{'currentPage': page_no== page}">{{page}}</a>
+		<a href='javascript:void(0)' ng-if="totalPage > pageRange && pageStart <= totalPage-pageRange">...</a>
+		<a href='javascript:void(0)' ng-click="changePage(totalPage)" ng-if="pageUpBool">{{totalPage}}</a>
+        <a href='javascript:void(0)' ng-click="nextPage(page_no + 1)" >&raquo;</a>
+        
+    </div>
+</div>
+  

@@ -1,0 +1,9 @@
+/*缓慢分析*/
+#slow{
+
+}
+#slow .response-chart{
+ height: 335px;
+ min-height: 335px;
+ margin-top: 0;
+}

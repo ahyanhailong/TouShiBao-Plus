@@ -1,0 +1,105 @@
+<div id="KBerror">
+  <!--关键词过滤-->
+    <div oc-lazy-load="['filterKey', 'filterWhere']">
+
+        <div filter-where
+             change="change()"
+             wheres="wheres"
+             apis="whereApis"
+             where-list="whereList"></div>
+
+        <!--<div filter-key></div>-->
+    </div>
+  <!--添加条件 end-->
+  <!--错误和异常趋势 start-->
+  <div class="margin-b-16 clearfix">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        错误和异常趋势
+      </div>
+      <div class="widget padding-16">
+        <div class="block block-chart noDefault response-chart" id="errorTrend">
+          <div class="block-content response-chart" data-chart>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--错误和异常趋势 end-->
+  <!--错误占比 和异常占比 start-->
+  <div class="clearfix margin-b-16 error-abnormal">
+    <!--left-->
+    <div class="left-content ">
+      <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+          错误占比（TOP5）
+        </div>
+        <div class="widget padding-16">
+          <div class="block block-chart noDefault error-chart" id="errorScale">
+            <div class="block-content error-chart" data-chart></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <!--right 默认页面-->
+    <div class="right-content">
+      <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+          异常占比（TOP5）
+        </div>
+        <!--环形chart-->
+        <div class="widget padding-16">
+          <div class="block block-chart noDefault abnormal-chart" id="abnormalScale">
+            <div class="block-content abnormal-chart" data-chart></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--错误占比 和异常占比 end-->
+  <!--错误列表和异常列表 start-->
+  <div class="margin-b-16 clearfix">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        <ul class="tab-card">
+          <li ng-class="{active:respTimeMark=='error'}"><a href="javascript:void(0)" ng-click="errorAbnormalToggle('error')">错误列表</a></li>
+          <li>|</li>
+          <li ng-class="{active:respTimeMark=='abnormal'}"><a href="javascript:void(0)" ng-click="errorAbnormalToggle('abnormal')">异常列表</a></li>
+        </ul>
+      </div>
+      <div class="widget block block-table" id="errorList">
+        <div class="block-content" data-table>
+            <table class="table table-gray">
+                <thead>
+                <tr>
+                    <th data-item="order" width="5%">序号</th>
+                    <th data-item="start_time" width="10%">第一次发生时间</th>
+                    <th data-item="end_time" data-tip="" width="10%">
+                        最后一次发生时间<i class="fa fa-sort"></i>
+                    </th>
+                    <th data-item="event" data-tip="" width="35%" style="text-align: center;">事务</th>
+                    <th data-item="message" width="20%">
+                        消息<i class="fa fa-sort"></i>
+                    </th>
+                    <th data-item="count" width="10%">
+                        发生数<i class="fa fa-sort"></i>
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+	    <div class="PageList" oc-lazy-load="['pageList']">
+	        <div page-list change="changeSqlList()" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+	    </div>
+      </div>
+    </div>
+  </div>
+  <!--快照列表 end-->
+</div>

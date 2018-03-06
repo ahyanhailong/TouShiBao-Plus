@@ -1,0 +1,285 @@
+<div id="login">
+  <div class="content">
+    <div class="action-btn">
+      <!--登录按钮-->
+      <div class="sigin">
+        <div class="login-logo"></div>
+        <button class="btn btn-noBg border-radius20" id="userLogin">用户登录</button>
+      </div>
+      <!--注册按钮-->
+      <div class="register">
+        <div class="login-logo"></div>
+        <button class="btn btn-noBg border-radius20" id="userRegister">注册新用户</button>
+      </div>
+    </div>
+    <div class="tsb-form">
+      <div class="tsb-formContent">
+        <!--login-->
+        <div class="tsb-login">
+          <div class="title">
+            <h2>登录</h2>
+            <ul class="Hor-line">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="login-form">
+            <div class="errorTip" ng-show="userMsg">账号或密码错误</div>
+            <form name="updatePass" novalidate id="__login_form">
+              <input name="token" type="hidden" value="{{message.token}}">
+              <div class="form-group" ng-class="{'has-error':updatePass.email.$dirty&&updatePass.email.$error.required}">
+              <span class="span-icon">
+                <i class="icon-user"></i>
+              </span>
+                <input type="text" name="email" class="form-control" ng-model="message.email" placeholder="请输入邮箱账号" ng-keyup="emailChange(updatePass)" required>
+                <span class="help-block" ng-show="updatePass.email.$dirty&&updatePass.email.$error.required">请输入邮箱账号</span>
+              </div>
+              <div class="form-group" ng-class="{'has-error':updatePass.pw.$dirty&&updatePass.pw.$error.required}">
+              <span class="span-icon">
+                <i class="icon-psw"></i>
+              </span>
+                <input type="password" name="pw" class="form-control" placeholder="请输入密码" ng-model="message.pw" ng-keyup="pwChange(updatePass)" required>
+                <span class="help-block" ng-show="updatePass.pw.$dirty && updatePass.pw.$error.required">请输入密码</span>
+              </div>
+              <div class="form-group" id="slider_wrap" style="display: none;">
+                <div class="">
+                  <div id="embed-captcha"></div>
+                  <p id="wait" class="" style="display: none;">正在加载验证码......</p>
+                  <p id="notice" class="login-text-red text-left" style="display: none">请先完成验证</p>
+                </div>
+              </div>
+              <div class="form-group clearfix">
+                <div class="checkbox-check">
+                  <input type="checkbox" name="test" id="keepLogin">
+                  <label for="keepLogin" class="">保持登录</label>
+                </div>
+                <a href="javascript:void(0)" class="forgotPsw" id="forgotPsw">忘记密码</a>
+              </div>
+              <div class="form-group submit" >
+                <button type="submit" class="btn btn-blue" id="btn-login" ng-click="login()">登录</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--register-->
+        <div class="tsb-register" style="display: none">
+          <div class="title">
+            <ul class="Hor-line">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <h2>注册新用户<span>（请正确填写真实信息）</span></h2>
+          </div>
+          <div class="register-form">
+            <form  class="form-horizontal" name="Register">
+              <div class="form-group" ng-class="{'has-error':Register.company_name.$dirty&&Register.company_name.$error.required}">
+                <label for="company_name" name="company_name" class="col-md-3 control-label">公司名称:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="company_name" placeholder="请输入公司名称" id="company_name" ng-model="register.company_name" required>
+                  <span class="help-block" ng-show="Register.company_name.$dirty&&Register.company_name.$error.required">请输入正确的公司名称</span>
+                  <span class="icon-success form-control-feedback" aria-hidden="true" ng-show="Register.company_name.$dirty&&Register.company_name.$valid"></span>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{'has-error':Register.company_url.$dirty&&Register.company_url.$error.required}">
+                <label for="company_name" name="company_url" class="col-md-3 control-label">公司网址:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="company_url" placeholder="请输入公司网址" id="company_url" ng-model="register.company_url" required>
+                  <span class="help-block" ng-show="Register.company_url.$dirty&&Register.company_url.$error.required">请输入公司网址</span>
+                  <span class="icon-success form-control-feedback" aria-hidden="true" ng-show="Register.company_url.$dirty&&Register.company_url.$valid"></span>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{'has-error':Register.user_name.$dirty&&Register.user_name.$error.required}">
+                <label for="company_name" name="user_name" class="col-md-3 control-label">联系人:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="user_name" placeholder="请输入联系人" id="user_name" ng-model="register.user_name" required>
+                  <span class="help-block" ng-show="Register.user_name.$dirty&&Register.user_name.$error.required">请输入联系人</span>
+                  <span class="icon-success form-control-feedback" aria-hidden="true" ng-show="Register.user_name.$dirty&&Register.user_name.$valid"></span>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{'has-error':Register.user_email.$dirty&&Register.user_email.$error.required}">
+                <label for="company_name" name="user_email" class="col-md-3 control-label">邮箱账号:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" name="user_email" placeholder="请输入邮箱账号" id="user_email" ng-model="register.user_email" required>
+                  <span class="help-block" ng-show="Register.user_email.$dirty&&Register.user_email.$error.required">请输入邮箱账号</span>
+                  <span class="icon-success form-control-feedback" aria-hidden="true" ng-show="Register.user_email.$dirty&&Register.user_email.$valid"></span>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{'has-error':Register.new.$dirty&&(Register.new.$error.required||Register.new.$error.minlength||!newPattern)}">
+                <label for="company_name" name="user_psw" class="col-md-3 control-label">密码:</label>
+                <div class="col-md-8">
+                  <input name="new" required ng-minlength="6"
+                         ng-model="pass.new" ng-keyup="newChange(Register.new.$valid)"
+                         type="password" class="form-control" placeholder="请输入密码">
+                  <!--
+                  弱字体/背景颜色：orange-text/orange-bg
+                  中字体/背景颜色：yellow-text/yellow-bg
+                  强字体/背景颜色：green-text/green-bg
+                  -->
+                  <!--<div class="strongWeak orange-text">-->
+                    <!--<span class="orange-bg"></span>-->
+                    <!--<span></span>-->
+                    <!--<span></span>-->
+                    <!--弱-->
+                  <!--</div>-->
+                  <div class="strongWeak" ng-class="currentWeek.text" ng-show="Register.new.$dirty&&Register.new.$valid&&newPattern">
+                    <span ng-repeat="weekItem in weekColor" class="{{getClass($index)}}"></span>
+                    {{currentWeek.name}}
+                  </div>
+                  <span ng-show="Register.new.$dirty&&Register.new.$error.required" class="help-block">新密码不能为空</span>
+                  <span ng-show="Register.new.$dirty&&Register.new.$error.minlength" class="help-block">密码最少为6位</span>
+                  <span ng-show="Register.new.$dirty&&Register.new.$valid&&!newPattern" class="help-block">密码必须包含字母数字特殊字符</span>
+                </div>
+              </div>
+              <div class="form-group" ng-class="{'has-error':Register.user_mobile.$dirty&&Register.user_mobile.$error.required}">
+                <label for="company_name" name="user_mobile" class="col-md-3 control-label">手机号码:</label>
+                <div class="col-md-8">
+                  <input type="text" class="form-control" placeholder="请输入手机号" name="user_mobile" id="user_mobile" ng-model="register.user_mobile" required>
+                  <span class="help-block" ng-show="Register.user_mobile.$dirty&&Register.user_mobile.$error.required">请输入手机号码</span>
+                  <span class="icon-success form-control-feedback" aria-hidden="true" ng-show="Register.user_mobile.$dirty&&Register.user_mobile.$valid"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-offset-3 col-md-8 validation">
+                  <button class="btn btn-white border-radius4">点击按钮进行验证</button>
+                </div>
+              </div>
+              <div class="form-group resend-code " ng-class="{'has-error':Register.regCode.$dirty&&Register.regCode.$error.required}">
+                <label for="company_name" name="auth-code" class="col-md-3 control-label">验证码:</label>
+                <div class="col-md-5">
+                  <input type="text" class="form-control" name="regCode" placeholder="请输入验证码" id="auth-code"  ng-model="register.token" required>
+                  <span class="help-block" ng-show="Register.regCode.$dirty&&Register.regCode.$error.required">请输入验证码</span>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-white border-radius4" ng-click="getMobileCode()">{{registerTips.getMobileCode}}</button>
+                </div>
+              </div>
+              <div class="form-group submit" >
+                <button type="submit" class="btn btn-blue" id="btn-register" ng-click="registerBtn()">注册</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--找回密码-->
+        <div class="tsb-findPsw" style="display: none" >
+          <div class="title">
+            <ul class="Hor-line">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+            <h2>找回密码<span>请输入注册时的邮箱</span></h2>
+          </div>
+          <div class="findPsw-form">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active" id="Step1">
+                <span href="#step01" aria-controls="step01" role="tab" data-toggle="tab">1</span>
+                <div>输入邮箱账号</div>
+              </li>
+              <li role="presentation" id="Step2">
+                <span href="#step02" aria-controls="step02" role="tab" data-toggle="tab">2</span>
+                <div>输入新密码</div>
+              </li>
+              <li role="presentation" id="Step3">
+                <span href="#step03" aria-controls="step03" role="tab" data-toggle="tab">3</span>
+                <div>修改成功</div>
+              </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="step01">
+                <form  class="form-horizontal" name="emailID">
+                  <div class="form-group" ng-class="{'has-error':emailID.email.$dirty && emailID.email.$error.required}">
+                    <label for="company_email" name="company_email" class="col-md-3 control-label">邮箱账号:</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" name="email" ng-model="searchPw.email" placeholder="请输入邮箱账号" id="company_email" required>
+                      <span class="help-block" ng-show="emailID.email.$dirty && emailID.email.$error.required" >请输入正确的邮箱账号</span>
+                      <span class="icon-error form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                  <div class="form-group resend-code">
+                    <label for="auth-code1" name="auth-code1" class="col-md-3 control-label">验证码:</label>
+                    <div class="col-md-5">
+                      <input type="text" class="form-control" ng-model="newOrPw.token" placeholder="请输入验证码" id="auth-code1">
+                    </div>
+                    <div class="col-md-3">
+                      <button class="btn btn-white border-radius4" ng-click="getEmailCode()">获取验证码</button>
+                    </div>
+                  </div>
+                  <div class="form-group submit" >
+                    <button type="submit" class="btn btn-blue" ng-click="step1Next()">下一步</button>
+                  </div>
+                </form>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="step02">
+                <form  class="form-horizontal" name="resetPw">
+                  <div class="form-group">
+                    <label for="company_email" name="company_email" class="col-md-3 control-label">邮箱账号:</label>
+                    <div class="col-md-8" style="margin-top: 5px">
+                      {{searchPw.email}}
+                    </div>
+                  </div>
+                  <div class="form-group resend-code" ng-class="{'has-error':resetPw.new.$dirty&&(resetPw.new.$error.required||resetPw.new.$error.minlength||!newPattern)}">
+                    <label for="new-psw" name="new-psw" class="col-md-3 control-label">新密码:</label>
+                    <div class="col-md-8">
+                      <!--<input type="text" class="form-control" placeholder="请输入验证码" id="new-psw" ng-model="newOrPw.pw">-->
+                      <input name="new" required ng-minlength="6"
+                             ng-model="pass.new" ng-keyup="newChange(resetPw.new.$valid)"
+                             type="password" class="form-control" placeholder="请输入密码">
+                      <div class="strongWeak" ng-class="currentWeek.text" ng-show="resetPw.new.$dirty&&resetPw.new.$valid&&newPattern">
+                        <span ng-repeat="weekItem in weekColor" class="{{getClass($index)}}"></span>
+                        {{currentWeek.name}}
+                      </div>
+                      <span ng-show="resetPw.new.$dirty&&resetPw.new.$error.required" class="help-block">新密码不能为空</span>
+                      <span ng-show="resetPw.new.$dirty&&resetPw.new.$error.minlength" class="help-block">密码最少为6位</span>
+                      <span ng-show="resetPw.new.$dirty&&resetPw.new.$valid&&!newPattern" class="help-block">密码必须包含字母数字特殊字符</span>
+                    </div>
+                  </div>
+                  <div class="form-group resend-code" ng-class="{'has-error':surePwError}">
+                    <label for="conform-new-psw" name="conform-new-psw" class="col-md-3 control-label">确认新密码:</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" placeholder="请输入验证码"  ng-blur="surePwBlur()" id="conform-new-psw" ng-model="newOrPw.pw_repeat">
+                      <span ng-show="surePwError" class="help-block">{{surePwErrorTip}}</span>
+                    </div>
+                  </div>
+                  <div class="form-group submit submit-step02" >
+                    <button type="button" class="btn btn-blue-border" ng-click="step2Prev()">上一步</button>
+                    <button type="submit" class="btn btn-blue" ng-click="resetPassword()">提交</button>
+                  </div>
+                </form>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="step03">
+                <form  class="form-horizontal">
+                  <div class="form-group">
+                    <div class="modify-success">
+                      <div></div>
+                      <p>修改成功</p>
+                    </div>
+                  </div>
+                  <div class="form-group submit submit-step03" >
+                    <button type="submit" class="btn btn-blue">完成</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!--登录 成功唤醒页面-->
+        <div class="tsb-login-success" style="display: none">
+          <i class="icon-hook"></i>
+        </div>
+        <!--登录 成功唤醒页面-->
+        <div class="tsb-register-success" style="display: none">
+          <i class="icon-hook"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

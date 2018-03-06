@@ -1,0 +1,72 @@
+#business{
+  color: #CDCBCB;
+}
+
+/*left*/
+#business .left-content{
+  width: 70%; float: left;
+}
+#business .left-content .tab-card >li{
+  float: left;
+  padding: 0 5px;
+}
+#business .left-content .tab-card >li.active >a{
+  color: #4FABFC;
+}
+#business .left-content .response-chart, #business .right-content .request-chart{
+  height: 380px;
+  min-height: 380px;
+  margin-top: 0px;
+}
+
+/*right*/
+#business .right-content{width: 30%; float: left;
+}
+#business .left-content .widget,#business .right-content .widget{
+  padding: 16px 16px 0px 16px;
+}
+#business .right-content .time-range{
+  font-size: 14px;color: #BAB9B9;
+  padding-top: 10px;
+}
+#business .right-content .time-range > li{
+  float: left;
+  height: 32px;
+  line-height: 32px;
+}
+#business .right-content .time-range > li:nth-child(1){
+  position: absolute;
+  background: #222222;
+  padding-right: 5px;
+}
+#business .right-content .time-range > li:nth-child(2){
+  width: 100%;
+}
+#business .right-content .time-range > li:nth-child(3){
+  position: absolute; right: 16px;
+}
+#business .right-content .tsb-btn-group .btn-default{width: auto;}
+#business .right-content .time-range > li > div.line{
+  height: 1px ;border: 1px solid #393939;overflow:hidden; width: 100%;
+  margin-top: 15px;
+}
+#business .right-content .chart-box{
+  padding-top: 30px;
+}
+#business .right-content .chart-box >li{
+  width: 100%;
+}
+#business .right-content .chart-box >li>div{height: 420px;margin: 0 16px;}
+#business .right-content .chart-box-small >li>div{height: 260px;margin: 0 16px;}
+#business .right-content .nav > li:first-child > a{
+  padding-left: 0;
+}
+#business .back-list{
+  right: 0;
+  top: 0;
+  color: #fff;
+}
+#business .back-list .fa{
+font-size: 16px;
+  margin-right: 5px;
+}

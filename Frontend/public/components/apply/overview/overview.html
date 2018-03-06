@@ -1,0 +1,372 @@
+<div id="overview">
+    <div class="content_title" oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js','./public/components/apply/applyDirective/applyTimer.js']" style="padding-right: 16px; padding-left: 16px;">
+        <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+        <!--日期过滤-->
+        <div style="line-height: 32px;float: right;margin-top: 4px;" apply-timer></div>
+    </div>
+    <!--概览内容start-->
+    <div id="overview-wrap">
+        <div class="overview-content">
+            <div class="overview-inner padding-lr-16">
+                <!--结果列表-->
+                <div class="overview-result">
+                    <ul class="ul-list">
+                        <li>
+                            <div class="response">
+                                <div class="div-box">
+                                    <span class="span-color blue-color"></span>
+
+                                    <div class="div-text">
+                                        <div class="number"><span>{{titleInfo.resp_time|numberFormat}}</span>ms</div>
+                                        <div>响应时间</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rate">
+                                <div class="div-box">
+                                    <span class="span-color cyan-color"></span>
+
+                                    <div class="div-text">
+                                        <div class="number"><span>{{titleInfo.rpm|numberFormat}}</span>rpm</div>
+                                        <div>吞吐率</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="normal">
+                                <div class="div-box">
+                                    <span class="span-color green-color"></span>
+
+                                    <div class="div-text">
+                                        <div class="number"><span>{{titleInfo.normal|numberFormat}}</span></div>
+                                        <div>正常</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slow">
+                                <div class="div-box">
+                                    <span class="span-color orange-color"></span>
+
+                                    <div class="div-text">
+                                        <div class="number"><span>{{titleInfo.slow|numberFormat}}</span></div>
+                                        <div>缓慢</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slow">
+                                <div class="div-box">
+                                    <span class="span-color orange-red-color"></span>
+
+                                    <div class="div-text">
+                                        <div class="number"><span>{{titleInfo.very_slow|numberFormat}}</span></div>
+                                        <div>非常缓慢</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="slow">
+                                <div class="div-box">
+                                    <span class="span-color red-color"></span>
+
+                                    <div class="div-text">
+                                        <div class="number"><span>{{titleInfo.error|numberFormat}}</span></div>
+                                        <div>错误</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="abnormal">
+                                <div class="div-box">
+                                    <span class="span-color purple-color"></span>
+
+                                    <div class="div-text">
+                                        <div class="number"><span>{{titleInfo.exception|numberFormat}}</span></div>
+                                        <div>异常</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <!--chart 图-->
+                <div class="overview-data">
+                    <!--慢数据库表/事务健康/数据库实例-->
+                    <ul class="ul-list clearfix">
+                        <li>
+                            <div class="div-box">
+                                <div class="title">
+                                    <div class="line"></div>
+                                    <h3><i class="t-icon icon01"></i>慢数据库表</h3>
+                                </div>
+                                <div class="content">
+                                    <div class="scatter-chart nodata" apply-status="slowDbStatus" ng-show="slowDbStatus"></div>
+                                    <div class="block block-chart noDefault" ng-show="!slowDbStatus" oc-lazy-load="['packScatter']">
+                                        <div class="block-content scatter-chart"
+                                             pack-scatter data="slowDbList" end="packEnd(nodes)"
+                                             value-field="execute_time"
+                                             title-field="table_name">
+
+                                        </div>
+                                        <div class="db-list-info">
+                                            <ul class="db-legends">
+                                                <li class="db-legend"><span class="db-legend-mark bg-normal"></span>正常({{dbInfo.normal}})</li>
+                                                <li class="db-legend"><span class="db-legend-mark bg-slow"></span>缓慢({{dbInfo.slow}})</li>
+                                                <li class="db-legend"><span class="db-legend-mark bg-very-slow"></span>非常缓慢({{dbInfo.very_slow}})</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="div-box">
+                                <div class="div-box">
+                                    <div class="title">
+                                        <div class="line"></div>
+                                        <h3><i class="t-icon icon02"></i>事务健康TOP5</h3>
+                                    </div>
+                                    <div class="content">
+                                        <div class="widget">
+                                            <table class="table table-condensed">
+                                                <thead>
+                                                <tr>
+                                                    <th width="13%" class="text-center">序号</th>
+                                                    <th width="40%">事务</th>
+                                                    <th width="25%"></th>
+                                                    <th width="22%" class="text-right">响应时间</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="health in healthList track by $index">
+                                                    <td class="text-center">{{health.order}}</td>
+                                                    <td class="text-ellipsis"><a href="{{href('business',health.uri)}}" title="{{health.uri}}">{{health.uri}}</a></td>
+                                                    <td>
+                                                        <a ng-href="#/navigation/apply/business/{{appId}}" class="progress progress-small"
+                                                           data-toggle="tooltip" title="全部：{{health.total}}-正常：{{health.normal}}-缓慢：{{health.slow}}-非常慢：{{health.very_slow}}">
+                                                            <div class="progress-bar progress-bar-blue" style="width: {{health.normal/health.total*100}}%">
+                                                            </div>
+                                                            <div class="progress-bar progress-bar-yellow" style="width: {{health.slow/health.total*100}}%">
+                                                            </div>
+                                                            <div class="progress-bar progress-bar-orange" style="width: {{health.very_slow/health.total*100}}%">
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-right">{{health.resp_time}}ms</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="div-box">
+                                <div class="div-box">
+                                    <div class="title">
+                                        <div class="line"></div>
+                                        <h3><i class="t-icon icon03"></i>数据库实例TOP5</h3>
+                                    </div>
+                                    <div class="content">
+                                        <div class="widget">
+                                            <table class="table table-condensed">
+                                                <thead>
+                                                <tr>
+                                                    <th width="13%" class="text-center">序号</th>
+                                                    <th width="40%">实例</th>
+                                                    <th width="25%"></th>
+                                                    <th width="22%" class="text-right">响应时间</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="db in dbList track by $index">
+                                                    <td class="text-center">{{db.order}}</td>
+                                                    <td class="text-ellipsis"><a href="{{href('db',db.instance)}}" title="{{db.instance}}">{{db.instance}}</a></td>
+                                                    <td>
+                                                        <div class="progress progress-small"
+                                                             data-toggle="tooltip1" title="全部：{{db.total}}-正常：{{db.normal}}-缓慢：{{db.slow}}-非常慢：{{db.very_slow}}">
+                                                            <div class="progress-bar progress-bar-blue" style="width: {{db.normal/db.total*100}}%">
+                                                            </div>
+                                                            <div class="progress-bar progress-bar-yellow" style="width: {{db.slow/db.total*100}}%">
+                                                            </div>
+                                                            <div class="progress-bar progress-bar-orange" style="width: {{db.very_slow/db.total*100}}%">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-right">{{db.execute_time}}ms</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--异常/错误-->
+                    <ul class="ul-list clearfix">
+                        <li class="pull-left">
+                            <div class="div-box">
+                                <div class="title">
+                                    <div class="line"></div>
+                                    <h3><i class="t-icon icon04"></i>异常TOP5</h3>
+                                </div>
+                                <div class="content" oc-lazy-load="['./public/components/apply/overview/directive/overview-top5-ring.js']">
+                                    <div class="widget margin-16"
+                                         overview-top5-ring params="exception"
+                                         data="exceptionList">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="pull-right">
+                            <div class="div-box">
+                                <div class="title">
+                                    <div class="line"></div>
+                                    <h3><i class="t-icon icon05"></i>错误TOP5</h3>
+                                </div>
+                                <div class="content" oc-lazy-load="['./public/components/apply/overview/directive/overview-top5-ring.js']">
+                                    <div class="widget margin-16"
+                                         overview-top5-ring params="error"
+                                         data="errorList">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--变慢的外部服务/主机/慢SQL-->
+                    <ul class="ul-list clearfix">
+                        <li>
+                            <div class="div-box">
+                                <div class="title">
+                                    <div class="line"></div>
+                                    <h3><i class="t-icon icon06"></i>慢外部服务TOP3</h3>
+                                </div>
+                                <div class="content">
+                                    <div class="widget service">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <td width="15%" class="text-center">序号</td>
+                                                <td width="30%" class="text-ellipsis">外部服务名称</td>
+                                                <td width="20%" class="text-center">响应时间</td>
+                                                <td width="35%" class="text-right"></td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="se in serviceList track by $index">
+                                                <td class="text-center">{{$index+1}}</td>
+                                                <td class="text-ellipsis"><a href="#/navigation/apply/externalServices/default/{{appId}}" title="{{se.domain}}">{{se.domain}}</a></td>
+                                                <td class="text-center">{{se.resp_time}}ms</td>
+                                                <td class="">
+                                                    <div class="line-chart" oc-lazy-load="['miniLine']">
+                                                        <mini-line data="se.trend" option="getLineOption($index)"></mini-line>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="div-box">
+                                <div class="title">
+                                    <div class="line"></div>
+                                    <h3><i class="t-icon icon07"></i>主机</h3>
+                                </div>
+                                <div class="content">
+                                    <div class="widget pos-r">
+                                        <div class="block block-chart noDefault">
+                                            <div class="block-content scatter-chart">
+                                                <ul class="host-list-box clearfix">
+                                                    <li class="host-item" ng-repeat="host in hostList.list track by $index">
+                                                        <a class="host-circle {{hostConfig[host.status]}}"
+                                                           data-toggle="tooltip" title="主机名称：{{host.host_name}}-内存使用率：{{host.ram_rate}}-CPU使用率：{{host.cpu_rate}}-CPU负载：{{host.cpu_burden}}-系统进程数：{{host.process_num}}"></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="host-list-info clearfix">
+                                                    <ul class="host-legends pull-left">
+                                                        <li class="host-legend"><span class="host-legend-mark green"></span>正常({{hostInfo.normal}})</li>
+                                                        <li class="host-legend"><span class="host-legend-mark orange"></span>警告({{hostInfo.warning}})</li>
+                                                        <li class="host-legend"><span class="host-legend-mark red"></span>严重警告({{hostInfo.fatal_warning}})</li>
+                                                    </ul>
+                                                    <div class="host-list-count pull-right">
+                                                        <span class="host-warn">{{hostInfo.warning+hostInfo.fatal_warning}}</span>
+                                                        <span class="host-total">/{{hostList.total}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-mark">
+                                            <span>35</span><span>/</span><span>52</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="div-box">
+                                <div class="title">
+                                    <div class="line"></div>
+                                    <h3><i class="t-icon icon08"></i>慢SQL TOP5</h3>
+                                </div>
+                                <div class="content">
+                                    <div class="widget">
+                                        <table class="table table-condensed">
+                                            <thead>
+                                            <tr>
+                                                <th width="13%" class="text-center">序号</th>
+                                                <th width="45%">SQL语句</th>
+                                                <th width="20%" class="text-right">吞吐率</th>
+                                                <th width="22%" class="text-right">耗时</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="sql in sqlList track by $index">
+                                                <td class="text-center">{{sql.order}}</td>
+                                                <td class="text-ellipsis"><a href="#/navigation/apply/database/timeanalySecond/{{appId}}/{{sql.sql}}" title="{{sql.sql}}">{{sql.sql}}</a></td>
+                                                <td class="text-right">
+                                                    {{sql.rpm}}cpm
+                                                </td>
+                                                <td class="text-right">{{sql.execute_time}}ms</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <!--概览内容end-->
+</div>

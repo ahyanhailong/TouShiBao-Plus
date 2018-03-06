@@ -1,0 +1,92 @@
+<div class="main_filter_time 111">
+    <a href="javascript:;" ng-click="fShowContent()">
+        <span id="date-title">
+			{{timeStr}}
+        </span>
+        <i class="fa fa-caret" style="margin-left:10px;"></i>
+    </a>
+
+    <div class="main_filter_time_content" ng-show="bIsShowContent" style="display: block">
+        <ul class="nav nav-tediums">
+            <li ng-class="{true:'active',false:''}[isActiveLi==1]">
+                <a data-toggle="tab" ng-click='tabClick(1)'>
+                    截止到当前
+                </a>
+            </li>
+            <li ng-class="{true:'active',false:''}[isActiveLi==2]">
+                <a ng-click='tabClick(2)' data-toggle="tab">
+                    自定义
+                </a>
+            </li>
+            <div class="main_filter_time_handle" ng-show="!show">
+                <a href="javascript:;" class="btn btn-blue" ng-click="fTimeSure()">确认</a>
+                <a href="javascript:;" class="btn btn_hover" ng-click="fTimeNo()">取消</a>
+            </div>
+        </ul>
+
+
+        <div class="tab-content" style="margin-top: 5px;">
+            <!--截止当前时间-->
+            <div class="tab-pane active" ng-show='show'>
+                <ul>
+                    <li ng-repeat="li in Lists track by $index" ng-class="{true: 'active', false: ''}[nLiActive==$index]" ng-click="fChooseLi($index,li.text,li.time,li.type)">{{li.text}}</li>
+                </ul>
+
+            </div>
+            <!--自定义时间-->
+            <div class="tab-pane date_new" ng-show="!show" style="display: block;">
+                <div class="row" style="margin-bottom: 5px">
+                    <div class="col-xs-6">
+                        <input type="text" readonly="readonly" value="{{startVal}}">
+                        <span class="icon_time"></span>
+                        <!--<input type="text" id="custom_start" class="border btn-sm" readonly="readonly">-->
+                    </div>
+
+                    <div class="col-xs-6">
+                        <input type="text" readonly="readonly" value="{{endVal}}">
+                        <span class="icon_time"></span>
+                    </div>
+                </div>
+                <div class="container-fluid main_filter_calendar">
+
+                    <div class="row">
+                        <div class="col-xs-6 main_calendar_box">
+                            <div class="datepicker1" class="data-timer">
+                            </div>
+                            <div class="hms">
+                                <div class="time-box">
+                                    <div ng-click="timeStartAdd(true,timeH1)"><span class="glyphicon glyphicon-menu-up"></span></div>
+                                    <div class="hh1">{{timeH1}}</div>
+                                    <div ng-click="timeStartCut(true,timeH1)"><span class="glyphicon glyphicon-menu-down"></span></div>
+                                </div>
+                                <div class="time-box box_text">:</div>
+                                <div class="time-box">
+                                    <div ng-click="timeStartAdd(false,timeM1)"><span class="glyphicon glyphicon-menu-up"></span></div>
+                                    <div class="m1">{{timeM1}}</div>
+                                    <div ng-click="timeStartCut(false,timeM1)"><span class="glyphicon glyphicon-menu-down"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 main_calendar_box">
+                            <div class="datepicker2" class="data-timer">
+                            </div>
+                            <div class="hms">
+                                <div class="time-box">
+                                    <div ng-click="timeEndAdd(true,timeH2)"><span class="glyphicon glyphicon-menu-up"></span></div>
+                                    <div class="hh2">{{timeH2}}</div>
+                                    <div ng-click="timeEndCut(true,timeH2)"><span class="glyphicon glyphicon-menu-down"></span></div>
+                                </div>
+                                <div class="time-box box_text">:</div>
+                                <div class="time-box">
+                                    <div ng-click="timeEndAdd(false,timeM2)"><span class="glyphicon glyphicon-menu-up"></span></div>
+                                    <div class="m2">{{timeM2}}</div>
+                                    <div ng-click="timeEndCut(false,timeM2)"><span class="glyphicon glyphicon-menu-down"></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="tab-pane" id="code-track">
+    <div class="panel panel-default">
+        <div class="panel-heading row" style="height: 40px;position: relative;border-bottom: 1px solid #DDDDDD;">
+            <div class="col-md-7">堆栈：
+                <a class="code-open" href="javascript:;"> <input type="button" value="全部展开"> </a>
+                <a class="code-collapse" href="javascript:;"> <input type="button" value="全部收起"> </a>
+                <a class="code-slowest" href="javascript:;"> <input type="button" value="发现最慢的元素"> </a>
+            </div>
+            <div class="col-md-5">
+                <div class="code-index-item-title row">
+                    <ul class="ul_width">
+                        <li style="width: 30%" title="响应时间(ms)">响应时间(ms)</li>
+                        <li style="width: 24%" title="占比(%)">占比(%)</li>
+                        <li style="width: 23%" title="调用(次)">调用(次)</li>
+                        <li style="width: 23%" title="附加信息">附加信息</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row follow_table">
+            <div class="col-md-7" id="test-tree">
+                <table class="table_stack"></table>
+            </div>
+            <div class="col-md-5">
+                <table id="test-table" class="table"></table>
+            </div>
+        </div>
+    </div>
+</div>

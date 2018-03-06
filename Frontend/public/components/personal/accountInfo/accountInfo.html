@@ -1,0 +1,247 @@
+<div id="accountInfo">
+  <div class="content_title">
+    <ul class="bread-crumb">
+      <li>账户</li>
+      <li>&gt;</li>
+      <li>账户信息</li>
+    </ul>
+  </div>
+  <div class="padding-lr-16 tsb-main">
+
+    <!--基本信息 和 当前配额剩余 start-->
+    <div class="clearfix margin-b-16 info">
+      <!--left-->
+      <div class="left-content ">
+        <div class="tsb-box-show">
+          <div class="tsb-texture-title">
+            基本信息
+          </div>
+          <div class="widget padding-16">
+            <div class="content">
+              <div class="img-div">
+                <img src="public/img/user.png" alt="" height="133" width="133">
+              </div>
+              <ul class="ul-list">
+                <li>
+                  <label for="" >公司名称：</label>
+                  <div>
+                    {{userInfo.compony}}
+                  </div>
+                </li>
+                <li>
+                  <label for="" >账号类型：</label>
+                  <div>
+                    {{userInfo.user_type}}
+                  </div>
+                </li>
+                <li>
+                  <label for="">登录邮箱：</label>
+                  <div>
+                    {{userInfo.user_email}}<a href="#/navigation/personal/email" class="margin-l-16">修改</a>
+                  </div>
+                </li>
+                <li>
+                  <label for="">手机号码：</label>
+                  <div style="">
+                    {{userInfo.user_mobile}} <a href="#/navigation/personal/mobile" class="margin-l-16">修改</a>
+                  </div>
+                </li>
+                <li>
+                  <label for="" class="name" >您的姓名：</label>
+                  <div>
+                    <span class="pull-left span-edit">{{userInfo.user_name}} <a href="" class="margin-l-16">修改</a></span>
+                    <span class="pull-left span-save"><input id="ModifyUserName" type="text" class="form-control" value="{{userInfo.user_name}}" ng-keyup="ModifyUserNameChange()"><a ng-click="saveNameChange()" class="margin-l-16">保存</a><a id="cancel" href="" class="margin-l-5">取消</a></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--right 默认页面-->
+      <div class="right-content">
+        <div class="tsb-box-show">
+          <div class="tsb-texture-title">
+            当前配额剩余
+          </div>
+          <div class="widget padding-16 quota">
+            <table class="table">
+              <tbody>
+              <tr>
+                <td width="20%">Server配额</td>
+                <td width="50%">
+                  <div class="progress progress-small">
+                    <div class="progress-bar progress-bar-green" style="width: {{currentQuota.app.used/currentQuota.app.quota*100}}%"></div>
+                  </div>
+                </td>
+                <td width="30%">
+                  <span>{{currentQuota.app.used}}</span>/{{currentQuota.app.quota}}（台）
+                </td>
+              </tr>
+              <tr>
+                <td width="20%">Mobile配额</td>
+                <td width="50%">
+                  <div class="progress progress-small">
+                    <div class="progress-bar progress-bar-yellow" style="width: {{currentQuota.mobile.used/currentQuota.mobile.quota*100}}%"></div>
+                  </div>
+                </td>
+                <td width="30%">
+                  <span>{{currentQuota.mobile.used}}</span>/{{currentQuota.mobile.quota}}（人）
+                </td>
+              </tr>
+              <tr>
+                <td width="20%">Brower配额</td>
+                <td width="50%">
+                  <div class="progress progress-small">
+                    <div class="progress-bar progress-bar-orangeYellow" style="width: {{currentQuota.ue.used/currentQuota.ue.quota*100}}%"></div>
+                  </div>
+                </td>
+                <td width="30%">
+                  <span>{{currentQuota.ue.used}}</span>/{{currentQuota.ue.quota}}（月vp）
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--基本信息 和 当前配额剩余 end-->
+    <!--模块使用期限-->
+    <div class="margin-b-16 clearfix">
+      <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+          模块使用期限
+        </div>
+        <div class="widget padding-16">
+          <ul class="ul-period clearfix">
+            <li>
+              <div class="div-box getMoudleOverTime">
+                <div class="title">
+                  <div>浏览器使用时间</div>
+                  <div>{{getMoudleOverTimeDate[0].start_time}}<span> 至 </span>{{getMoudleOverTimeDate[0].end_time}}</div>
+                </div>
+                <div class="block block-chart ring-chart" id="getMoudleOverTime1">
+                  <div class="block-content" style="border:1px solid red;" data-chart="">
+
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="div-box getMoudleOverTime">
+                <div class="title">
+                  <div>移动使用时间</div>
+                  <div>{{getMoudleOverTimeDate[1].start_time}}<span> 至 </span>{{getMoudleOverTimeDate[1].end_time}}</div>
+                </div>
+                <div class="block block-chart ring-chart" id="getMoudleOverTime2">
+                  <div class="block-content" data-chart>
+
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="div-box getMoudleOverTime">
+                <div class="title">
+                  <div>应用使用时间</div>
+                  <div>{{getMoudleOverTimeDate[2].start_time}}<span> 至 </span>{{getMoudleOverTimeDate[2].end_time}}</div>
+                </div>
+                <div class="block block-chart ring-chart" id="getMoudleOverTime3">
+                  <div class="block-content" data-chart>
+
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="div-box getMoudleOverTime">
+                <div class="title">
+                  <div>主机使用时间</div>
+                  <div>{{getMoudleOverTimeDate[3].start_time}}<span> 至 </span>{{getMoudleOverTimeDate[3].end_time}}</div>
+                </div>
+                <div class="block block-chart  ring-chart" id="getMoudleOverTime4">
+                  <div class="block-content" data-chart>
+
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="div-box getMoudleOverTime">
+                <div class="title">
+                  <div>后台任务使用时间</div>
+                  <div>{{getMoudleOverTimeDate[4].start_time}}<span> 至 </span>{{getMoudleOverTimeDate[4].end_time}}</div>
+                </div>
+                <div class="block block-chart ring-chart" id="getMoudleOverTime5">
+                  <div class="block-content" data-chart>
+
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--模块使用期限-->
+
+    <!--添加条件 start-->
+    <div class="margin-b-16">
+      <div class="tsb-box-show tsb-box-gray4a">
+        <a href="javascript:void(0)" class="add-addition"><i class="icon-add"></i>添加条件</a>
+      </div>
+    </div>
+    <!--添加条件 end-->
+    <!--配额信息 start-->
+    <div class="margin-b-16 clearfix">
+      <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+          配额信息
+        </div>
+        <div class="widget block block-table" id="tableList" >
+          <div class="tsb-tableGray-div block-content" data-table>
+            <table class="table table-gray">
+              <thead>
+                <tr>
+                  <th data-item="order" width="5%">序号</th>
+                  <th data-item="month" width="15%">月份</th>
+                  <th data-item="mobile_quota" width="20%" data-tip="人">Mobile配额（月活）</th>
+                  <th data-item="mobile_used" width="20%" data-tip="人">已使用Mobile配额（月活）</th>
+                  <th data-item="ue_quota" width="20%" data-tip="pv">已购买月PV配额数</th>
+                  <th data-item="ue_used" width="20%" class="text-left"  data-tip="pv">已使用月PV配额数</th>
+                  <th data-item="ue_excess" width="20%" class="text-left">超额PV</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>6</td>
+                  <td>2017-08-21</td>
+                  <td>10,000,000人</td>
+                  <td><span class="color-orange">210,000</span>人</td>
+                  <td>10,000,000pv</td>
+                  <td class="text-right"><span class="color-orange">600</span>pv</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>2017-08-21</td>
+                  <td>10,000,000人</td>
+                  <td><span class="color-green">400</span>人</td>
+                  <td>10,000,000pv</td>
+                  <td class="text-right"><span class="color-orange">10,000,000</span>pv</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pager-widget">
+              <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+              <div class="PageList" oc-lazy-load="['pageList']">
+                <div page-list change="changeSqlList(currentPage,perPage)" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--快照列表 end-->
+  </div>
+</div>

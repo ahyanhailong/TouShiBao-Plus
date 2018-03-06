@@ -1,0 +1,109 @@
+<!--事务分析 start-->
+<div class="padding-lr-16 tsb-main" id="default-page">
+    <!--响应时间和请求数and请求统计-->
+    <div class="clearfix margin-b-16">
+        <!--left-->
+        <div class="left-content tsb-box-show">
+            <div class="tsb-texture-title">
+                响应时间和请求数
+                <ul class="pull-right tab-card">
+                    <li ng-class="{active:respTimeMark=='all'}"><a href="javascript:void(0)" ng-click="drawRespTimeChart()">所有</a></li>
+                    <li>|</li>
+                    <li ng-class="{active:respTimeMark=='five_percent'}"><a href="javascript:void(0)" ng-click="drawRespTimeChart('five_percent')">5%缓慢</a></li>
+                    <li>|</li>
+                    <li ng-class="{active:respTimeMark=='ten_percent'}"><a href="javascript:void(0)" ng-click="drawRespTimeChart('ten_percent')">10%缓慢</a></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <!-- Large modal -->
+                <div response-modal show="modalShow" index="modalIndex" type="modalType" title="modalTitle"></div>
+
+                <div class="block block-chart noDefault response-chart" id="respTimeChart">
+                    <div class="block-content response-chart" data-chart>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--right 默认页面-->
+        <div class="right-content">
+            <div class="tsb-box-show margin-l-16  tsb-box-show">
+                <div class="tsb-texture-title">
+                    请求数按响应时间分布
+                </div>
+                <!--环形chart-->
+                <div class="widget">
+                    <div class="block block-chart noDefault request-chart" id="requestDisChart">
+                        <div class="block-content request-chart" data-chart>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--事务列表-->
+    <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+            事务列表
+            <div class="pull-right margin-t-6">
+                <div class="tsb-search tsb-search-i" transaction-search>
+                    <input class="input-search" placeholder="按事务名称搜索">
+                    <i class="icon-search pos-a"></i>
+                </div>
+            </div>
+
+        </div>
+        <div class="widget" id="transactionList">
+            <div class="tsb-tableGray-div" data-table>
+                <table class="table table-gray">
+                    <thead>
+                    <tr>
+                        <th data-item="order" width="5%">序号</th>
+                        <th data-item="uri" width="16%">请求</th>
+                        <th data-item="avg_time" data-tip="ms" width="10%">
+                            响应时间<i class="fa fa-sort"></i>
+                        </th>
+                        <th data-item="rpm" data-tip="rpm" width="8%">
+                            吞吐率<i class="fa fa-sort"></i>
+                        </th>
+                        <th data-item="error_count" width="9%">
+                            错误次数<i class="fa fa-sort"></i>
+                        </th>
+                        <th data-item="error_pm" width="10%">
+                            错误／分钟<i class="fa fa-sort"></i>
+                        </th>
+                        <th data-item="error_rate" data-tip="%" width="8%">
+                            错误率<i class="fa fa-sort"></i>
+                        </th>
+                        <th data-item="exception_rate" data-tip="%" width="8%">
+                            异常率<i class="fa fa-sort"></i>
+                        </th>
+                        <th data-item="count" width="9%">
+                            请求次数<i class="fa fa-sort"></i>
+                        </th>
+                        <th data-item="slow_rate" data-tip="%" width="11%">
+                            缓慢请求率<i class="fa fa-sort"></i></th>
+                        <th data-item="very_slow_rate" data-tip="%" width="11%">
+                            非常慢请求率<i class="fa fa-sort"></i>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+
+                <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+                <div class="PageList" oc-lazy-load="['pageList']">
+                    <div page-list change="changePage(currentPage,perPage)"
+                         page_no="{{page_no}}"
+                         total_row="total_row"
+                         sum_per_page="{{sum_per_page}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--事务分析 end-->

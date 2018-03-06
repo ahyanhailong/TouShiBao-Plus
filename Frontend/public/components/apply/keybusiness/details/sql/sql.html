@@ -1,0 +1,29 @@
+<div id="sql">
+  <!--错误和异常趋势 start-->
+  <div class="margin-b-16">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        <ul class="tab-card">
+          <li ng-class="{active:timeAnaly == true}"><a href="{{handleHref('ErrorAbnormal')}}">时间分析</a></li>
+          <li>|</li>
+          <li ng-class="{active:timeAnaly == false}"><a href="{{handleHref('abnormalAnalysis')}}">异常分析</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--错误和异常趋势 end-->
+  <!--关键词过滤-->
+  <div oc-lazy-load="['filterKey', 'filterWhere']">
+
+    <div filter-where
+         change="change()"
+         wheres="wheres"
+         apis="whereApis"
+         where-list="whereList"></div>
+
+    <!--<div filter-key></div>-->
+  </div>
+
+  <div ui-view=""></div>
+
+</div>

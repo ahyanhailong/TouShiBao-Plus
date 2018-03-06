@@ -1,0 +1,163 @@
+<div id="contrast">
+  <div class="content_title" style="padding-right: 16px; padding-left: 16px;"
+       oc-lazy-load="['dateTime', 'breadCrumbs']">
+    <!--面包屑-->
+    <div oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js']" style="padding-right: 16px; padding-left: 16px;">
+      <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+    </div>
+
+  </div>
+  <!--对比分析start-->
+  <div class="padding-lr-16 tsb-main">
+    <!--left-->
+    <div class="left-content">
+      <div class="tsb-texture-title">
+        请选择下列内容进行比较：
+      </div>
+      <div class="tsb-dropDown-headTitle text-ellipsis">
+        应用upay:4333
+      </div>
+      <div class="tsb-dropDown">
+        <div class="collapsed tsb-dropDown-title" data-toggle="collapse" href="#transaction1" aria-expanded="true">
+          <a aria-expanded="true" class="text-ellipsis" >
+            <i class="caret-i caret-down"></i>
+            事务
+          </a>
+        </div>
+        <div class="tsb-dropDown-box tsb-dropDown-box collapse in" data-toggle="collapse" id="transaction1" aria-expanded="true">
+          <div class="tsb-search">
+            <input class="input-search" placeholder="按事务搜索" id="Search" data-onkey="13"/>
+          </div>
+          <ul class="tsb-dropDown-content" >
+            <li ng-repeat="item in getURI.key_uri">
+              <a ng-click="businessClick($event,{type:'key_uri',uri:item})" class="text-ellipsis" title="{{item}}">{{item}}</a>
+              <i class="icon-key"></i>
+            </li>
+            <li ng-repeat="item in getURI.uri">
+              <a ng-click="businessClick($event,{type:'uri',uri:item})" class="text-ellipsis" title="{{item}}">{{item}}</a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <!--right-->
+    <div class="right-content">
+      <div class="tsb-box-show margin-l-16">
+        <div class="tsb-texture-title">概览 </div>
+        <!--时间范围1-->
+        <div class="widget">
+          <ul class="time-range clearfix">
+            <li style="">时间范围1</li>
+            <li style="">
+              <div class="line"></div>
+            </li>
+            <li>
+              <div class="pull-left margin-l-5">
+                <div class="btn-group tsb-btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    主机：全部 <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a ng-click="hostClick1($event,{host_id:''})">全部</a></li>
+                    <li ng-repeat="host in getHostList"><a id="{{host.host_id}}" ng-click="hostClick1($event,{host_id:host.host_id})">{{host.host_name}}</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="pull-left margin-l-5">
+                <!--时间控件-->
+                <div style="line-height: 32px;float: right;" timer-start-time="start_time1" timer-end-time="end_time1" timer></div>
+
+              </div>
+            </li>
+            <li class="text-right">
+              <a href="javascript:void(0)" class="icon-empty" ng-click="frash1()"></a>
+            </li>
+
+          </ul>
+          <ul class="clearfix chart-box">
+            <li>
+              <div>
+                <div class="block block-chart" id="requestCount1">
+                  <div class="block-content" data-chart=""></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="block block-chart" id="repTime1">
+                  <div class="block-content" data-chart=""></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="block block-chart" id="errorCount1">
+                  <div class="block-content" data-chart=""></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!--时间范围1-->
+        <div class="widget">
+          <ul class="time-range clearfix">
+            <li style="">时间范围2</li>
+            <li style="">
+              <div class="line"></div>
+            </li>
+            <li>
+              <div class="pull-left margin-l-5">
+                <div class="btn-group tsb-btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    主机：全部 <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a ng-click="hostClick2($event,{host_id:''})">全部</a></li>
+                    <li ng-repeat="host in getHostList"><a id="{{host.host_id}}" ng-click="hostClick2($event,{host_id:host.host_id})">{{host.host_name}}</a></li>
+
+                  </ul>
+                </div>
+              </div>
+
+              <div class="pull-left margin-l-5">
+                <!--时间控件-->
+                <div style="line-height: 32px;float: right;" timer-start-time="start_time2" timer-end-time="end_time2" timer></div>
+              </div>
+            </li>
+            <li class="text-right">
+              <a href="javascript:void(0)" class="icon-empty" ng-click="frash2()"></a>
+            </li>
+
+          </ul>
+          <ul class="clearfix chart-box">
+            <li>
+              <div>
+                <div class="block block-chart" id="requestCount2">
+                  <div class="block-content" data-chart=""></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="block block-chart" id="repTime2">
+                  <div class="block-content" data-chart=""></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div class="block block-chart" id="errorCount2">
+                  <div class="block-content" data-chart=""></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

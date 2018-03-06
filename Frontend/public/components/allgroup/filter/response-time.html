@@ -1,0 +1,27 @@
+<li style="margin-top: 10px;margin-bottom: 10px;padding-right: 10px;position: relative;"
+    class="{{'dropdown1 filter_item '+ (isOpen?'open':'')}}"
+    data-type="{{type}}">
+    <a href="javascript:;" style="height: 30px;" ng-click="handleOpen($event)">
+        <div class="pull-left filter_overflow">
+            <i class="fa fa-times" ng-click="delWhere()"></i>
+            {{filterConfig.resptime.name}}：
+        <span id="domain_confirm_title"
+              tsb-select-value
+              tsb-select-value-radio
+              title="">{{value[0]}}ms - {{value[1]}}ms</span>
+        </div>
+        <span class="fa fa-angle-down pull-right"></span>
+    </a>
+
+    <div class="dropdown-menu padding_15 dropdown_check" role="menu">
+        <div class="row">
+            <div class="col-md-6" style="position: relative;">
+                <input style="padding: 6px 8px;padding-right: 24px;" class="form-control from" type="text" ng-model="_value[0]"/><span style="position: absolute;top: 7px;right: 12px;">ms</span>
+            </div>
+            <div class="col-md-6" style="position: relative;">
+                <input style="padding: 6px 8px;padding-right: 24px;" class="form-control to" type="text" ng-model="_value[1]"/><span style="position: absolute;top: 7px;right: 12px;">ms</span>
+            </div>
+        </div>
+        <filter-handle-btn></filter-handle-btn>
+    </div>
+</li>

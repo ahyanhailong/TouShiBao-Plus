@@ -1,0 +1,46 @@
+<!--Created by happily on 2017/12/12-->
+<div class="tsb-content-left" >
+  <div class="page-sidebar navbar-collapse collapse" style="position: fixed;top:52px;left: 0;">
+    <div class="slimScrollDiv">
+      <div class="bar-toggle">
+        <div class="tsb-toggle toggle-show">
+          <!--隐藏样式toggle-hide-->
+        </div>
+      </div>
+      <ul class="page-sidebar-menu" style="padding: 0;">
+        <li ng-class="{active:sideBarKey == 'accountInfo'}">
+          <a ui-sref="navigation.personal.accountInfo">
+            <i id="account"></i>
+            <span style="display: block;">账户信息</span>
+          </a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="navigation.personal.password">
+            <i id="psw"></i>
+            <span style="display: block;">密码设置</span>
+          </a>
+        </li>
+
+        <li ui-sref-active="active">
+          <a ui-sref="navigation.personal.userManager">
+            <i id="userManager"></i>
+            <span style="display: block;">用户管理</span>
+          </a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="navigation.personal.plugin">
+            <i id="plug"></i>
+            <span style="display: block;">插件管理</span>
+          </a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="navigation.personal.apiConfig">
+            <i id="api"></i>
+            <span style="display: block;">API设置</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div ui-view></div>
+</div>

@@ -1,0 +1,136 @@
+<div id="noSql">
+    <div class="content_title" oc-lazy-load="['breadCrumbs','./public/components/apply/applyDirective/applyBreadCrumbs.js','./public/components/apply/applyDirective/applyTimer.js']" style="padding-right: 16px; padding-left: 16px;">
+        <div apply-bread-crumbs style="float: left;background: #222222;padding: 0 20px;border-radius: 15px;margin-top: 4px;"></div>
+        <!--日期过滤-->
+        <div style="line-height: 32px;float: right;margin-top: 4px;" apply-timer></div>
+    </div>
+    <!--外部服务-->
+    <div class="padding-lr-16 tsb-main">
+        <!--left-->
+        <div class="left-content">
+            <div class="tsb-texture-title">
+                <span>数据类型：</span>
+
+                <div class="btn-group tsb-btn-group response">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span>{{currentDbModule[0].name}}</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="">
+                        <li ng-repeat="dbItem in dbModuleList"><a href="javascript:void(0)" ng-click="checkDbModule($index)">{{dbItem.name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="module" ng-show="dbModuleSecList.length>0">
+                模块：
+                <div class="btn-group tsb-btn-group response">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span>{{currentDbModule[1].name}}</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" style="">
+                        <li ng-repeat="dbItem in dbModuleSecList">
+                            <a href="javascript:void(0)" ng-click="checkSecDbModule($index)">{{dbItem.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <!--下拉菜单-->
+                <div class="tsb-dropDown" ng-repeat="instance in instanceList">
+                    <div class="collapsed tsb-dropDown-title"
+                         ng-class="{current:instance.name == title[0]}">
+                        <a aria-expanded="true" class="text-ellipsis">
+                            <i class="caret-i caret-down" data-toggle="collapse" href="#transaction{{$index}}"></i>
+                            <span class="pull-left text-ellipsis span1" ng-click="enterFirst($index)">{{instance.name}}</span>
+                            <span class="pull-right span2">{{instance.resp_time|numberFormat}} ms</span>
+                        </a>
+                    </div>
+                    <div class="collapse tsb-dropDown-box" data-toggle="collapse" id="transaction{{$index}}">
+                        <ul class="tsb-dropDown-content special">
+                            <li ng-repeat="item in instance.list" ng-class="{active:item.name == title[1]}">
+                                <a href="javascript:void(0)" class="text-ellipsis" title="/info.php" ng-click="enterSecond(item,instance)">
+                                    <span class="pull-left text-ellipsis span1">{{item.name}}</span>
+                                    <span class="pull-right span2">{{item.resp_time|numberFormat}} ms</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--right 默认页面-->
+        <div class="right-content" id="level-one" style="display: block">
+            <div class="tsb-box-show margin-l-16 ">
+                <div class="tsb-texture-title">
+                    <span>{{title[0]}}</span>
+                    <a href="javascript:void(0)" class="btn-back backTrigger" ng-show="!isOverview" ng-click="backOverview()">
+                        <i class="fa fa-angle-left"></i> 返回NoSQL概览页
+                    </a>
+                </div>
+                <!--响应时间变化曲线(TOP5)-->
+                <div class="block block-chart noDefault" id="databaseTrend" ng-show="isOverview || isFirst">
+                    <div class="block-title">
+                        <ul class="time-range clearfix">
+                            <li>响应时间变化曲线(TOP5)</li>
+                            <li>
+                                <div class="line"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block-content" id="databaseTrendCont" data-chart style="min-height: 324px;height: 324px;"></div>
+                </div>
+                <!--吞吐率(TOP5)-->
+                <div class="block block-chart noDefault" id="rpmTrend" ng-show="isOverview||isFirst">
+                    <div class="block-title">
+                        <ul class="time-range clearfix">
+                            <li>吞吐率(TOP5)</li>
+                            <li>
+                                <div class="line"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block-content" data-chart style="min-height: 324px;height: 324px;"></div>
+                </div>
+                <!--实例列表-->
+                <div class="block block-table noDefault" id="js_instance_list" ng-show="isOverview">
+                    <!--<nosql-instance-list></nosql-instance-list>-->
+                </div>
+                <!--吞吐量及响应时间趋势(TOP5)-->
+                <div class="block block-chart noDefault" id="js_rpm_resp" ng-show="isSecond">
+                    <div class="block-title">
+                        <ul class="time-range clearfix">
+                            <li>吞吐量及响应时间趋势(TOP5)</li>
+                            <li>
+                                <div class="line"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block-content" data-chart style="min-height: 324px;height: 324px;"></div>
+                </div>
+                <!--调用者耗时百分比(TOP5)-->
+                <div class="block block-chart noDefault" id="js_caller_rate" ng-show="isFirst||isSecond">
+                    <div class="block-title">
+                        <ul class="time-range clearfix">
+                            <li>调用者耗时百分比(TOP5)</li>
+                            <li>
+                                <div class="line"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block-content" data-chart style="min-height: 230px;height: 230px;"></div>
+                </div>
+                <!--方法列表-->
+                <div class="block block-table noDefault" id="js_caller_list" ng-show="isFirst">
+                    <!--<nosql-pst-list instance="aaaa"></nosql-pst-list>-->
+                </div>
+                <!--事务-->
+                <div class="block block-table noDefault" id="js_business_list" ng-show="isSecond">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

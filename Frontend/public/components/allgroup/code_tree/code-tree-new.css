@@ -1,0 +1,223 @@
+body *{
+    box-sizing: border-box;
+}
+.cursor{
+    cursor: pointer;
+}
+#test-tree .active span, #test-table .active td{
+    background-color: pink;
+}
+
+#test-tree li {
+    list-style: none;
+}
+
+#code-track .panel-heading .col-md-7{
+    padding: 8px;
+}
+
+#test-tree .table_stack {
+    display: table;
+    width: 100%;
+}
+
+#test-tree {
+    overflow-x: scroll;
+    line-height: 20px;
+    /*border: 1px solid grey;*/
+    padding: 0px;
+    border-right: 0px;
+    margin-top: -1px;
+    overflow-y: hidden;
+}
+
+#test-table {
+    line-height: 20px;
+    padding: 0px;
+    border-left: 1px solid #DDDDDD;;
+}
+
+.code-index {
+    float: left;
+    line-height: 30px;
+}
+
+.code-node-item {
+    line-height: 30px;
+    height: 30px;
+    white-space: nowrap;
+    clear: both;
+    margin: 0px;
+
+}
+
+.code-node-item {
+    display: table-row;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    padding: 5px 0px;
+}
+
+.col-md-4 > .row > .col-md-3 {
+    padding: 0;
+}
+
+.ul_width,.ul_width {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+}
+
+.ul_width > li{
+    padding-left: 5px;
+    width: 20%;
+    float: left;
+    line-height: 25px;
+}
+.pad_left{
+    padding-left: 10px;
+}
+
+.panel-heading.row {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.panel-heading {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.code-node-item>div{
+    border-bottom: 1px solid #DDDDDD;
+}
+.ul_width > li{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.ul_width > li:last-child{
+    width: 15%;
+}
+.row-line>.code-node-bug{
+    height: 15px;
+    margin-top: 5px;
+}
+
+.row-line>.code-node-bug,.row-line>.code-node-img,.code-node-method{
+    float: left;
+}
+.code-node-bug{
+    height: 30px;
+    background: url(./img/bug.png) 0 0 no-repeat;
+    padding-left:20px;
+}
+
+.item.open>.title>.code-img{
+    height: 30px;
+    padding-left: 16px;
+    display: block;
+    background: url(./img/code-switch-minus.png) 0 7px no-repeat;
+
+}
+.item>.title>.code-img{
+    height: 30px;
+    background: url(./img/code-switch-plus.png) 0 7px no-repeat;
+    padding-left: 16px;
+    display: block;
+}
+#test-table  .title span{
+    display: block;
+    /*border-left: 1px solid #ccc;*/
+    /*text-align: center;*/
+    height: 100%;
+    float: left;
+}
+#test-table  .title span{
+    width: 23%;
+    padding-left: 15px;
+}
+#test-table  .title span:nth-child(1){
+    border-left: 0;
+    width: 30%;
+}
+#test-table  .title span:nth-child(2){
+    border-left: 0;
+    width: 24%;
+}
+
+
+
+
+.no-img{
+    background:url("");
+}
+.table_stack .open .no-img{
+    background:url("");
+}
+.row-line{
+    float: left;
+    width:100%;
+}
+#myModalLabel{
+    word-break: break-all;
+}
+
+.exception_white_list .border{
+    border: 0px;
+}
+.row.follow_table {
+    margin: 0;
+    padding: 0;
+}
+.follow_table{
+    padding: 0;
+}
+.follow_table>.col-md-5,.follow_table>.col-md-7{
+    padding:0
+}
+.follow_table .table>tbody>tr>td{
+    height:31px;
+    padding:0;
+    padding-left:15px;
+    border-top:none;
+    border-bottom:1px solid #ccc;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 30px
+}
+.follow_table .table>tbody>tr:first-child>td{
+    padding-left:15px;
+}
+.follow_table>.col-md-5{
+    margin-top:-1px;
+}
+
+.follow_table .java_1{
+    width: 26%;
+}
+.follow_table .java_2{
+    width: 20%;
+}
+
+.follow_table .php_1{
+    width: 20%;
+}
+.follow_table .php_2{
+    width: 16%;
+}
+/**
+这块自定义样式，和应用-错误  错误数的提示冲突
+ */
+.popover-content{
+    max-width:300px;
+    max-height:300px;
+    overflow-y: auto;
+    word-break: break-all;
+}

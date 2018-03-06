@@ -1,0 +1,64 @@
+<div class="page-content-wrapper page-content-adapt-ui" style="height: auto;overflow: visible;">
+  <div class="page-content">
+    <!--头部导航-->
+    <div class="page-header navbar navbar-fixed-top">
+      <!-- BEGIN HEADER INNER -->
+      <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+          <a href="/">
+            <img src="public/img/logo.png">
+          </a>
+        </div>
+      </div>
+      <div class="hor-menu hor-menu-light hidden-sm hidden-xs">
+        <ul class="nav navbar-nav">
+          <!--<li class="classic-menu-dropdown" auth="viewAppTopo">
+              <a href="/app_topo/getview/syslist" auth="viewAppTopo">业务</a>
+          </li>-->
+          <li class="dropdown tsb_nav_add  classic-menu-dropdown active" auth="viewApp" style="margin-left: 0;">
+            <a href="#/navigation/applyListdefault/applyList" class="dropdown-toggle active" data-toggle="dropdown"
+               data-hover="dropdown"> web应用</a>
+          </li>
+        </ul>
+      </div>
+      <div class="top-menu">
+        <div >
+
+        </div>
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown config">
+            <div class="btn-group tsb-btn-group" role="group">
+              <button style="" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="icon-add-gray"></span> 配置<span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu setting-dropdown">
+                <li><a href="#/navigation/configApply/java"><i class="setting-apply"></i>应用</a></li>
+                <li><a href=""><i class="setting-mobile"></i>移动</a></li>
+                <li><a href=""><i class="setting-browser"></i>浏览器</a></li>
+                <li><a href=""><i class="setting-host"></i>主机</a></li>
+                <li><a href=""><i class="setting-db"></i>DB&amp;服务</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+              <span class="badge">
+                <img class="img-circle border_white" src="public/img/user.png">
+              </span>
+              <span class="username username-hide-on-mobile">username</span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#/navigation/personal/accountInfo">个人中心</a></li>
+              <li><a href="#/login">退出</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div ui-view></div>
+  </div>
+</div>
+
+

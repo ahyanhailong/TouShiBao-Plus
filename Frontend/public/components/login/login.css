@@ -1,0 +1,684 @@
+#login {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("../../img/login/loginBg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*for IE*/
+  /*for mozilla*/
+}
+#login .content {
+  background: url("../../img/login/contentBg.png") no-repeat;
+  background-size: 100%;
+  width: 709px;
+  height: 402px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -354px;
+  margin-top: -201px;
+}
+@-webkit-keyframes scaleDraw {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(0.8, 0.8);
+  }
+  50% {
+    -webkit-transform: scale(0.6, 0.6);
+  }
+  75% {
+    -webkit-transform: scale(0.5, 0.5);
+  }
+  100% {
+    -webkit-transform: scale(0.4, 0.4);
+  }
+}
+#login .content-scaleDraw {
+  animation: scaleDraw 0.3s infinite;
+  -webkit-animation: scaleDraw 0.3s infinite;
+  /* Safari 和 Chrome */
+  animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  width: 526px;
+  height: 288px;
+  left: 50%;
+  top: 50%;
+  margin-left: -263px;
+  margin-top: -144px;
+}
+#login .content-scaleDraw .tsb-form .tsb-formContent {
+  width: 296px;
+  height: 361px;
+  border-radius: 4px;
+  background: #fff;
+  position: absolute;
+  left: 114px;
+  top: -30px;
+}
+#login .action-btn {
+  z-index: 0;
+}
+#login .action-btn .btn-noBg {
+  width: 150px;
+  height: 46px;
+  font-size: 20px;
+  line-height: 46px;
+  border: 2px solid #FFFFFF ;
+  text-align: center;
+  padding: 0;
+  color: #fff;
+  font-family: "PingFang SC";
+  font-weight: lighter;
+}
+#login .action-btn .login-logo {
+  background: url("../../img/login/login-logo.png") no-repeat;
+  width: 58px;
+  height: 74px;
+  background-size: 100%;
+  margin: 0 auto;
+  margin-top: 68px;
+  margin-bottom: 90px;
+}
+#login .action-btn .sigin {
+  width: 50%;
+  float: left;
+  text-align: center;
+  margin: 0 auto;
+}
+#login .action-btn .register {
+  width: 50%;
+  float: right;
+  text-align: center;
+  margin: 0 auto;
+}
+#login :focus {
+  outline: none;
+}
+#login ::-moz-focus-inner {
+  border-color: transparent;
+}
+#login .tsb-form {
+  position: relative;
+  z-index: 10;
+}
+#login .tsb-form .tsb-formContent {
+  width: 363px;
+  height: 470px;
+  border-radius: 4px;
+  background: #fff;
+  position: absolute;
+  left: 23px;
+  top: -30px;
+}
+#login .tsb-form .tsb-formContent-right {
+  animation: rightMove 0.3s infinite;
+  -webkit-animation: rightMove 0.3s infinite;
+  /* Safari 和 Chrome */
+  animation-iteration-count: 1;
+  left: inherit;
+  right: 23px;
+}
+@keyframes rightMove {
+  from {
+    left: 23px;
+  }
+  to {
+    left: 323px;
+  }
+}
+@-webkit-keyframes rightMove {
+  /*Safari and Chrome*/
+  from {
+    left: 23px;
+  }
+  to {
+    left: 323px;
+  }
+}
+#login .tsb-form .tsb-formContent-left {
+  animation: leftMove 0.3s infinite;
+  -webkit-animation: leftMove 0.3s infinite;
+  /* Safari 和 Chrome */
+  animation-iteration-count: 1;
+  right: inherit;
+  left: 23px;
+}
+@keyframes leftMove {
+  from {
+    left: 323px;
+  }
+  to {
+    left: 23px;
+  }
+}
+@-webkit-keyframes leftMove {
+  /*Safari and Chrome*/
+  from {
+    left: 323px;
+  }
+  to {
+    left: 23px;
+  }
+}
+#login .tsb-form .tsb-formContent-center {
+  animation: centerMove 0.3s infinite;
+  -webkit-animation: leftMove 0.3s infinite;
+  /* Safari 和 Chrome */
+  animation-iteration-count: 1;
+  right: inherit;
+  left: 23px;
+}
+@keyframes centerMove {
+  from {
+    left: 23px;
+  }
+  to {
+    left: 177px;
+  }
+}
+@-webkit-keyframes centerMove {
+  /*Safari and Chrome*/
+  from {
+    left: 23px;
+  }
+  to {
+    left: 177px;
+  }
+}
+#login .tsb-form .form-control {
+  border-radius: 4px;
+  border: 2px solid #E4E4E4;
+  background: none;
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: lighter;
+  box-shadow: none;
+}
+#login .tsb-form .form-control:focus {
+  border-color: #E4E4E4;
+  outline: 0;
+  box-shadow: none;
+}
+#login .tsb-form .errorTip {
+  position: relative;
+  color: #D0021B;
+  font-size: 12px;
+  top: -6px;
+}
+#login .tsb-form .has-error .form-control {
+  border-color: #D0280D;
+  right: 0px;
+}
+#login .tsb-form .help-block {
+  right: 0;
+}
+#login .tsb-form .form-control-feedback {
+  right: -22px;
+}
+#login .tsb-form .strongWeak {
+  right: 0;
+  margin-top: -2px;
+}
+#login .tsb-form .strongWeak > span {
+  /*background: #D8D8D8;*/
+  margin-right: 3px;
+}
+#login .tsb-form .strongWeak > span.orange-bg {
+  background: #FF8235;
+}
+#login .btn-blue {
+  width: 150px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0;
+  border-radius: 50px;
+  background: #0B78E3;
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+  margin: 0 auto;
+}
+#login .btn-blue:hover,
+#login .btn-blue:focus,
+#login .btn-blue:active {
+  background: #4FABFC;
+  border-color: #4FABFC ;
+}
+#login .btn-blue-border {
+  width: 150px;
+  height: 46px;
+  line-height: 46px;
+  padding: 0;
+  border-radius: 50px;
+  background: #fff;
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: center;
+  margin: 0 auto;
+  border: 2px solid #0B78E3;
+  color: #0B78E3;
+}
+#login .btn-blue-border:hover,
+#login .btn-blue-border:focus,
+#login .btn-blue-border:active {
+  background: #4FABFC;
+  border-color: #4FABFC ;
+  color: #fff;
+}
+#login .btn-white {
+  height: 32px;
+  line-height: 30px;
+  padding: 0;
+  border-radius: 4px;
+  background: #ffffff;
+  text-align: center;
+  margin: 0 auto;
+  border: 2px solid #E4E4E4;
+  font-size: 14px;
+  color: #B2B2B2;
+  font-weight: lighter;
+}
+#login .Hor-line {
+  width: 100%;
+  height: 2px;
+  display: block;
+}
+#login .Hor-line > li {
+  width: 25%;
+  float: left;
+  height: 2px;
+}
+#login .Hor-line > li:nth-child(1) {
+  background: #3C99FC;
+}
+#login .Hor-line > li:nth-child(2) {
+  background: #EE1C24;
+}
+#login .Hor-line > li:nth-child(3) {
+  background: #FFF200;
+}
+#login .Hor-line > li:nth-child(4) {
+  background: #38B54A;
+}
+#login .modify-success > div {
+  background: url(../../img/login/modify-success.png) no-repeat;
+  background-size: 100%;
+  width: 119px;
+  height: 96px;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+#login .modify-success > p {
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #012B72;
+  font-weight: 200;
+}
+#login .tsb-login .title {
+  margin-bottom: 50px;
+}
+#login .tsb-login .title h2 {
+  font-size: 36px;
+  color: #0B78E3;
+  font-weight: 200;
+  text-align: center;
+  margin-top: 55px;
+  margin-bottom: 30px;
+}
+#login .tsb-login .login-form {
+  width: 260px;
+  margin: 0 auto;
+}
+#login .tsb-login .login-form .form-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+#login .tsb-login .login-form .form-group .form-control {
+  height: 46px;
+  padding: 6px 12px;
+  padding-left: 40px;
+}
+#login .tsb-login .login-form .form-group .span-icon {
+  position: absolute;
+  padding: 10px;
+}
+#login .tsb-login .login-form .form-group .span-icon .icon-user {
+  background: url("../../img/login/icon-user.png") no-repeat;
+  display: block;
+  height: 26px;
+  width: 26px;
+  vertical-align: middle;
+  padding: 10px;
+  background-size: 100%;
+}
+#login .tsb-login .login-form .form-group .span-icon .icon-psw {
+  background: url("../../img/login/icon-psw.png") no-repeat;
+  display: block;
+  height: 26px;
+  width: 26px;
+  vertical-align: middle;
+  padding: 10px;
+  background-size: 22px 24px;
+}
+#login .tsb-login .login-form .form-group .checkbox-check {
+  height: 25px;
+  color: #B2B2B2;
+  left: -8px;
+  width: 100px;
+  float: left;
+}
+#login .tsb-login .login-form .form-group .checkbox-check > label {
+  padding-left: 5px;
+  line-height: 20px;
+  font-size: 14px;
+}
+#login .tsb-login .login-form .form-group a.forgotPsw {
+  color: #4FABFC;
+  float: right;
+}
+#login .tsb-login .login-form .form-group a.forgotPsw:hover {
+  color: #0B78E3;
+}
+#login .tsb-login .login-form .form-group.submit {
+  margin-top: 25px;
+  text-align: center;
+}
+#login .tsb-login .login-form .checkbox-check {
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+}
+#login .tsb-login .login-form .checkbox-check > input {
+  position: absolute;
+  left: 10px;
+  top: -3px;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+#login .tsb-login .login-form .checkbox-check > label {
+  position: absolute;
+  left: 30px;
+  line-height: 13px;
+  top: 0px;
+  font-weight: normal;
+}
+#login .tsb-login .login-form .checkbox-check > label:before {
+  border-radius: 4px;
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #E4E4E4;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+}
+#login .tsb-login .login-form .checkbox-check > label:after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0px;
+  display: inline-block;
+  margin-top: 4px;
+  margin-left: 4px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+}
+#login .tsb-login .login-form .checkbox-check input[type='checkbox']:checked + label:before {
+  border-color: #4FABFC;
+  background: #4FABFC;
+}
+#login .tsb-login .login-form .checkbox-check input[type='checkbox']:checked + label:after {
+  content: "";
+  position: absolute;
+  left: -21px;
+  top: -1px;
+  width: 13px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  -ms-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-45deg);
+}
+#login .tsb-register .title {
+  padding-top: 5px;
+}
+#login .tsb-register .title h2 {
+  font-size: 20px;
+  color: #0B78E3;
+  font-weight: 200;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 19px;
+}
+#login .tsb-register .title h2 span {
+  color: #B2B2B2;
+  font-size: 12px;
+}
+#login .tsb-register .register-form {
+  padding: 0 10px;
+  margin: 0 auto;
+}
+#login .tsb-register .register-form .form-horizontal .control-label {
+  font-weight: lighter;
+  color: #858484;
+  font-size: 16px;
+  padding-top: 4px;
+}
+#login .tsb-register .register-form .form-horizontal .form-group {
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 13px;
+}
+#login .tsb-register .register-form .form-horizontal .form-group .col-md-8 {
+  padding-right: 0;
+}
+#login .tsb-register .register-form .form-horizontal .form-group .form-control {
+  height: 32px;
+  padding: 6px 12px;
+}
+#login .tsb-register .register-form .form-horizontal .form-group .validation .btn-white {
+  width: 100%;
+}
+#login .tsb-register .register-form .form-horizontal .form-group.has-error .help-block {
+  margin-top: -3px;
+  margin-bottom: 0;
+}
+#login .tsb-register .register-form .form-horizontal .resend-code .col-md-5 {
+  padding-right: 0;
+}
+#login .tsb-register .register-form .form-horizontal .resend-code .btn-white {
+  width: 84px;
+}
+#login .tsb-register .register-form .form-group.submit {
+  margin-top: 15px;
+  text-align: center;
+}
+#login .tsb-findPsw .title {
+  padding-top: 5px;
+}
+#login .tsb-findPsw .title h2 {
+  font-size: 20px;
+  color: #0B78E3;
+  font-weight: 200;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 11px;
+}
+#login .tsb-findPsw .title h2 span {
+  color: #858484;
+  font-size: 14px;
+  margin-left: 10px;
+}
+#login .tsb-findPsw .findPsw-form {
+  padding: 0 10px;
+  margin: 0 auto;
+}
+#login .tsb-findPsw .findPsw-form .form-horizontal .control-label {
+  font-weight: lighter;
+  color: #858484;
+  font-size: 16px;
+  padding-top: 4px;
+  padding-left: 0;
+  padding-right: 0;
+}
+#login .tsb-findPsw .findPsw-form .form-horizontal .form-group {
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 25px;
+}
+#login .tsb-findPsw .findPsw-form .form-horizontal .form-group .col-md-8 {
+  padding-right: 0;
+}
+#login .tsb-findPsw .findPsw-form .form-horizontal .form-group .form-control {
+  height: 32px;
+  padding: 6px 12px;
+}
+#login .tsb-findPsw .findPsw-form .form-horizontal .form-group .validation .btn-white {
+  width: 100%;
+}
+#login .tsb-findPsw .findPsw-form .form-horizontal .resend-code .col-md-5 {
+  padding-right: 0;
+}
+#login .tsb-findPsw .findPsw-form .form-horizontal .resend-code .btn-white {
+  width: 84px;
+}
+#login .tsb-findPsw .findPsw-form .form-group.submit {
+  margin-top: 100px;
+  text-align: center;
+}
+#login .tsb-findPsw .findPsw-form .form-group.submit-step02 {
+  margin-top: 50px;
+}
+#login .tsb-findPsw .findPsw-form .form-group.submit-step02 > .btn {
+  width: 120px;
+  margin: 0 20px;
+}
+#login .tsb-findPsw .findPsw-form .form-group.submit-step03 {
+  margin-top: 45px;
+}
+#login .tsb-findPsw .nav-tabs {
+  border-bottom: 2px solid #F1F4F9;
+  margin-top: 30px;
+}
+#login .tsb-findPsw .nav-tabs > li {
+  width: 33.3333%;
+  margin: 0 auto;
+  text-align: center;
+  top: 14px;
+}
+#login .tsb-findPsw .nav-tabs > li > span {
+  width: 26px;
+  height: 26px;
+  background: #F1F4F9;
+  color: #858484;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 26px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: lighter;
+}
+#login .tsb-findPsw .nav-tabs > li > div {
+  position: absolute;
+  width: 100%;
+  color: #B2B2B2;
+  font-weight: 200;
+  font-size: 14px;
+}
+#login .tsb-findPsw .nav-tabs > li.active > span {
+  background: #0B78E3;
+  color: #fff;
+}
+#login .tsb-findPsw .nav-tabs > li.active > div {
+  color: #0B78E3;
+}
+#login .tsb-findPsw .tab-content {
+  margin-top: 70px;
+}
+#login .icon-hook {
+  background: url(../../img/login/icon-hook.png) no-repeat;
+  background-size: 100%;
+  width: 165px;
+  height: 180px;
+  vertical-align: middle;
+  margin: 0 auto;
+  display: inline-block;
+}
+#login .tsb-login-success .icon-hook,
+#login .tsb-register-success .icon-hook {
+  float: right;
+  margin-right: 35px;
+  opacity: 0.3;
+}
+#login .tsb-login-success .icon-hook-topLeft,
+#login .tsb-register-success .icon-hook-topLeft {
+  opacity: 1;
+  width: 92px;
+  height: 91px;
+  background-size: 92px 91px;
+  margin-top: 32%;
+  margin-right: 30%;
+  animation: topLeftMove 0.3s infinite;
+  -webkit-animation: topLeftMove 0.3s infinite;
+  /* Safari 和 Chrome */
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  -webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes topLeftMove {
+  0% {
+    -moz-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  25% {
+    -moz-transform: translate(0, 10px);
+    -webkit-transform: translate(0, 10px);
+    -o-transform: translate(0, 10px);
+    -ms-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+  }
+  50% {
+    -moz-transform: translate(0, 20px);
+    -webkit-transform: translate(0, 20px);
+    -o-transform: translate(0, 20px);
+    -ms-transform: translate(0, 20px);
+    transform: translate(0, 20px);
+  }
+  75% {
+    -moz-transform: translate(0, 30px);
+    -webkit-transform: translate(0, 30px);
+    -o-transform: translate(0, 30px);
+    -ms-transform: translate(0, 30px);
+    transform: translate(0, 30px);
+  }
+  100% {
+    -moz-transform: translate(0, 40px);
+    -webkit-transform: translate(0, 40px);
+    -o-transform: translate(0, 40px);
+    -ms-transform: translate(0, 40px);
+    transform: translate(0, 40px);
+  }
+}

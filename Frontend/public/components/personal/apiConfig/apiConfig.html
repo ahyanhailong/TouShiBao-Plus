@@ -1,0 +1,105 @@
+<div id="apiConfig">
+  <div class="content_title">
+    <ul class="bread-crumb">
+      <li>管理</li>
+      <li>&gt;</li>
+      <li>API配置</li>
+    </ul>
+  </div>
+  <div class="padding-lr-16 tsb-main">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        配置信息
+        <div class="tsb-btn-group pull-right">
+          <button class="btn btn-blue border-radius20" id="btn-save" ng-click="saveApi()">保存</button>
+          <!--<button class="btn btn-gray border-radius20 margin-l-5">取消</button>-->
+        </div>
+      </div>
+      <div class="widget padding-16">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="api" class="col-sm-3 control-label">API:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="api" value="{{ApiSecretKeyMsg.api}}" disabled>
+            </div>
+            <div class="col-sm-3 action">
+              <a href="javascript:void(0)" id="ApiCopy"><i class="action-copy-hover"></i>复制</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword2" class="col-sm-3 control-label">密钥:</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputPassword2" value="{{ApiSecret}}" aria-describedby="helpBlock1" disabled>
+            </div>
+            <div class="col-sm-3 action">
+              <a id="secretCopy" href="javascript:void(0)" ng-click="secretCopy()"><i class="action-copy-hover"></i>复制</a>
+              <a href="javascript:void(0)" ng-click="changeSecret()"><i class="action-refresh"></i>换一个</a>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">选择数据源类型:</label>
+            <div class="col-sm-9">
+              <ul class="ul-list">
+                <li class="active" data-type="100" ng-click="liClick($event)">
+                  <a href="javascript:void(0)">
+                    <i class="host-bg"></i>
+                  </a>
+                </li>
+                <li data-type="11" ng-click="liClick($event)">
+                  <a href="javascript:void(0)">
+                    <i class="browser-bg"></i>
+                  </a>
+                </li>
+                <li data-type="402" ng-click="liClick($event)">
+                  <a href="javascript:void(0)">
+                    <i class="mobile-bg"></i>
+                  </a>
+                </li>
+                <li data-type="1001" ng-click="liClick($event)">
+                  <a href="javascript:void(0)">
+                    <i class="php-bg"></i>
+                  </a>
+                </li>
+                <li data-type="1002" ng-click="liClick($event)">
+                  <a href="javascript:void(0)">
+                    <i class="java-bg"></i>
+                  </a>
+                </li>
+                <li data-type="1003" ng-click="liClick($event)">
+                  <a href="javascript:void(0)">
+                    <i class="net-bg"></i>
+                  </a>
+                </li>
+                <li data-type="1004" ng-click="liClick($event)">
+                  <a href="javascript:void(0)">
+                    <i class="python-bg"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+        <!--保存成功之后显示完成修改成功的代码-->
+        <div class="finish-state" style="display: none">
+          <div class="text"><i class="icon-finish"></i>密码修改成功</div>
+          <div class="tsb-btn-group">
+            <button class="btn btn-gray border-radius20 padding-lr-16" ng-click="complete()">完成</button>
+          </div>
+        </div>
+        <!--保存成功之后显示完成修改成功的代码-->
+      </div>
+      <div class="instruct clearfix">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label for="api" class="col-sm-3 control-label">配置说明:</label>
+            <div class="col-sm-9">
+              <div>1. 密钥用来验证用户身份的合法性和安全性，具体使用方法参考使用帮助。</div>
+              <div>2. 生成密钥，只有管理员，高级用户权限可以生成和更换密钥,普通用户没有权限。</div>
+              <div>3. 选择数据源类型:当你选择的数据类型1分钟后将从API取得，数据流保存20分钟。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

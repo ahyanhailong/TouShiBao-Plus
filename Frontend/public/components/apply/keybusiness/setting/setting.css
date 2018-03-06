@@ -1,0 +1,31 @@
+ #setting .radio-check{
+   width: 100px; color: #FFFFFF;
+   font-weight: normal;  float: left; margin-top: 10px;}
+ #setting .form-horizontal{
+    background: #2E2E2E; padding: 30px 0 0 0;
+ }
+ #setting .form-horizontal .form-group{
+    padding-bottom: 30px;
+    margin-bottom: 0;
+ }
+ #setting  .form-horizontal .form-group {
+    margin-right: 0;
+    margin-left: 0;
+ }
+ #setting  .search-box{
+    border: 1px solid #535353; width: 740px; color: #fff;font-size: 12px; border-radius: 4px;padding: 12px; background: #3E3E3E;
+ }
+ #setting  .search-box > div{
+    border-bottom: 1px solid #535353; padding-bottom: 5px; overflow:hidden;
+ }
+ #setting  .search-box > ul{padding-top: 10px;height: 200px; overflow-y: auto;}
+ #setting  .search-box > ul > li{line-height: 30px;}
+
+ #setting .example{background: #272727; padding: 20px 0 20px 0;}
+ #setting .example .example-widget{width: 360px; height: 244px; float: left; border:1px solid #535353; padding: 12px; color: #fff; font-size:12px;}
+ #setting .example .example-widget:first-child{margin-right: 20px;}
+ #setting .example .example-widget >div{}
+ #setting .example .example-widget >p{background: #535353; border-radius: 4px; height: 30px;line-height: 30px; padding: 0 10px;}
+ #setting .example .example-widget >ul{padding-top: 10px;}
+ #setting .example .example-widget >ul >li{line-height: 35px;}
+ #setting .tsb-search{width: 760px; }

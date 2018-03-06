@@ -1,0 +1,15 @@
+<!--关键事务 详情 start-->
+  <div class="padding-lr-16 tsb-main" id="details-page">
+    <div class="pos-r">
+      <div class="tsb-tab-content">
+        <ul class="tsb-tab-ul" id="tsb-tab-ul">
+          <li ng-class="{active:classActive('dashboard')}"><a href="{{handleHref('dashboard')}}">概要分析</a></li>
+          <li ng-class="{active:classActive('error')}"><a href="{{handleHref('error')}}">错误分析</a></li>
+          <li ng-class="{active:SQL== true}"><a href="{{handleHref('sql/ErrorAbnormal')}}">SQL分析</a></li>
+          <li ng-class="{active:classActive('snapshoot')}"><a href="{{handleHref('snapshoot')}}">快照分析</a></li>
+        </ul>
+      </div>
+      <a href="javascript:void (0)" class="pos-a back-list"><i class="fa fa-angle-left"></i> 返回列表</a>
+    </div>
+    <div ui-view></div>
+  </div>

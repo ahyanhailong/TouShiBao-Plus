@@ -1,0 +1,62 @@
+<div id="errorException">
+    <!--错误和异常趋势 start-->
+    <div class="margin-b-16">
+        <div class="tsb-box-show">
+            <div class="tsb-texture-title">
+                错误和异常趋势
+            </div>
+            <div class="widget padding-16">
+                <div class="block block-chart noDefault response-chart" id="js_error_exception">
+                    <div class="block-content response-chart" data-chart>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--错误和异常趋势 end-->
+    <!--错误占比 and 异常占比 start-->
+    <div class="clearfix margin-b-16">
+        <div class="error-content" style="">
+            <div class="tsb-box-show">
+                <div class="tsb-texture-title">
+                    错误占比（TOP5）
+                </div>
+                <div class="widget padding-16">
+                    <div class="block block-chart noDefault error-chart" id="js_error_rate">
+                        <div class="block-content error-chart" data-chart>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="abnormal-content" style="">
+            <div class="tsb-box-show">
+                <div class="tsb-texture-title">
+                    异常占比（TOP5）
+                </div>
+                <div class="widget padding-16">
+                    <div class="block block-chart noDefault abnormal-chart" id="js_exception_rate">
+                        <div class="block-content abnormal-chart" data-chart>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--错误占比 and 异常占比 end-->
+    <!--添加条件 start-->
+    <div class="margin-b-16">
+        <div class="tsb-box-show tsb-box-gray4a">
+            <a href="javascript:void(0)" class="add-addition"><i class="icon-add"></i>添加条件</a>
+        </div>
+    </div>
+    <!--添加条件 end-->
+    <!--快照列表 start-->
+    <div class="margin-b-16" oc-lazy-load="['./public/components/apply/business/directives/snapList.js']">
+        <snap-list api="snapListApi"></snap-list>
+    </div>
+    <!--快照列表 end-->
+</div>

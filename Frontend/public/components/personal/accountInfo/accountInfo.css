@@ -1,0 +1,155 @@
+.bread-crumb {
+  padding: 0 16px;
+}
+.bread-crumb > li {
+  float: left;
+  padding-right: 10px;
+}
+#accountInfo .pager-widget {
+  border-top: 1px solid #979797;
+}
+#accountInfo .tab-card > li {
+  float: left;
+  padding: 0 5px;
+}
+#accountInfo .tab-card > li.active > a {
+  color: #4FABFC;
+}
+#accountInfo .error-chart,
+#accountInfo .abnormal-chart {
+  height: 225px;
+  min-height: 225px;
+  margin-top: 0;
+}
+#accountInfo .left-content {
+  width: 50%;
+  float: left;
+}
+#accountInfo .left-content .tsb-box-show {
+  margin-right: 8px;
+}
+#accountInfo .right-content {
+  width: 50%;
+  float: right;
+}
+#accountInfo .right-content .tsb-box-show {
+  margin-left: 8px;
+}
+#accountInfo .info .widget {
+  height: 225px;
+}
+#accountInfo .info .content {
+  margin-top: 0;
+}
+#accountInfo .info .content .img-div {
+  float: left;
+  width: 133px;
+  height: 133px;
+  margin-top:30px
+}
+#accountInfo .info .content .ul-list {
+  width: 430px;
+  float: left;
+  margin-left: 15px;
+  margin-top:8px
+}
+#accountInfo .info .content .ul-list > li {
+  padding: 5px 0;
+}
+#accountInfo .info .content .ul-list > li:last-child{
+  margin-top: -12px;
+}
+#accountInfo .info .content .ul-list > li > label {
+  font-size: 14px;
+  color: #CDCBCB;
+  font-weight: normal;
+}
+#accountInfo .info .content .ul-list > li > label.name {
+  vertical-align: top;
+  margin-top: 10px;
+}
+#accountInfo .info .content .ul-list > li > div {
+  display: inline-block;
+  color: #fff;
+}
+#accountInfo .info .content .ul-list > li > div .form-control {
+  width: 220px;
+  background: #3F3F3F;
+  display: inline-block;
+}
+#accountInfo .info .content .ul-list > li > div a {
+  color: #4FABFC;
+}
+#accountInfo .info .content .ul-list > li > div a:hover {
+  color: #0B78E3;
+}
+#accountInfo .info .content .ul-list .span-edit {
+  margin-top: 10px;
+}
+#accountInfo .info .content .ul-list .span-save {
+  display: none;
+}
+#accountInfo .info .quota .table {
+  margin-top: 30px;
+}
+#accountInfo .info .quota .table tbody > tr > td {
+  background: transparent;
+  padding: 12px 8px;
+  color: #fff;
+}
+#accountInfo .info .quota .table tbody > tr > td span {
+  font-size: 22px;
+  margin-right: 5px;
+}
+#accountInfo .ul-period > li {
+  width: 20%;
+  float: left;
+}
+#accountInfo .ul-period > li > .div-box {
+  height: 276px;
+  margin: 0 5px;
+  border-radius: 4px;
+  background: rgba(216, 216, 216, 0.18);
+}
+#accountInfo .ul-period > li > .div-box .title {
+  padding-left: 16px;
+  padding-top: 16px;
+  height: 75px;
+  background: #343434;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  line-height: 25px;
+}
+#accountInfo .ul-period > li > .div-box .title > div:first-child {
+  font-size: 12px;
+  color: #CDCBCB;
+}
+#accountInfo .ul-period > li > .div-box .title > div:last-child {
+  font-size: 16px;
+  color: #ffffff;
+}
+#accountInfo .ul-period > li > .div-box .title > div:last-child span {
+  font-size: 12px;
+  color: #CDCBCB;
+}
+#accountInfo .ul-period > li > .div-box .ring-chart {
+  min-height: 175px;
+  background: none;
+}
+#accountInfo .ul-period > li > .div-box .ring-chart > div.block-content {
+  min-height: 175px;
+  height: 175px;
+}
+
+
+#tableList .tsb-box-show{
+  padding-bottom:0
+}
+.getMoudleOverTime .block-chart,.getMoudleOverTime .block-chart .block-content {
+  height:200px;
+  box-shadow:none;
+  margin-top:0
+}
+.tsb-box-show{
+  padding-bottom: 0;
+}

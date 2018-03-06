@@ -1,0 +1,14 @@
+.page-content-wrapper .page-header .config .tsb-btn-group {
+  padding-right: 80px;
+  padding-top: 5px;
+}
+.page-content-wrapper .page-header .config .tsb-btn-group > button {
+  background: none;
+  border: none;
+}
+.page-content-wrapper .page-header .config .tsb-btn-group > .dropdown-menu {
+  min-width: 82px;
+}
+.page-content-wrapper .page-header .config .tsb-btn-group > .dropdown-menu > li > a {
+  padding: 0 5px;
+}

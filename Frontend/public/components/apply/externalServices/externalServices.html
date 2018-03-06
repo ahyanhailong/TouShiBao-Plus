@@ -1,0 +1,65 @@
+<div id="externalServices">
+  <div class="content_title">
+    面包屑位置
+    <!--时间控件-->
+    <div style="line-height: 32px;float: right;" timer-start-time="start_time1" timer-end-time="end_time1" timer></div>
+  </div>
+
+  <!--外部服务-->
+  <div class="padding-lr-16 tsb-main">
+    <!--left-->
+    <div class="left-content">
+      <div class="tsb-texture-title">
+        排序字段：
+        <div class="btn-group tsb-btn-group response">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span>{{filterName}}</span> <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" style="">
+            <li><a href="javascript:void(0)" ng-click="filterClick($event,{name:'响应时间占比',type:'response_time_percent'})">响应时间占比</a></li>
+            <li><a href="javascript:void(0)" ng-click="filterClick($event,{name:'平均耗时',type:'avg_response_time'})">平均耗时</a></li>
+            <li><a href="javascript:void(0)" ng-click="filterClick($event,{name:'吞吐率',type:'throughput'})">吞吐率</a></li>
+            <li><a href="javascript:void(0)" ng-click="filterClick($event,{name:'错误数',type:'error_rate'})">错误数</a></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <!--下拉菜单-->
+        <div class="tsb-dropDown" ng-repeat="(index,item) in UriList">
+          <div class="collapsed tsb-dropDown-title"> <!--current-->
+              <i class="caret-i caret-down" data-toggle="collapse"  ng-click="listClick($event,{domain:item.domain,port:item.port,index:index})"></i>
+              <span class="pull-left text-ellipsis span1" style="width: 70%"><a href="{{hrefClick($event,{domain:item.domain,port:item.port,uri:''})}}">{{item.key}}</a></span>
+              <span class="pull-right span2">{{item.percent}}</span>
+          </div>
+          <div class="collapse tsb-dropDown-box" data-toggle="collapse" id="transaction1">
+            <ul class="tsb-dropDown-content special" >
+              <li class="active" ng-repeat="items in item.list">
+                <a  class="text-ellipsis subTrigger" title="{{items.key}}" href="{{hrefClick($event,{domain:item.domain,port:item.port,uri:items.key})}}">
+                  <span class="pull-left text-ellipsis span1" >{{items.key}}</span>
+                  <span class="pull-right span2">{{items.percent}}%</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+        <!--<div class="PageList" oc-lazy-load="['pageList']">-->
+          <!--<div page-list change="changeSqlList()" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>-->
+        <!--</div>-->
+      </div>
+    </div>
+
+    <!--right 默认页面-->
+    <div class="right-content" id="level-one" style="display: block">
+      <div class="tsb-box-show margin-l-16 ">
+        <div ui-view></div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+</div>

@@ -1,0 +1,126 @@
+<div id="plugin">
+  <div class="content_title">
+    <ul class="bread-crumb">
+      <li>管理</li>
+      <li>&gt;</li>
+      <li>插件管理</li>
+    </ul>
+  </div>
+  <div class="padding-lr-16 tsb-main">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        插件列表
+        <div class="pull-right">
+          <div class="pull-left margin-r-10">按插件筛选:</div>
+          <div class="btn-group tsb-btn-group pull-left margin-t-6">
+            <button id="btnSelect" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span>{{InputFilter}}</span> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" tsb-noclick="true">
+              <li class="request-scope">
+                <div class="padding-lr-16">已选：{{checkedList}}</div>
+                <div class="left-content">
+                  <div class="tsb-search tsb-search-i">
+                    <input class="input-search" placeholder="按插件名称搜索">
+                    <i class="icon-search pos-a"></i>
+                  </div>
+                  <ul class="ul-list" id="FilterPlugin">
+                    <li>
+                      <div class="checkbox-check">
+                        <input type="checkbox" name="test" id="allChecked" ng-model="checkedAll" ng-click="clickAllChecked()">
+                        <label for="allChecked" class="">全选</label>
+                      </div>
+                    </li>
+                    <li>
+                      <ul class="subUl-list">
+                        <li ng-repeat="(index,item) in pluginList">
+                          <div class="checkbox-check">
+                            <input type="checkbox" name="test" id="request{{index}}" filter-key="{{index}}" filter-value="{{item}}" ng-checked="checkedAll" ng-click="CheckedClick($event,[index,item])" >
+                            <label for="request{{index}}">{{item}}</label>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tsb-btn-group text-center">
+                  <button class="btn btn-gray border-radius20 margin-r-10" ng-click="cancel()">取消</button>
+                  <button class="btn btn-blue border-radius20 margin-r-10" id="btn-save" ng-click="filterSure()">确定</button>
+                  <button class="btn btn-gray border-radius20 margin-l-5" ng-click="reset()">重置</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="pull-left margin-t-6">
+            <div class="tsb-search tsb-search-i " transaction-search="">
+              <input id="searchName" class="input-search" placeholder="按主机名称搜索" data-onkey="13">
+              <i class="icon-search pos-a" ng-click="searchPlugin()"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="widget">
+        <div class="host-number">已安装{{total_row}}台主机</div>
+        <div class="block block-table" id="pluginPanel">
+          <div class="block-content" data-table>
+            <table class="table table-no-bg">
+              <thead>
+                <tr>
+                  <th data-item="order" width="5%">序号</th>
+                  <th data-item="host_name"  width="15%">主机名称</th>
+                  <th data-item="host_type"  width="7%" class="text-center">平台</th>
+                  <th data-item="ram_rate"  width="13%">内存使用率<i class="fa fa-sort"></i></th>
+                  <!--<th data-item="cpu_rate"  width="13%">-->
+                    <!--cpu-->
+                  <!--<span class="table-column-sorter">-->
+                    <!--<a class="fa fa-caret-up" href="javascript:void(0)"></a>-->
+                    <!--<a class="fa fa-caret-down" href="javascript:void(0)"></a>-->
+                  <!--</span>-->
+                  <!--</th>-->
+                  <th data-item="cpu_rate"  width="13%">cpu<i class="fa fa-sort"></i></th>
+                  <th data-item="wait"  width="13%">IO等待率<i class="fa fa-sort"></i></th>
+                  <th data-item="15min"  width="15%">最近15分钟负载<i class="fa fa-sort"></i></th>
+                  <th data-item="service_type"  width="16%">主机配置</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+            <div class="PageList" oc-lazy-load="['pageList']">
+              <div page-list change="changeSqlList(currentPage,perPage)" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="pager-widget">-->
+          <!--<div class="btn-group tsb-btn-group padding-lr-16">-->
+            <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+              <!--5条 <span class="fa fa-angle-down"></span>-->
+            <!--</button>-->
+            <!--<ul class="dropdown-menu">-->
+              <!--<li><a href="javascript:void(0)">5条</a></li>-->
+              <!--<li><a href="javascript:void(0)">10条</a></li>-->
+            <!--</ul>-->
+          <!--</div>-->
+          <!--<div class="total-number">-->
+            <!--共123,234条-->
+          <!--</div>-->
+          <!--<nav class="pager-box">-->
+            <!--<ul class="pager">-->
+              <!--<li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>-->
+              <!--<li><a href="javascript:void(0)"> 1 </a></li>-->
+              <!--<li><a href="javascript:void(0)" class="current"> 2 </a></li>-->
+              <!--<li><a href="javascript:void(0)"> 3 </a></li>-->
+              <!--<li><a href="javascript:void(0)"> 4 </a></li>-->
+              <!--<li><a href="javascript:void(0)"> 5 </a></li>-->
+              <!--<li>...</li>-->
+              <!--<li><a href="javascript:void(0)"> 23 </a></li>-->
+              <!--<li><a href="javascript:void(0)"> 24 </a></li>-->
+              <!--<li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>-->
+            <!--</ul>-->
+          <!--</nav>-->
+        <!--</div>-->
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>

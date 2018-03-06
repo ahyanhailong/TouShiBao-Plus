@@ -1,0 +1,264 @@
+<div id="applyList">
+    <div class="content_title">
+        <div class="pull-left">应用列表(最近1小时)</div>
+        <div class="pull-right">
+            <div class="pull-left">
+                <label>分组筛选：</label>
+                <div class="btn-group tsb-btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{groupName}}<span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a id="" ng-click="groupFilter('','全部')">全部</a></li>
+                        <li><a >未分组</a></li>
+                        <li ng-repeat="item in group"><a id="{{item.app_group_id}}" ng-click="groupFilter(item.app_group_id,item.app_group_name)">{{item.app_group_name}}</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="btn-group tsb-btn-multipleGroup" role="group">
+                    <a href="#/navigation/applyListdefault/applyList" type="button" class="btn btn-default border-radius20" ng-class="{active:openStop == true}">已开启（{{app_status['1']}}）</a>
+                    <a href="#/navigation/applyListdefault/stopList" type="button" class="btn btn-default border-radius20" ng-class="{active:openStop == false}">已暂停（{{app_status['2']}}）</a>
+                </div>
+            </div>
+            <div class="pull-left">
+                <label class="pull-left">排序：</label>
+                <div class="btn-group tsb-btn-group pull-left" id="orderBy">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        {{searchName}} <i class="fa fa-long-arrow-down" style="color: #4FABFC;"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" data-item="wt">响应时间<i class="fa fa-sort fa-sort-desc"></i></a></li>
+                        <li><a href="javascript:void(0)" data-item="rpm">吞吐率<i class="fa fa-sort"></i></a></li>
+                        <li><a href="javascript:void(0)" data-item="error_rate">错误率<i class="fa fa-sort"></i></a></li>
+                        <li><a href="javascript:void(0)" data-item="error_count">错误数<i class="fa fa-sort"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="tsb-search tsb-search-i">
+                    <input data-onkey="13" class="form-control" id="input-search" placeholder="按应用名称搜索">
+                    <i class="icon-search pos-a" ng-click="searchAppList()"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="padding-lr-16 tsb-main">
+        <!--header-->
+        <div class="clearfix header-content">
+            <ul>
+                <li>
+                    <div class="checkbox-check">
+                        <input type="checkbox" name="test" id="request1" ng-model="checkedAll" ng-click="checkedClick()">
+                        <label for="request1" class="">全选</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="pull-left padding-r-10">
+                        <button class="btn btn-gray btn-noBg border-radius20 pull-left" id="action-start" ng-if="!isPause" ng-click="setApplyStatus($event)"><i class="icon-start-white"></i>启动</button>
+                        <button class="btn btn-gray btn-noBg border-radius20 pull-left" id="action-stop" ng-if="isPause" ng-click="setApplyStatus($event)"> <i class="icon-stop-white"></i>暂停</button>
+                    </div>
+                    <div class="btn-group tsb-btn-group padding-r-10" role="group" ng-if="KeyPause">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            一键暂停<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="oneKeyPause($event,1)">暂停最近七天无数据应用</a></li>
+                            <li><a ng-click="oneKeyPause($event,2)">暂停最近三天无数据应用</a></li>
+                            <li><a ng-click="oneKeyPause($event,3)">暂停最近一天无数据应用</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group tsb-btn-group padding-r-10" role="group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            加入分组<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="item in group"><a id="{{item.app_group_id}}" ng-click="addGroup($event,item.app_group_id)">{{item.app_group_name}}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="pull-right newManager-group">
+                <div class="btn-group tsb-btn-group pull-left padding-r-10">
+                    <button type="button" class="btn btn-default dropdown-toggle open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="icon-add-white"></i>新建分组
+                    </button>
+                    <ul class="dropdown-menu" tsb-noclick="true">
+                        <li>
+                            <div class="title">
+                                <div class="pull-left">新建分组</div>
+                                <div class="pull-right margin-t-6">
+                                    <button class="btn btn-blue border-radius4 pull-left margin-r-10 btn-ok" ng-click="CreatGroup()">保存</button>
+                                    <button class="btn btn-gray border-radius4 pull-left btn-cancel" ng-click="cancelBtn()">取消</button>
+                                </div>
+                            </div>
+                            <div class="padding10" >
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 control-label">分组名称</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="请输入分组名称">
+                                        <p class="help-block">名称不可以超过30个字符,可以包含中、英文、数字和下划线，不能包含特殊符号</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group tsb-btn-group pull-left">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <i class="icon-setting-white"></i>管理分组
+                    </button>
+                    <ul class="dropdown-menu" tsb-noclick="true">
+                        <li>
+                            <div class="title">
+                                <div class="pull-left">管理分组</div>
+                                <div class="pull-right margin-t-6">
+                                    <button class="btn btn-blue border-radius4 pull-left margin-r-10 btn-ok" ng-click="saveAppGroup()">保存</button>
+                                    <button class="btn btn-gray border-radius4 pull-left btn-cancel">取消</button>
+                                </div>
+                            </div>
+                            <div class="manage-group">
+                                <table class="table table-gray tableList" id="tableList">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">序号</th>
+                                        <th width="40%">分组名称</th>
+                                        <th width="12%">应用数量</th>
+                                        <th width="18%" class="text-right">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="(index,gl) in appGroupList">
+                                        <td>{{index+1}}</td>
+                                        <td>
+                                            <a href="JavaScript:void(0)" class="text-ellipsis name" ng-click="groupNameClick($event,gl.app_group_id,gl.app_group_name)">{{gl.app_group_name}}</a>
+                                            <input type="text" class="form-control" value="{{gl.app_group_name}}" ng-blur="blurClick($event)">
+                                        </td>
+                                        <td>{{gl.app_count}}</td>
+                                        <td class="text-right">
+                                            <a href="JavaScript:void(0)" class="action-edit" ng-click="groupNameEdit($event,gl.app_group_id,gl.app_group_name)"></a>
+                                            <a href="JavaScript:void(0)" class="action-trash" ng-click="delete_App_group($event,gl.app_group_id)"></a>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                                <div class="pager-widget">
+                                    <div class="btn-group tsb-btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            5条 <span class="fa fa-angle-down"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="javascript:void(0)">5条</a></li>
+                                            <li><a href="javascript:void(0)">10条</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="total-number">
+                                        共15条
+                                    </div>
+                                    <nav class="pager-box">
+                                        <ul class="pager">
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
+                                            <li><a href="javascript:void(0)"> 1 </a></li>
+                                            <li><a href="javascript:void(0)" class="current"> 2 </a></li>
+                                            <li><a href="javascript:void(0)"> 3 </a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="manage-groupSub">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0)" id="btn-back" ng-click="callBack()">返回</a>
+                                    </li>
+                                    <li>|</li>
+                                    <li class="text-ellipsis">{{app_group_name}}</li>
+                                    <li>
+                                        <div class="tsb-search tsb-search-i">
+                                            <input id="groupAppName" class="input-search" placeholder="按应用名称搜索" data-onkey="13">
+                                            <i class="icon-search pos-a" ng-click="search()"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <table class="table table-gray tableList" id="tableList-sub">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">序号</th>
+                                        <th width="52%">应用名称</th>
+                                        <th width="18%" class="text-right">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="(index,ga) in getGroupAppList">
+                                        <td>{{index+1}}</td>
+                                        <td>
+                                            <a href="JavaScript:void(0)" class="text-ellipsis name">{{ga.name}}</a>
+                                            <input type="text" class="form-control" value="{{ga.name.split(':')[0]}}" ng-blur="groupAppSave($event,ga.app_id)">
+                                        </td>
+                                        <td class="text-right">
+                                            <a href="JavaScript:void(0)" class="action-edit" id="{{ga.app_id}}" ng-click="editorClick($event,ga.name.split(':')[0])"></a>
+                                            <a href="JavaScript:void(0)" class="action-trash" id="{{ga.app_id}}" ng-click="DeleGroupApp($event,ga.app_id)"></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="pager-widget">
+                                    <div class="btn-group tsb-btn-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            5条 <span class="fa fa-angle-down"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="javascript:void(0)">5条</a></li>
+                                            <li><a href="javascript:void(0)">10条</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="total-number">
+                                        共15条
+                                    </div>
+                                    <nav class="pager-box">
+                                        <ul class="pager">
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
+                                            <li><a href="javascript:void(0)"> 1 </a></li>
+                                            <li><a href="javascript:void(0)" class="current"> 2 </a></li>
+                                            <li><a href="javascript:void(0)"> 3 </a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--header-->
+        <!--&lt;!&ndash;无数据 start&ndash;&gt;-->
+        <!--<div class="apply-noData clearfix">-->
+            <!--<div>-->
+                <!--<div class="pull-left">应用列表中无数据，请在导航— <配置>或</div>-->
+                <!--<div class="pull-left">-->
+                    <!--<div class="btn-group tsb-btn-group padding-r-10" role="group">-->
+                        <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                            <!--配置<span class="caret"></span>-->
+                        <!--</button>-->
+                        <!--<ul class="dropdown-menu setting-dropdown">-->
+                            <!--<li><a href=""><i class="setting-apply"></i>应用</a></li>-->
+                            <!--<li><a href=""><i class="setting-mobile"></i>移动</a></li>-->
+                            <!--<li><a href=""><i class="setting-browser"></i>浏览器</a></li>-->
+                            <!--<li><a href=""><i class="setting-host"></i>主机</a></li>-->
+                            <!--<li><a href=""><i class="setting-db"></i>DB&服务</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="pull-left">添加应用</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--无数据 end-->
+
+        <div class="event-content margin-b-16 clearfix">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

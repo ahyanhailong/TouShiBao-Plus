@@ -1,0 +1,127 @@
+<div class="main_filter_time 111" id="date-control">
+    <a href="javascript:;" data-toggle="open">
+        <span id="date-title">
+			{{timeStr}}
+        </span>
+        <i class="fa fa-caret" style="margin-left:10px;"></i>
+    </a>
+
+    <div class="main_filter_time_content" tabindex="-1" style="width: 500px">
+        <ul class="nav nav-tediums">
+            <li class="active">
+                <a data-toggle="tab" ng-click='tabClick("current")'  id="dc-menu-now">
+                   截止到当前
+                </a>
+            </li>
+            <li>
+                <a ng-click='tabClick()' data-toggle="tab"  id="dc-menu-custom">
+                   自定义
+                </a>
+            </li>
+        </ul>
+
+
+        <div class="tab-content" style="margin-top: 5px;">
+            <div class="tab-pane active" ng-show='show'>
+                <div class="main_filter_time_tip" id="dc-time-tip">
+                    <span id="show-time-step-tip">
+                         <!--{{Lang::get('common.last_time')}}
+                        {{Lang::get('common.minutes',array('number'=>30))}}-->
+                    </span>
+                    <span id="show-custom-tip"></span>
+                </div>
+
+                <div class="scale_axis">
+                    <div id="time-slider"  class="slider-widget ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+                    </div>
+                    <div class="scale_wire_list">
+                            <div ng-repeat="(index,item) in data" class="scale_wire" style="left:{{index*25}}%;" date-step="{{$key}}">|
+                                <div class="scale_wire_text">{{item.time}}</div>
+                            </div>
+              
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane date_new" ng-show="!show" style="display: block;">
+                <div class="row" style="margin-bottom: 5px">
+                    <div class="col-xs-6">
+                        <span>开始时间:</span>
+                        <input type="text" style="width: 65%;display: inline;border-color: #dddddd" id="custom_start" class="border btn-sm" readonly="readonly">
+
+                    </div>
+
+                    <div class="col-xs-6">
+                        <span>结束时间:</span>
+                        <input type="text" style="width: 65%;display: inline;border-color: #dddddd" id="custom_end" class="border btn-sm" readonly="readonly">
+                    </div>
+                </div>
+                <div class="container-fluid main_filter_calendar">
+
+                    <div class="row">
+                        <div class="col-xs-6 main_calendar_box" style="padding: 0px 14px">
+                            <div id="datetimepickerStart" class="input-group date form_datetime " data-date="" data-date-format="dd MM yyyy" data-link-field="" data-link-format="yyyy-mm-dd" style="height: 257px">
+
+                            </div>
+                            <div>
+                                <div class="row" >
+                                    <div class="col-md-3">小时</div>
+                                    <div class="col-md-9">
+                                        <div id="time-hour-slider-start"  class="slider-widget lighter ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false" style="color: black;font-weight: normal">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-3">分钟</div>
+                                    <div class="col-md-9">
+                                        <div id="time-minute-slider-start"  class="slider-widget lighter ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false" style="color: black;font-weight: normal">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 " style="padding: 0px 14px">
+                            <div id="datetimepickerEnd" class="input-group date form_datetime " data-date="" data-date-format="dd MM yyyy" data-link-field="" data-link-format="yyyy-mm-dd" style="height: 257px">
+
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-3">小时</div>
+                                    <div class="col-md-9">
+                                        <div id="time-hour-slider-end"  class="slider-widget lighter ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false" style="color: black;font-weight: normal">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-3">分钟</div>
+                                    <div class="col-md-9">
+                                        <div id="time-minute-slider-end"  class="slider-widget  lighter ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false" style="color: black;font-weight: normal">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_filter_time_handle">
+            <a href="javascript:;" class="btn btn-blue" id="date-control-save">确认</a>
+            <a href="javascript:;" class="btn btn_hover" data-dismiss="modal">取消</a>
+        </div>
+    </div>
+</div>
+<!--时间控件可以显示的最大值-->
+<input id="showMaxTimeId" type="hidden" value="5" />
+<!--<script>
+    seajs.use(['date_control_custom'], function (dc) {
+        $.cookie('date_new',0,{path:"/"});
+        var limit = "{{Config::get('poc.dateTimePickerRange')}}";
+        var esLimit = "{{Config::get('poc.ESTimeOpenRange')}}";
+        dc.setDateRangeLimit(limit, esLimit);
+    });
+</script>-->

@@ -1,0 +1,239 @@
+.main_filter_time {
+  padding: 0;
+}
+.main_filter_time > a {
+  display: inline-block;
+  width: 100%;
+  color: #BAB9B9;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 15px;
+  text-underline: none;
+}
+.main_filter_time > a:hover {
+  text-underline: none;
+}
+.main_filter_time .main_filter_time_content {
+  width: 500px;
+  padding: 0;
+  background-color: #6B6B6B;
+}
+.main_filter_time .main_filter_time_content .nav-tediums li a {
+  cursor: pointer;
+  color: #CDCBCB;
+  border: none;
+}
+.main_filter_time .main_filter_time_content .nav-tediums li.active a {
+  color: #4FABFC;
+  border: none;
+}
+.main_filter_time .main_filter_time_content .nav-tediums .main_filter_time_handle {
+  padding: 5px 0;
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+}
+.main_filter_time .main_filter_time_content .nav-tediums .main_filter_time_handle .btn {
+  text-align: center;
+  padding: 0;
+  height: 32px;
+  line-height: 32px;
+  font-weight: bold;
+  color: #FFF;
+  width: 60px;
+}
+.main_filter_time .main_filter_time_content .nav-tediums .main_filter_time_handle .btn-blue {
+  background-color: #4FACFC;
+  border: 1px solid #4FACFC;
+}
+.main_filter_time .main_filter_time_content .nav-tediums .main_filter_time_handle .btn_hover {
+  background-color: #6B6B6B;
+  border: 1px solid #4A4A4A;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane {
+  padding: 20px;
+  box-sizing: border-box;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .main_filter_calendar {
+  border: none;
+  padding: 0;
+  background-color: #3F3F3F;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row {
+  padding: 0;
+  margin: 0;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 {
+  position: relative;
+  text-align: center;
+  border: none;
+  height: auto;
+  padding: 0 5px 10px;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 input {
+  border-radius: 30px;
+  width: 80%;
+  display: inline;
+  background-color: #353434;
+  color: #BAB9B9;
+  padding-left: 16px;
+  height: 36px;
+  line-height: 36px;
+  border: none;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .icon_time {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: 45px;
+  top: 5px;
+  background-size: 100%;
+  vertical-align: middle;
+  background: url("/public/img/icon/icon_time.png") no-repeat center;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .ui-datepicker-calendar thead th span {
+  color: #BAB9B9;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .ui-datepicker-calendar tbody tr {
+  /*td.day{
+                                        border-radius: 0;
+                                        background-color: #87C5FC;
+                                    }
+                                    td.day:nth-child(1){
+                                        border-bottom-left-radius: 30px;
+                                        border-top-left-radius: 30px;
+                                    }
+                                    td.day:nth-last-child(1){
+                                        border-bottom-right-radius: 30px;
+                                        border-top-right-radius: 30px;
+                                    }
+                                    td.active{
+                                        background-color: #fff;
+                                        border-radius: 30px;
+                                    }
+                                    td.disabled,td.old{
+                                        border-radius: 0;
+                                        background-color: transparent;
+                                    }*/
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .ui-datepicker-calendar tbody tr td .ui-state-default {
+  background-color: #4a4a4a;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 27px;
+  border-radius: 30px;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .ui-datepicker-calendar tbody tr td a.ui-state-default {
+  background-color: #00b4ff;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .ui-datepicker-calendar tbody tr td a.ui-state-default.ui-state-active {
+  background-color: #fff;
+  color: #00b4ff;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker1,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker2 {
+  position: relative;
+  min-height: 305px;
+  background-color: #3F3F3F;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker1 .ui-datepicker-inline,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker2 .ui-datepicker-inline {
+  width: 100%;
+  background-color: #3F3F3F;
+  border: none;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker1 .ui-datepicker-inline .ui-datepicker-header,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker2 .ui-datepicker-inline .ui-datepicker-header {
+  border: none;
+  background-color: #3F3F3F;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker1 .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker2 .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title {
+  margin: 20px auto;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker1 .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker2 .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker1 .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title .ui-datepicker-year,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker2 .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title .ui-datepicker-year {
+  background-color: #222222;
+  color: #BAB9B9;
+  margin: auto 5px;
+  height: 28px;
+  line-height: 28px;
+  border: none;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker1 .ui-datepicker-inline .ui-datepicker-header .ui-corner-all,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .datepicker2 .ui-datepicker-inline .ui-datepicker-header .ui-corner-all {
+  display: none;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms {
+  position: relative;
+  background-color: #3F3F3F;
+  text-align: center;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .time-box {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .time-box div {
+  height: 18px;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .time-box div span {
+  width: 100%;
+  text-align: center;
+  color: #CDCBCB;
+  cursor: pointer;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .time-box .hh1,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .time-box .m1,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .time-box .hh2,
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .time-box .m2 {
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  background-color: #222222;
+  color: #CDCBCB;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane .row .col-xs-6 .hms .box_text {
+  position: relative;
+  top: -27px;
+  width: 10px;
+  color: #CDCBCB;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane ul {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  text-align: center;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane ul li {
+  display: inline-block;
+  width: 30%;
+  height: 28px;
+  line-height: 28px;
+  background-color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  margin: 5px;
+  color: #BAB9B9;
+  text-align: left;
+  padding-left: 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.main_filter_time .main_filter_time_content .tab-content .tab-pane ul li.active {
+  border: 1px solid #4FACFC;
+}
+.main_filter_time .main_filter_time_content:focus {
+  border: none;
+  outline: none;
+}
+ul,
+li {
+  list-style-type: none;
+}

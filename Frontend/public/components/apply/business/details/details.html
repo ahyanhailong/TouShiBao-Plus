@@ -1,0 +1,24 @@
+<!--事务分析 详情 start-->
+<div class="padding-lr-16 tsb-main">
+    <div class="pos-r">
+        <div class="tsb-tab-content">
+            <ul class="tsb-tab-ul">
+                <li ng-class={active:classActive('dashboard')}>
+                    <a href="{{handleHref('dashboard')}}">仪表盘</a>
+                </li>
+                <li ng-class={active:classActive('slow')}>
+                    <a href="{{handleHref('slow')}}">缓慢分析</a>
+                </li>
+                <li ng-class={active:classActive('errorException')}>
+                    <a href="{{handleHref('errorException')}}">错误&异常分析</a>
+                </li>
+                <li ng-class={active:classActive('snapshoot')}>
+                    <a href="{{handleHref('snapshoot')}}">快照分析</a>
+                </li>
+            </ul>
+        </div>
+        <a href="#/navigation/apply/business/{{appId}}" class="pos-a back-list"><i class="fa fa-angle-left"></i>返回列表</a>
+    </div>
+    <div ui-view></div>
+</div>
+<!--事务分析 详情 end-->

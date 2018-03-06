@@ -1,0 +1,70 @@
+/*错误分析*/
+#KBerror{
+
+}
+#KBerror .response-chart{
+ height: 335px;
+ min-height: 335px;
+ margin-top: 0;
+}
+#KBerror .pager-widget{
+ border-top: 1px solid #979797;
+}
+
+#KBerror .tab-card >li{
+ float: left;
+ padding: 0 5px;
+}
+#KBerror .tab-card >li.active >a{
+ color: #4FABFC;
+}
+#KBerror .error-chart,#KBerror .abnormal-chart{
+ height: 225px;
+ min-height: 225px;
+ margin-top: 0;
+}
+#KBerror .error-abnormal .left-content{
+ width: 50%;float: left;
+}
+#KBerror .error-abnormal .left-content .tsb-box-show{
+ margin-right: 8px;
+}
+#KBerror .error-abnormal .right-content{
+ width: 50%;float: right;
+}
+#KBerror .error-abnormal .right-content .tsb-box-show{
+ margin-left: 8px;
+}
+#errorScaleTable table,#abnormalScaleTable table{
+	margin-top: 20px;
+}
+#errorScaleTable table td,#abnormalScaleTable table td{
+	background: #232323;
+}
+#errorScaleTable table tr:nth-child(1) td:first-child,#abnormalScaleTable  table tr:nth-child(1) td:first-child{
+	background: url(../../../../../img/apply/keybusiness/icon_403.png) no-repeat center;
+	background-size:17px 7px;
+}
+#errorScaleTable table tr:nth-child(2) td:first-child,#abnormalScaleTable  table tr:nth-child(2) td:first-child{
+	background: url(../../../../../img/apply/keybusiness/icon_404.png) no-repeat center;
+	background-size:17px 7px;
+}
+#errorScaleTable table tr:nth-child(3) td:first-child,#abnormalScaleTable  table tr:nth-child(3) td:first-child{
+	background: url(../../../../../img/apply/keybusiness/icon_502.png) no-repeat center;
+	background-size:17px 7px;
+}
+#errorScaleTable table tr:nth-child(4) td:first-child,#abnormalScaleTable  table tr:nth-child(4) td:first-child{
+	background: url(../../../../../img/apply/keybusiness/icon_504.png) no-repeat center;
+	background-size:17px 7px;
+}
+#errorScaleTable table tr:nth-child(5) td:first-child,#abnormalScaleTable  table tr:nth-child(5) td:first-child{
+	background: url(../../../../../img/apply/keybusiness/icon_503.png) no-repeat center;
+	background-size:17px 7px;
+}
+#errorList{
+	margin: 0;
+	border-radius: 0;
+}
+#KBerror .tsb-box-show{
+	padding-bottom: 0;
+}

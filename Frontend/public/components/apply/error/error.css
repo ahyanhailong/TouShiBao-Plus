@@ -1,0 +1,44 @@
+/*错误分析*/
+#error{
+
+}
+#error .response-chart{
+  height: 335px;
+  min-height: 335px;
+  margin-top: 0;
+}
+#error .pager-widget{
+  border-top: 1px solid #979797;
+}
+
+#error .tab-card >li{
+  float: left;
+  padding: 0 5px;
+}
+#error .tab-card >li.active >a{
+  color: #4FABFC;
+}
+#error .error-chart,#error .abnormal-chart{
+  height: 225px;
+  min-height: 225px;
+  margin-top: 0;
+}
+#error .error-abnormal .left-content{
+  width: 50%;float: left;
+}
+#error .error-abnormal .left-content .tsb-box-show{
+  margin-right: 8px;
+}
+#error .error-abnormal .right-content{
+  width: 50%;float: right;
+}
+#error .error-abnormal .right-content .tsb-box-show{
+  margin-left: 8px;
+}
+
+.tsb-box-show{
+  padding-bottom: 0;
+}
+#errorTrend,#errorScale,#abnormalScale{
+  border-radius: 0;
+}

@@ -1,0 +1,153 @@
+<div id="php">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <div role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="pannel-number">1</i>
+            获取授权编号
+          </div>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <p>您的授权编号(License Key):</p>
+          <div class="clearfix">
+            <div class="black-content col-md-10" id="LicenseKey">
+              J45Engw88NfH3RP2whc09m87a/0gWAfUKduIZn5oILIB5rWOG1w3sGlCz6AzI98s
+            </div>
+            <div class="col-md-2">
+              <div class="action-copy" id="LicenseKeyBtn"><i class="action-copy-hover"></i>复制</div>
+            </div>
+          </div>
+          <p>您的License Key 已成功生成,用于配置和身份识别。</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <i class="pannel-number">2</i>
+            安装Sendproxy
+          </div>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          <p>SendProxy是主机与透视宝平台通讯的插件，如果已安装或主机不能与透视宝平台直接通讯，即可跳过此步骤继续安装。 若监控Docker，则在可通讯的宿主机上安装Sendproxy即可。</p>
+          <div class="margin-b-16">
+            <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20" ng-click="download($event,SendProxy[1].old.url)">
+              <i class="action-download"></i>下载SendProxy for Linux({{SendProxy[1].old.version}})
+            </a>
+          </div>
+          <div class="clearfix">
+            <div class="black-content col-md-10" id="SendProxy">
+              wget {{SendProxy[1].old.url}}
+            </div>
+            <div class="col-md-2">
+              <div class="action-copy" id="SendProxyBtn"><i class="action-copy-hover"></i>复制</div>
+            </div>
+          </div>
+          <p>将下载的压缩包拷贝到系统某个目录（如/data），解压并执行文件夹中的SendProxy.sh脚本完成安装，示例如下：</p>
+          <div class="clearfix">
+            <div class="black-content col-md-12">
+              <p>cd /data/{{SendProxy[1].old.package.substring(0, SendProxy[1].old.package.lastIndexOf('.'))}}</p>
+              <p>chmod u+x ./SendProxy.sh</p>
+              <p>./SendProxy.sh start</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">3</i>
+            下载PHP Agent
+          </div>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          <div class="margin-b-16">
+            <a href="javascript:void(0)" class="btn btn-gray btn-lg border-radius20" ng-click="download($event,php[1].old.url)">
+              <i class="action-download"></i>下载PHP Agent({{php[1].old.version}})
+            </a>
+          </div>
+          <div class="clearfix">
+            <div class="black-content col-md-10" id="PHPAgent">
+              wget {{php[1].old.url}}
+            </div>
+            <div class="col-md-2">
+              <div class="action-copy" id="PHPAgentBtn"><i class="action-copy-hover"></i>复制</div>
+            </div>
+          </div>
+          <p>提示:支持PHP版本5.3-5.6、7，并确保安装php-curl扩展</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFour">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">4</i>
+            安装PHP Agent
+          </div>
+        </h4>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+          <p>1、创建cloudwise文件夹，并确保拥有读写权限(如/var/cloudwise)</p>
+          <div class="black-content margin-l-16">
+            mkdir -p /var/cloudwise
+          </div>
+          <p>2、解压缩安装包到cloudwise目录</p>
+          <div class="black-content margin-l-16">
+            unzip {{php[1].old.package.substring(0, php[1].old.package.lastIndexOf('.'))}} -d /var/cloudwise
+          </div>
+          <p>3、进入{{php[1].old.package.substring(0, php[1].old.package.lastIndexOf('.'))}}目录，指定PHP环境的bin目录，例如(/usr/local/php-5.6.6/bin)；指定php.ini路径</p>
+          <div class="black-content margin-l-16">
+            bash install.sh -d '/usr/local/php-5.6.6/bin' -i '/usr/local/php-5.6.6/lib/php.ini'
+          </div>
+          <p>4、进入{{php[1].old.package.substring(0, php[1].old.package.lastIndexOf('.'))}}目录，配置License Key</p>
+          <div class="black-content margin-l-16">
+            bash install.sh -l 'J45Engw88NfH3RP2whc09m87a/0gWAfUKduIZn5oILIB5rWOG1w3sGlCz6AzI98s'
+          </div>
+          <p>5、(可选)默认设置由本机SendProxy发送数据，如果从其他主机发送数据，则需要配置可用的SendProxy地址</p>
+          <div class="black-content margin-l-16">
+            bash install.sh -s 'http://10.0.3.46:26789'
+          </div>
+          <p>6、启动PHPAgent</p>
+          <div class="black-content margin-l-16">
+            bash install.sh start
+          </div>
+          <p>7、重启 Apache 或 php-fpm</p>
+          <p>8、监控Docker</p>
+          <div class="margin-l-16">
+            安装PHPAgent在docker中，需要下载<a href="/static/plugin/AgentService_v1.0.0.zip" class="text-link">AgentService</a>，才能更好的展示Docker中的应用，请参考“<a href="https://help.cloudwise.com/help/19/26/527#a1" target="_blank" class="text-link">Docker安装说明</a>”按流程安装。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFive">
+        <h4 class="panel-title">
+          <div class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+            <i class="pannel-number">5</i>
+            完成
+          </div>
+        </h4>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+        <div class="panel-body">
+          <p>恭喜！配置已经完成，大致两分钟后您就可以在“应用”模块中查看数据。 注：从来没人访问过的应用不会出现在应用清单中，所以请确认这点。</p>
+          <a href="#/navigation/applyListdefault/applyList" class="btn btn-gray btn-lg border-radius20">
+            <i class="action-download"></i>进入应用列表查看 <i class="icon-enterIN"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

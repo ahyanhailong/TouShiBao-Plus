@@ -1,0 +1,174 @@
+{
+    //value array,dimension value array;dimension str,dimension field
+    //where dimension in value
+    setInFilter(value,dimension)::
+        if std.length(value) != 0 then
+        {
+            "type": "in",
+            "dimension": dimension,
+            "values": value
+        },
+
+    //ranges [{"field":"count","value":200,"type":"greaterThan"}]
+    //field str,custom aggs field;type str in [greaterThan|lessThan|equalTo]
+    //having count > 200
+    setHavingFiler(ranges)::
+        if std.length(ranges) != 0 then
+        [
+            {
+                "type": range.type,
+                "aggregation": range.field,
+                "value": range.value,
+            },
+            for range in ranges
+        ]
+        else
+        [],
+    //添加上限与下限的端点值
+    setHavingFilerPlus(ranges)::
+        if std.length(ranges) != 0 then
+        [
+            {
+                "type":"or",
+                "havingSpecs":
+                [
+                    {
+                        "type": range.type,
+                        "aggregation": range.field,
+                        "value": range.value,
+                    },
+                    {
+                        "type": "equalTo",
+                        "aggregation": range.field,
+                        "value": range.value,
+                    }
+                ]
+            },
+            for range in ranges
+        ]
+        else
+        [],
+
+    //dimension str,dimension field
+    //where dimension=value
+    setSelectorFilter(value,dimension)::
+        if value != "" then
+        {
+            "type": "selector",
+            "dimension": dimension,
+            "value": value
+        },
+
+    setSelectorFilterArray(values)::
+        if values != "" then
+        [
+                self.setSelectorFilter(key.value,key.type),
+                for key in values
+        ],
+
+
+    //dimension str,dimension field
+    //where dimension like '%value%'
+    setRegexFilter(value,dimension)::
+        if value != "" then
+        {
+            "type": "regex",
+            "dimension": dimension,
+            "pattern": value
+        },
+
+    //type str in [doubleSum|doubleMin|doubleAvg|longSum|...];name,custom name for aggs of fieldName
+    //select sum(fieldName) as  name
+    setAggs(name,type,fieldName)::
+        if(type != 'cardinality') then
+        {
+            "type": type,
+            "name": name,
+            "fieldName": fieldName
+        }
+        else
+        {
+            "type": type,
+            "name": name,
+            "fieldNames": fieldName
+        },
+
+    setAndFilterAggs(aggregator,andFilter)::
+        {
+            "type": "filtered",
+            "filter": {
+                "type": "and",
+                "fields": andFilter
+            },
+            "aggregator": aggregator
+        },
+    setOrFilterAggs(aggregator,orFilter)::
+        {
+        "type": "filtered",
+        "filter": {
+            "type": "or",
+            "fields": orFilter
+        },
+        "aggregator": aggregator
+    },
+
+    //filterType str in [in|regex|selector];filterDimension str of dimension field;filterValue str or array depends on filterType
+    setFilter(filterType,filterDimension,filterValue)::
+        if filterType == 'in' then
+            self.setInFilter(filterValue,filterDimension)
+        else if filterType == 'regex' then
+            self.setRegexFilter(filterValue,filterDimension)
+        else
+            self.setSelectorFilter(filterValue,filterDimension),
+
+    //name str,custom name of aggs value;type str in [doubleSum|doubleMin|longAvg|...];
+    setFilterAggs(aggregator,filter)::
+        {
+            "type": "filtered",
+            "filter": filter,
+            "aggregator": aggregator
+        },
+
+    //type str
+    setAccessField(field)::
+            {
+                "type": "fieldAccess",
+                "fieldName": field
+            },
+    setConstantField(field)::
+            {
+                "type": "constant",
+                "value": field
+            },
+
+    //name str,custom name;fn str in [+|-|*|/];type str in [fieldAccess|constant];field str,reference to custom name or value
+    setPostAggsFn(name,fn,fields)::
+        {
+            "type": "arithmetic",
+            "name": name,
+            "fn": fn,
+            "fields": fields
+        },
+
+    //name str,custom name of function return;function str
+    setPostAggsJs(name,fieldNames,fun)::
+        {
+            "type": "javascript",
+            "name": name,
+            "fieldNames": fieldNames,
+            "function": fun
+        },
+
+    //topCount int;order str,metric field;sort str in [ascending|descending]
+    setOrder(topCount,order,sort)::
+        {
+            "type": "default",
+            "limit": topCount,
+            "columns": [
+                {
+                    "dimension" : order,
+                    "direction" : sort
+                }
+            ]
+        }
+}

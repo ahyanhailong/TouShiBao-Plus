@@ -1,0 +1,59 @@
+<!--请求参数-->
+<div role="tabpanel" class="tab-pane" id="request">
+    <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+            列表
+        </div>
+        <div class="widget clearfix">
+            <div>
+                <table class="table table-gray">
+                    <thead>
+                    <tr>
+                        <th width="30%">序号</th>
+                        <th width="40%">参数名</th>
+                        <th width="30%">参数值</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in details.params track by $index">
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.value}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--<div class="pager-widget">
+                    <div class="btn-group tsb-btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            5条 <span class="fa fa-angle-down"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)">5条</a></li>
+                            <li><a href="javascript:void(0)">10条</a></li>
+                        </ul>
+                    </div>
+                    <div class="total-number">
+                        共123,234条
+                    </div>
+                    <nav class="pager-box">
+                        <ul class="pager">
+                            <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
+                            <li><a href="javascript:void(0)"> 1 </a></li>
+                            <li><a href="javascript:void(0)" class="current"> 2 </a></li>
+                            <li><a href="javascript:void(0)"> 3 </a></li>
+                            <li><a href="javascript:void(0)"> 4 </a></li>
+                            <li><a href="javascript:void(0)"> 5 </a></li>
+                            <li>...</li>
+                            <li><a href="javascript:void(0)"> 23 </a></li>
+                            <li><a href="javascript:void(0)"> 24 </a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>-->
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

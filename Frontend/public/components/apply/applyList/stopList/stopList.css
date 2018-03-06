@@ -1,0 +1,306 @@
+/*.tsb-main-wrap{margin-left: 0;}*/
+#stopList .pager-widget {
+  border-top: 1px solid transparent;
+}
+#stopList .event-content .div-box {
+  margin-bottom: 16px;
+}
+#stopList .event-content .div-box > h3 {
+  padding: 0 ;
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+  padding-bottom: 16px;
+}
+#stopList .event-content .div-box .apply-data > ul {
+  float: left;
+  width: 100%;
+}
+#stopList .event-content .div-box .apply-data > ul > li {
+  float: left;
+  width: 33.33333%;
+}
+#stopList .event-content .div-box .apply-data > ul > li > div {
+  margin-right: 10px;
+  background: #242424;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 12px;
+  height: 64px;
+}
+#stopList .event-content .div-box .apply-data > ul > li > div > div.number {
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+#stopList .event-content .div-box .apply-data > ul > li > div > div.text {
+  font-size: 12px;
+  color: #9B9B9B;
+}
+#stopList .tsb-box-show2e:hover,
+#keyBusiness .tsb-box-show2e.active {
+  background: #424242;
+  cursor: pointer;
+}
+#stopList .event-content .tsb-box-show2e:hover > h3,
+#keyBusiness .tsb-box-show2e.active > h3 {
+  color: #4FABFC;
+}
+#stopList .event-content .apply-check {
+  float: left;
+  width: 3%;
+}
+#stopList .event-content .apply-check .checkbox-check {
+  margin-top: 5px;
+}
+#stopList .event-content .apply-list {
+  float: left;
+  width: 97%;
+}
+#stopList .event-content .apply-list .apply-title {
+  color: #fff;
+}
+#stopList .event-content .apply-list .apply-title .text-div {
+  height: 32px;
+  line-height: 21px;
+  vertical-align: text-top;
+}
+#stopList .event-content .apply-list .apply-title .input-div {
+  display: none;
+  height: 40px;
+}
+#stopList .event-content .apply-list .apply-title .input-div {
+  height: 32px;
+}
+#stopList .event-content .apply-list .apply-title .input-div > input {
+  width: 200px;
+  color: #fff;
+  height: 22px;
+  line-height: 22px;
+}
+#stopList .event-content .apply-list .apply-setting {
+  margin-bottom: 10px;
+}
+#stopList .event-content .apply-list .apply-setting .dropdown-menu {
+  padding: 16px;
+}
+#stopList .event-content .apply-list .apply-setting table {
+  margin-bottom: 0;
+  width: 660px;
+}
+#stopList .event-content .apply-list .apply-setting .fen-group {
+  float: left;
+  margin-left: 20px;
+  color: #fff;
+  font-size: 12px;
+  height: 32px;
+  line-height: 32px;
+}
+#stopList .event-content .apply-list .apply-setting table tbody {
+  display: block;
+  height: 166px;
+  overflow-y: auto;
+}
+#stopList .event-content .apply-list .apply-setting table tbody tr td {
+  color: #fff;
+}
+#stopList .event-content .apply-list .apply-setting table thead,
+#stopList .event-content .apply-list .apply-setting tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+#stopList .event-content .apply-list .apply-setting table thead {
+  /*width: calc( 100% - 1em );*/
+}
+#stopList .event-content .apply-list .apply-data .right-content {
+  float: left;
+  width: 10%;
+}
+#stopList .event-content .apply-list .apply-data .right-content .apply-state > li > div {
+  margin-right: 10px;
+  background: #242424;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 12px;
+  height: 64px;
+  line-height: 42px;
+  text-align: center;
+}
+#stopList .event-content .div-box .right-content {
+  width: 10%;
+  float: left;
+}
+#stopList .event-content .tsb-box-show2e .action-btn-hover,
+#stopList .event-content .tsb-box-show2e:hover .action-btn,
+#stopList .event-content .tsb-box-show2e.active .action-btn-hover,
+#stopList .event-content .tsb-box-show2e.active .action-btn {
+  display: none;
+}
+#stopList .event-content .tsb-box-show2e:hover .action-btn-hover,
+#stopList .event-content .tsb-box-show2e.active .action-btn-hover {
+  display: block;
+}
+#stopList .event-content .right-content .action-btn {
+  line-height: 62px;
+}
+#stopList .back-list {
+  right: 0;
+  top: 0;
+  color: #fff;
+}
+#stopList .header-content {
+  line-height: 32px;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+#stopList .header-content .checkbox-check {
+  margin-top: 10px;
+  width: 70px;
+}
+#stopList .header-content > ul {
+  font-size: 12px;
+  float: left;
+}
+#stopList .header-content > ul > li {
+  float: left;
+  padding-right: 10px;
+  color: #BAB9B9;
+  padding-left: 16px;
+}
+#stopList .header-content > ul > li:last-child {
+  padding-left: 0px;
+}
+#stopList .pull-right .fa-long-arrow-up {
+  color: #4FABFC;
+  font-size: 14px;
+}
+#stopList .content_title {
+  padding: 5px 16px;
+}
+#stopList .content_title > div.pull-left {
+  font-size: 14px;
+  color: #fff;
+}
+#stopList .content_title > div.pull-right > div label {
+  font-weight: normal;
+}
+#stopList .content_title > div.pull-right > div {
+  padding: 0 5px;
+}
+#stopList .content_title > div.pull-right > div:first-child .dropdown-toggle {
+  text-align: left;
+  min-width: 93px;
+}
+#stopList .content_title > div.pull-right > div:first-child .dropdown-toggle .caret {
+  text-align: right;
+  float: right;
+  margin-top: 15px;
+}
+#stopList .content_title > div.pull-right > div:last-child .tsb-search-i {
+  margin-right: 0;
+}
+#stopList .newManager-group .dropdown-menu {
+  color: #CDCBCB;
+  font-size: 14px;
+  right: 0;
+  left: inherit;
+  padding-bottom: 10px;
+  width: 485px;
+  border-radius: 4px;
+  background: #4a4a4a;
+}
+#stopList .newManager-group .dropdown-menu .title {
+  height: 45px;
+  line-height: 45px;
+  border-bottom: 1px solid #3F3F3F;
+  padding: 0 10px;
+}
+#stopList .manage-group table .form-control,
+#stopList .manage-groupSub table .form-control {
+  display: none;
+  border-radius: 4px;
+}
+#stopList .manage-groupSub {
+  display: none;
+}
+#stopList .manage-groupSub > ul {
+  padding: 10px;
+  overflow: hidden;
+}
+#stopList .manage-groupSub > ul > li {
+  float: left;
+  padding-right: 5px;
+}
+#stopList .manage-groupSub > ul > li:last-child {
+  float: right;
+}
+#stopList .manage-groupSub > ul > li:nth-child(3) {
+  width: 210px;
+}
+#stopList .manage-groupSub > ul > li .tsb-search {
+  width: 187px;
+  margin-right: 0;
+}
+#stopList .manage-groupSub > ul > li .tsb-search .input-search {
+  border-radius: 4px;
+}
+#stopList .manage-groupSub .table tr td a {
+  color: #aaaaaa;
+}
+#stopList .manage-groupSub .table tr td a:hover {
+  color: #aaaaaa;
+}
+#stopList .manage-group .pager-widget,
+#stopList .manage-groupSub .pager-widget {
+  margin-top: -20px;
+  margin-left: 10px;
+}
+#stopList .manage-group .pager-widget .pager li > a,
+#stopList .manage-groupSub .pager-widget .pager li > a {
+  line-height: 20px;
+}
+#stopList .apply-noData {
+  width: 539px;
+  height: 336px;
+  margin: 100px auto;
+}
+#stopList .apply-noData > div {
+  background: url(../../../../img/apply/applyList/apply-noDataBg.png) no-repeat;
+  width: 539px;
+  height: 336px;
+  background-size: 100%;
+  padding-top: 40px;
+  color: #2884D5;
+  font-size: 14px;
+  padding-left: 70px;
+}
+#stopList .apply-noData > div .tsb-btn-group > .btn {
+  width: 82px;
+  height: 23px;
+  line-height: 23px;
+}
+#stopList .apply-noData .tsb-btn-group {
+  margin-left: 10px;
+}
+#stopList .apply-noData .dropdown-menu {
+  min-width: 82px;
+}
+#stopList .apply-noData .tsb-btn-group .dropdown-menu > li > a {
+  padding: 0 5px;
+}
+.header-content > ul > li {
+  float: left;
+  padding-right: 10px;
+  color: #BAB9B9;
+  padding-left: 16px;
+}
+.header-content {
+  line-height: 32px;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+.header-content .checkbox-check {
+  margin-top: 10px;
+  width: 70px;
+}

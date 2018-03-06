@@ -1,0 +1,107 @@
+<div id="snapshoot">
+  <!--响应时间分布图 start-->
+  <div class="margin-b-16">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        响应时间分布图
+        <a href="javascript:void(0)" class="pull-right">
+        		<i class="icon-help"></i>
+        		
+        </a>
+      </div>
+      <div class="widget padding-16">
+        <div class="block block-chart noDefault response-chart" id="respTimeParcel">
+          <div class="block-content response-chart" data-chart>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--响应时间分布图 end-->
+  <!--关键词过滤-->
+  <div oc-lazy-load="['filterKey', 'filterWhere']">
+
+    <div filter-where
+         change="change()"
+         wheres="wheres"
+         apis="whereApis"
+         where-list="whereList"></div>
+
+    <!--<div filter-key></div>-->
+  </div>
+  <!--快照列表 start-->
+  <div class="margin-b-16">
+    <div class="tsb-box-show">
+      <div class="tsb-texture-title">
+        快照列表（{{total_row}}条）
+        <div class="pull-right margin-t-6">
+          <div class="tsb-search tsb-search-i">
+            <input class="input-search" placeholder="按事务名称搜索">
+            <i class="icon-search pos-a"></i>
+          </div>
+        </div>
+      </div>
+      <div class="widget block block-table">
+        <div class="tsb-tableGray-div block-content" data-table>
+          <table class="table table-gray" id="tableList">
+            <thead>
+            <tr>
+              <th width="7%">序号</th>
+              <th width="7%">异常</th>
+              <th width="8%">状态 <i class="icon-tip"></i></th>
+              <th width="15%">
+                发生时间
+                <span class="table-column-sorter">
+                          <a class="fa fa-caret-up" href="javascript:void(0)"></a>
+                          <a class="fa fa-caret-down" href="javascript:void(0)"></a>
+                        </span>
+              </th>
+              <th width="10%">
+                响应时间
+                <span class="table-column-sorter">
+                          <a class="fa fa-caret-up" href="javascript:void(0)"></a>
+                          <a class="fa fa-caret-down" href="javascript:void(0)"></a>
+                        </span>
+              </th>
+              <th width="35%">事务</th>
+              <th width="8%">
+                Code
+              </th>
+              <th width="12%">
+                实例
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="(index,item) in qlSnapList.list">
+                <td>{{index+1}}</td>
+                <td>
+                  <i class="icon-abnormal" ng-if="item.exception == 1"></i>
+                  <i class="" ng-if="item.exception != 1"></i>
+                </td>
+                <td>
+                  <i class="state-icon-green" ng-if="item.status == 'normal'"></i>
+                  <i class="state-icon-red" ng-if="item.status == 'error'"></i>
+                  <i class="state-icon-yellow" ng-if="item.status == 'slow'"></i>
+                  <i class="state-icon-paleRed" ng-if="item.status == 'very_slow'"></i>
+                </td>
+                <td>{{item.time}}</td>
+                <td>{{item.resp_time}}ms</td>
+                <td><a href="javascript:void(0)" class="text-ellipsis display-b">{{item.url}}</a></td>
+                <td>{{item.code}}</td>
+                <td>{{item.instance}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+	    <div class="PageList" oc-lazy-load="['pageList']">
+	        <div page-list change="changeSqlList(currentPage,perPage)" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+	    </div>
+    </div>
+  </div>
+  <!--快照列表 end-->
+</div>

@@ -1,0 +1,56 @@
+<div class="block block-chart" id="databaseTrend">
+    <div class="block-title">数据库异常趋势图</div>
+
+    <div class="block-content" data-chart style="min-height: 324px;height: 324px;">  </div>
+</div>
+<div class="block block-chart" id="timeDistribution">
+    <div class="block-title">调用者占比(TOP5)</div>
+
+    <div class="block-content" data-chart>  </div>
+</div>
+<div class="clearfix"></div>
+<div class="block block-table" id="requestQuickSqlSencond" style="background: #4a4a4a;">
+    <div class="block-title">SQL快照列表
+   		<div class="download" style="width: 32px;height: 32px;float: right;margin: 3px 0 0 10px;" ng-click="download()"></div>
+    	
+        <div class="filter_search">
+            <input type="text"  id="SQLSnapshootList" placeholder="按调用者搜索" name="surf_content" data-onkey="13">
+            <span class="fa fa-search" id="surfSearch" ng-click="Search($event)"></span>
+        </div>
+    </div>
+    <div class="block-content" data-table>
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th data-item="order" width="5%">序号</th>
+                <th data-item="sql" width="20%">SQL语句</th>
+                <th data-item="req_url" width="10%">调用者</th>
+                <th data-item="happen_time" width="10%">发生时间<i class="fa fa-sort fa-sort-desc" ng-click="orderby($event)"></i></th>
+                <th data-item="error_type" width="10%">错误类型</th>
+                <th data-item="instance" width="10%" data-tip="">实例</th>
+                <th data-item="db_type" width="14%" data-tip="" title="数据库类型">数据库类型</th>
+                <th data-item="table" width="10%" data-tip="">数据表</th>
+                <th data-item="pst" width="10%" data-tip="">操作类型</th>
+            </tr>
+            </thead>
+            <tbody>
+				<tr ng-repeat="item in error_SecondSqlErrorList">
+					<td>{{item.order}}</td>
+					<td ng-click="clickSQLSecond($event)"  style="cursor: pointer;color: #4FABFC;" data-r_nid="{{item.r_nid}}" data-request_id="{{item.request_id}}" data-sql="{{item.sql}}">{{item.sql}}</td>
+					<td>{{item.req_url}}</td>
+					<td>{{item.happen_time}}</td>
+					<td>{{item.error_type}}</td>
+					<td>{{item.instance}}</td>
+					<td>{{item.db_type}}</td>
+					<td>{{item.table}}</td>
+					<td>{{item.pst}}</td>
+				</tr>
+            </tbody>
+        </table>
+    </div>
+     <!-- 分页控件指令 ，可以是元素 或者 属性 -->
+    <div class="PageList" oc-lazy-load="['pageList']">
+        <div page-list change="changeQuickSqlList(currentPage,perPage)" page_no="{{page_no}}" total_row="total_row" sum_per_page="{{sum_per_page}}"></div>
+    </div>
+
+</div>

@@ -1,0 +1,256 @@
+<div class="btn-group tsb-btn-group" id="Department">
+    <button type="button" class="btn btn-default dropdown-toggle"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span><i class="icon-add-white"></i>添加</span>
+    </button>
+    <ul class="dropdown-menu add-department" tsb-noclick="true">
+        <li>
+            <div class="title">
+                <div class="pull-left">添加部门</div>
+                <div class="pull-right margin-t-6">
+                    <button class="btn btn-blue border-radius4 pull-left margin-r-10 btn-ok" ng-click="saveGroup()">保存</button>
+                    <button class="btn btn-gray border-radius4 pull-left btn-cancel" ng-click="cancelGroup()">取消</button>
+                </div>
+            </div>
+        </li>
+        <li class="padding-16">
+            <div class="form-div">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">部门名称：</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" ng-model="group.group_name" placeholder="部门名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">添加成员：</label>
+
+                        <div class="col-sm-10" user-manager-group-add-user >
+                            <ul class="addMember clearfix">
+                                <li class="li-dropDown">
+                                    <div ng-click="clickBtn($event)"><i class="icon-add-white"></i>添加成员</div>
+                                    <div class="tsb-btn-group">
+                                        <ul class="dropdown-menu dropdown-menu-ul" tsb-noclick='true'>
+                                            <li class="request-scope">
+                                                <div class="left-content">
+                                                    <ul class="ul-list">
+                                                        <li>
+                                                            <div class="checkbox-check" ng-click="checkAllUser()">
+                                                                <input type="checkbox" ng-checked="allUserChecked"><label>全选</label>
+                                                            </div>
+                                                            <div class="tsb-search tsb-search-i">
+                                                                <input class="input-search" placeholder="按邮箱/姓名搜索" ng-model="searchEmail">
+                                                                <i class="icon-search pos-a"></i>
+                                                            </div>
+                                                        </li>
+                                                        <li class="clearfix">
+                                                            <ul class="subUl-list">
+                                                                <li ng-repeat="user in userList" ng-click="clickUser(user)">
+                                                                    <div class="col-md-9">
+                                                                        <div class="checkbox-check">
+                                                                            <input type="checkbox" name="_user_group" ng-checked="userCheck.indexOf(user.user_id)>-1">
+                                                                            <label>{{user.user_email}}</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">{{user.user_name}}</div>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="total-user">
+                                                    <div>已选{{userCheck.length}}人，共{{userTimes}}人</div>
+                                                    <div class="tsb-btn-group text-right">
+                                                        <button class="btn btn-gray border-radius4 margin-r-10 btn-small" ng-click="cancelUser()">取消</button>
+                                                        <button class="btn btn-blue border-radius4 margin-r-10 btn-small" ng-click="okUser()">确定</button>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="member-content" ng-repeat="u in checkedUsers">
+                                    <i class="icon-person"></i>
+                                    <span class="text-ellipsis member-info">{{u.user_email}} {{u.user_name}}</span>
+                                    <span class="icon-delete-gray2 action-delete"></span>
+                                </li>
+                            </ul>
+                            <a href="javascript:void(0)" class="total-member">已添加{{checkedUsers.length}}名成员 <i class="fa fa-angle-up"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="department-permission">
+                部门权限 <span>(请勾选可以被该部门查看的信息)</span>
+            </div>
+            <div class="nav-tab-panel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <span href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab" aria-expanded="true">业务</span>
+                    </li>
+                    <li role="presentation" class="">
+                        <span href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab" aria-expanded="false">Web应用</span>
+                    </li>
+                    <li role="presentation" class="">
+                        <span href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab" aria-expanded="false">后台应用</span>
+                    </li>
+                    <li role="presentation" class="">
+                        <span href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab" aria-expanded="false">移动</span>
+                    </li>
+                    <li role="presentation" class="">
+                        <span href="#tab5" aria-controls="tab5" role="tab" data-toggle="tab" aria-expanded="false">浏览器</span>
+                    </li>
+                    <li role="presentation" class="">
+                        <span href="#tab6" aria-controls="tab6" role="tab" data-toggle="tab" aria-expanded="false">主机</span>
+                    </li>
+                </ul>
+                <div class="tsb-search tsb-search-i" style="">
+                    <input data-onkey="13" class="input-search" id="input-search" placeholder="请输入搜索名称">
+                    <i class="icon-search pos-a" ng-click="search()"></i>
+                </div>
+                <!-- Tab panes -->
+                <div class="tab-content rel_manege">
+                    <div role="tabpanel" class="tab-pane active" id="tab1">
+                        <div class="count_manege">
+                            <div class="checkbox-check">
+                                <input type="checkbox" name="test" id="checkedAll0">
+                                <label for="checkedAll0" class="">全部</label>
+                            </div>
+                        </div>
+                        <div class="count-content">
+                            <!--<div class="manege_title">
+                                <div class="checkbox-check">
+                                    <input type="checkbox" name="test" id="sys">
+                                    <label for="sys" class="">支付系统</label>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab2" user-manager-group-web-app>
+                        <div class="count_manege">
+                            <div class="checkbox-check" ng-click="checkAllWebApp()">
+                                <input type="checkbox" ng-checked="allWebAppChecked"><label>全部</label>
+                            </div>
+                        </div>
+                        <div class="count-content">
+                            <!--webApps-->
+                            <div ng-repeat="grouped in webApps.grouped_list">
+                                <div class="manege_title">
+                                <span data-toggle="collapse" href="#{{grouped.group_name}}" aria-controls="collapseOne" class="collapsed">
+                                        <i class="caret-i caret-up"></i>
+                                </span>
+
+                                    <div class="checkbox-check">
+                                        <input type="checkbox"><label>{{grouped.group_name}}</label>
+                                    </div>
+                                </div>
+                                <div id="{{grouped.group_name}}" class="manege-sub collapse" target="{{grouped.group_name}}">
+                                    <div class="checkbox-check" ng-repeat="app in grouped.app_list" ng-click="clickWebApp(app)">
+                                        <input type="checkbox" ng-checked="webAppChecked.indexOf(app.app_id)>-1"><label>{{app.app_name}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="manege_title" ng-repeat="ungrouped in webApps.ungrouped">
+                                <div class="checkbox-check" ng-click="clickWebApp(ungrouped)">
+                                    <input type="checkbox" ng-checked="webAppChecked.indexOf(ungrouped.app_id)>-1"><label>{{ungrouped.app_name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab3">
+                        <div class="count_manege">
+                            <div class="checkbox-check">
+                                <input type="checkbox" name="test" id="checkedAll3">
+                                <label for="checkedAll3" class="">全部</label>
+                            </div>
+                        </div>
+                        <div class="count-content">
+                            <!--<div class="manege_title">
+                                <div class="checkbox-check">
+                                    <input type="checkbox" name="test" id="tomcat7-JVM">
+                                    <label for="tomcat7-JVM" class="">tomcat7-JVM</label>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <div class="count_manege">
+                            <div class="checkbox-check">
+                                <input type="checkbox" name="test" id="checkedAll4">
+                                <label for="checkedAll4" class="">全部</label>
+                            </div>
+                        </div>
+                        <div class="count-content">
+                            <!--<div class="manege_title">
+                                <div class="checkbox-check">
+                                    <input type="checkbox" name="test" id="dasdasd-JVM">
+                                    <label for="dasdasd-JVM" class="">dasdasd-JVM</label>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab5">
+                        <div class="count_manege">
+                            <div class="checkbox-check">
+                                <input type="checkbox" name="test" id="checkedAll5">
+                                <label for="checkedAll5" class="">全部</label>
+                            </div>
+                        </div>
+                        <div class="count-content">
+                            <!--<div class="manege_title">
+                                <div class="checkbox-check">
+                                    <input type="checkbox" name="test" id="dasdasd-JVM">
+                                    <label for="dasdasd-JVM" class="">dasdasd-JVM</label>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab6">
+                        <div class="count_manege">
+                            <div class="checkbox-check">
+                                <input type="checkbox" name="test" id="checkedAll6">
+                                <label for="checkedAll6" class="">全部</label>
+                            </div>
+                        </div>
+                        <div class="count-content">
+                            <!-- <div class="manege_title">
+                                 <span data-toggle="collapse" href="#核心业务1" aria-controls="collapseOne" class="collapsed">
+                                         <i class="caret-i caret-up"></i>
+                                 </span>
+
+                                 <div class="checkbox-check">
+                                     <input type="checkbox" name="test" id="bus1">
+                                     <label for="bus1" class="">核心业务</label>
+                                 </div>
+                             </div>
+                             <div id="核心业务1" class="manege-sub collapse" target="核心业务">
+                                 <div class="checkbox-check">
+                                     <input type="checkbox" name="test" id="up1">
+                                     <label for="up1" class="">upay:443</label>
+                                 </div>
+                                 <div class="checkbox-check">
+                                     <input type="checkbox" name="test" id="up2">
+                                     <label for="up2" class="">upay:443</label>
+                                 </div>
+                                 <div class="checkbox-check">
+                                     <input type="checkbox" name="test" id="up3">
+                                     <label for="up3" class="">upay:443</label>
+                                 </div>
+                             </div>
+                             <div class="manege_title">
+                                 <div class="checkbox-check">
+                                     <input type="checkbox" name="test" id="up4">
+                                     <label for="up4" class="">服务接口</label>
+                                 </div>
+                             </div>-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+    </ul>
+</div>

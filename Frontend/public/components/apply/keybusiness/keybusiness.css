@@ -1,0 +1,29 @@
+#keyBusiness .pager-widget{border-top:1px solid transparent}
+#keyBusiness .event-content .div-box{overflow: hidden; margin-bottom: 16px;}
+#keyBusiness .event-content .div-box >h3{padding: 0 ; margin: 0; font-size: 14px;color: #fff; padding-bottom: 16px;}
+#keyBusiness .event-content .div-box > ul {float: left; width: 90% }
+#keyBusiness .event-content .div-box > ul >li{float: left; width: 16.6666%;}
+#keyBusiness .event-content .div-box > ul >li > div{margin-right: 10px;background: #242424;border-radius: 4px;padding: 10px;font-size: 12px;height: 64px;}
+#keyBusiness .event-content .div-box > ul >li > div > div.number{font-size: 12px; color: #fff;margin-bottom: 5px;}
+#keyBusiness .event-content .div-box > ul >li > div > div.text{font-size: 12px; color: #9B9B9B}
+#keyBusiness .tsb-box-show2e:hover,#keyBusiness .tsb-box-show2e.active{background: #424242; cursor: pointer;}
+#keyBusiness .event-content .tsb-box-show2e:hover  >h3,#keyBusiness .tsb-box-show2e.active >h3{color: #4FABFC;}
+#keyBusiness .event-content .div-box > ul >li:first-child >div{
+  text-align: center; line-height: 42px;font-size: 14px;
+}
+#keyBusiness .event-content .div-box .right-content{width: 10%; float: left;}
+#keyBusiness .event-content .tsb-box-show2e .action-btn-hover,
+#keyBusiness .event-content .tsb-box-show2e:hover .action-btn,
+#keyBusiness .event-content .tsb-box-show2e.active .action-btn-hover,
+#keyBusiness .event-content .tsb-box-show2e.active .action-btn {display: none;}
+#keyBusiness .event-content .tsb-box-show2e:hover .action-btn-hover,
+#keyBusiness .event-content .tsb-box-show2e.active .action-btn-hover{display:block;}
+#keyBusiness .event-content .right-content .action-btn {line-height: 62px;}
+#keyBusiness .back-list {
+  right: 0;
+  top: 0;
+  color: #fff;
+}
+#keyBusiness .header-content{line-height: 32px;}
+#keyBusiness .header-content .pull-left{color: #fff; font-size: 14px;}
+#keyBusiness .header-content .pull-right .fa-long-arrow-up{color: #4FABFC; font-size: 14px;}

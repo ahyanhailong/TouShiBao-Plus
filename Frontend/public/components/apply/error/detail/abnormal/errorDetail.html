@@ -1,0 +1,165 @@
+<div id="abnormal">
+    <!--关键事务 start-->
+  <div class="padding-lr-50" >
+    <div class="title" >
+      异常详情
+    </div>
+    <!--错误趋势 start-->
+    <div class="margin-b-16 clearfix">
+      <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+          异常趋势
+        </div>
+        <div class="widget">
+          <div class="block block-chart response-chart" id="errorTrend">
+            <div class="block-content response-chart" data-chart>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--错误趋势 end-->
+    <!--实例错误占比 和时段内错误占比 start-->
+    <div class="clearfix margin-b-16 error-abnormal">
+      <!--left-->
+      <div class="left-content ">
+        <div class="tsb-box-show">
+          <div class="tsb-texture-title">
+            实例异常占比（TOP5）
+          </div>
+          <div class="widget">
+            <div class="block block-chart error-chart" id="errorScale">
+              <div class="block-content error-chart" data-chart>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--right 默认页面-->
+      <div class="right-content">
+        <div class="tsb-box-show">
+          <div class="tsb-texture-title">
+            时段内异常占比（TOP5）
+          </div>
+          <!--环形chart-->
+          <div class="widget">
+            <div class="block block-chart noDefault abnormal-chart">
+              <div class="block-content abnormal-chart" data-chart>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--错误占比 和异常占比 end-->
+    <!--错误列表和异常列表 start-->
+    <div class="margin-b-16 clearfix">
+      <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+          详情分析
+        </div>
+        <div class="widget padding-16">
+          <div class="error-content">
+            <ul class="row">
+              <li class="col-md-4">
+                <div>URL</div>
+                <div>{{errorMsg.url}}</div>
+              </li>
+              <li class="col-md-3">
+                <div>第一次发生时间</div>
+                <div>{{errorMsg.min_time}}</div>
+              </li>
+              <li class="col-md-3">
+                <div>最后一次发生时间</div>
+                <div>{{errorMsg.max_time}}</div>
+              </li>
+              <li class="col-md-2">
+                <div>发生次数</div>
+                <div>{{errorMsg.all_count}}</div>
+              </li>
+            </ul>
+          </div>
+          <div class="silder-content clearfix">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox" >
+
+                <div class="item" ng-repeat="i in errorMsgLength" ng-class="{active: i == 1}">
+                  <div class="car-title">
+                    第 {{i}}/{{errorMsgLength.length}}个同类错误
+                  </div>
+                </div>
+
+              </div>
+              <!-- Controls -->
+              <span class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" ng-click="PrevCount()">
+              <span class="icon-arrow-left" aria-hidden="true"></span>
+              </span>
+              <span class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" ng-click="NextCount()">
+              <span class="icon-arrow-right" aria-hidden="true"></span>
+              </span>
+            </div>
+
+            <div class="slider-list">
+              <div class="form-group">
+                <label class="col-sm-1 control-label">发生时间：</label>
+                <div class="col-sm-11">
+                  {{errorMsgList.time}}
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-1 control-label">URI：</label>
+                <div class="col-sm-11">
+                  {{errorMsgList.uri}}
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-1 control-label">实例：</label>
+                <div class="col-sm-11">
+                  {{errorMsgList.instance}}
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-1 control-label">请求参数：</label>
+                <div class="col-sm-11">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>参数名</th>
+                        <th>参数值</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="(index,item) in errorMsgList.request_params">
+                        <td>{{index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.value}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-1 control-label">异常信息：</label>
+                <div class="col-sm-11">
+                  {{errorMsgList.errorMsg_raw}}
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-1 control-label">异常详情：</label>
+                <div class="col-sm-11">
+                  <p ng-repeat="list in abnormalListDetail track by $index">{{list}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--快照列表 end-->
+  </div>
+</div>

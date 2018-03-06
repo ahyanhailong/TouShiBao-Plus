@@ -1,0 +1,91 @@
+{
+    addFilter(type, field, value)::
+       {
+         [type]: {
+          [field]: value
+         }
+       },
+    addNested(path, list)::
+        {
+          "nested": {
+            "path": path,
+            "query": {
+              "filtered": {
+                "filter": {
+                  "and": {
+                    "filters": [
+                        $.addFilter(i.type, i.field, i.value)
+                        for i in list
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+    addItem(item)::
+        if(item.type == 'nest') then
+            self.addNested(item.path, item.list)
+        else if(item.type == 'or') then
+            {
+                [item.type]: {
+                    [item.field]: $.addFilters(item.value)
+                }
+            }
+        else if(item.type == 'not') then
+            {
+                [item.type]: {
+                    [item.field]: $.addFilters(item.value)
+                }
+            }
+        else if(item.type == 'bool') then
+            {
+                [item.type]: {
+                    [item.field]: [
+                        $.addFilter(j.type, j.field, j.value)
+                        for j in item.value
+                    ]
+                }
+            }
+        else
+            self.addFilter(item.type, item.field, item.value),
+    addFilters(list)::
+        [
+            if(i.type == 'nest') then
+                self.addNested(i.path, i.list)
+            else if(i.type == 'or') then
+                {
+                    [i.type]: {
+                        [i.field]: $.addFilters(i.value)
+                    }
+                }
+            else if(i.type == 'not') then
+                {
+                    [i.type]: {
+                        [i.field]: $.addFilters(i.value)
+                    }
+                }
+            else if(i.type == 'bool') then
+                {
+                    [i.type]: {
+                        [i.field]: [
+                            $.addFilter(j.type, j.field, j.value)
+                            for j in i.value
+                        ]
+                    }
+                }
+            else
+                self.addFilter(i.type, i.field, i.value)
+            for i in list
+        ],
+    addQuery(list)::
+        {
+            "filtered": {
+              "filter": {
+                "and": {
+                  "filters": $.addFilters(list)
+                }
+              }
+            }
+        },
+}

@@ -1,0 +1,34 @@
+<div id="snapshotList">
+    <div class="header-title">
+        <ul id="myTabs" class="nav nav-tabs pull-left" role="tablist">
+            <li ng-repeat="item in businessList" ng-class="{active:item==currentBusiness}" ng-click="changeCurrent($index)">
+                <a href="javascript:void(0)" class="text-ellipsis" title="{{item}}">
+                    事务名称：{{item.name}} <i class="icon-delete-gray pull-right"
+                                          ng-if="$index!=0"
+                                          ng-click="removeBusiness($index)"
+                        ></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="transaction-wrap">
+        <div class="transaction-panel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.overview" href="#" ng-click="jump($event)">概览</a></li>
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.slow" href="#" ng-click="jump($event)">慢元素追踪</a></li>
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.track" href="#" ng-click="jump($event)">追踪详情</a></li>
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.resource" href="#" ng-click="jump($event)">资源时序图</a></li>
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.error" href="#" ng-click="jump($event)">错误&异常分析</a></li>
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.sql" href="#" ng-click="jump($event)">SQL分析</a></li>
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.api" href="#" ng-click="jump($event)">API调用</a></li>
+                <li ui-sref-active="active"><a ui-sref="applySnapshot.params" href="#" ng-click="jump($event)">请求参数</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
+</div>

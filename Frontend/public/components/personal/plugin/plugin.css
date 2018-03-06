@@ -1,0 +1,115 @@
+#plugin .tsb-box-show {
+  background: #4a4a4a;
+}
+#plugin .tsb-box-show .tsb-texture-title .tsb-btn-group .btn-default {
+  width: 200px;
+  text-align: left;
+}
+#plugin .tsb-box-show .tsb-texture-title .tsb-btn-group .caret {
+  float: right;
+  margin-top: 12px;
+}
+#plugin .tsb-box-show .request-scope .left-content {
+  float: left;
+  width: 224px;
+  border: 1px solid #535353;
+  border-radius: 4px;
+  margin: 0 16px 0 16px;
+}
+#plugin .tsb-box-show .request-scope .left-content .input-search {
+  margin-left: 0;
+  border-radius: 4px;
+  background: #323232;
+}
+#plugin .tsb-box-show .request-scope .left-content .ul-list {
+  color: #fff;
+}
+#plugin .tsb-box-show .request-scope .center-content {
+  width: 70px;
+  text-align: center;
+  float: left;
+  margin-top: 125px;
+}
+#plugin .tsb-box-show .request-scope .left-content .input-search {
+  margin-left: 0;
+  border-radius: 4px;
+  background: #323232;
+}
+#plugin .tsb-box-show .request-scope .ul-list > li:first-child {
+  border-bottom: 1px solid #535353;
+  padding-bottom: 5px;
+}
+#plugin .tsb-box-show .request-scope .ul-list,
+#plugin .tsb-box-show .request-scope .subUl-list {
+  margin-top: 5px;
+  color: #fff;
+}
+#plugin .tsb-box-show .request-scope .ul-list > li,
+#plugin .tsb-box-show .request-scope .subUl-list > li {
+  min-height: 25px;
+  padding: 5px 0;
+}
+#plugin .tsb-box-show .request-scope .subUl-list {
+  height: 150px;
+  overflow: auto;
+}
+#plugin .tsb-box-show .request-scope .tsb-search {
+  width: 100%;
+}
+#plugin .tsb-box-show .widget .host-number {
+  color: #9B9B9B;
+  font-size: 14px;
+  padding: 10px 16px;
+}
+#plugin .tsb-box-show .widget .table > tbody .progress-td .col-md-8 {
+  padding-right: 0;
+  padding-left: 0;
+}
+#plugin .tsb-box-show .widget .table > tbody .progress-td .col-md-8 .progress {
+  height: 6px;
+  margin-top: 8px;
+}
+#plugin .tsb-box-show .widget .table > tbody .progress-td .col-md-4 {
+  padding-left: 5px;
+}
+#plugin .tsb-box-show .widget .table > tbody .host-td > span {
+  display: block;
+  float: left;
+  margin-bottom: 2px;
+}
+#plugin .tsb-box-show .widget .table > tbody .host-td > span:hover {
+  color: #BAB9B9;
+}
+#plugin #pluginPanel{
+  box-shadow: none;
+}
+#plugin #pluginPanel .block-content{
+  background: #4A4A4A;
+}
+#plugin #pluginPanel .block-content .table{
+  margin-bottom: 0;
+}
+#plugin .icon-linux,
+#plugin .icon-windows,
+#plugin .icon-aix{
+  display: inline-block;
+}
+#plugin .icon-linux {
+  background: url(../../../img/config/icon-linux.png) no-repeat;
+  background-size: 100%;
+  width: 14px;
+  height: 16px;
+}
+#plugin .icon-windows {
+  background: url(../../../img/config/icon-windows.png) no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 14px;
+}
+#plugin .icon-aix{
+  background: url(../../../img/config/aix_png.png) no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 14px;
+}
+

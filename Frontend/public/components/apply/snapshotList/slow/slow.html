@@ -1,0 +1,68 @@
+<!--慢元素追踪-->
+<div role="tabpanel" class="tab-pane" id="slowElement">
+    <div class="tsb-box-show">
+        <div class="tsb-texture-title">
+            最慢元素 (TOP50)
+        </div>
+        <div class="widget padding-16">
+            <div class="block block-chart noDefault slow-chart" id="js_slow_chart">
+                <div class="block-content slow-chart" data-chart>
+
+                </div>
+            </div>
+        </div>
+        <div class="widget padding-16 clearfix">
+            <div>
+                <table class="table table-no-bg">
+                    <thead>
+                    <tr>
+                        <th width="10%">序号</th>
+                        <th width="50%">最慢元素</th>
+                        <th width="10%" class="text-right">执行次数</th>
+                        <th width="20%" class="text-right">持续时长</th>
+                        <th width="10%" class="text-right">百分比</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in details.slow_element">
+                        <td>{{$index+1}}</td>
+                        <td class="text-ellipsis">{{item.mn}}</td>
+                        <td class="text-right">{{item.count}}</td>
+                        <td class="text-right">{{item.time}}ms</td>
+                        <td class="text-right">{{item.rate}}%</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--<div class="pager-widget">
+                    <div class="btn-group tsb-btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            5条 <span class="fa fa-angle-down"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)">5条</a></li>
+                            <li><a href="javascript:void(0)">10条</a></li>
+                        </ul>
+                    </div>
+                    <div class="total-number">
+                        共123,234条
+                    </div>
+                    <nav class="pager-box">
+                        <ul class="pager">
+                            <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
+                            <li><a href="javascript:void(0)"> 1 </a></li>
+                            <li><a href="javascript:void(0)" class="current"> 2 </a></li>
+                            <li><a href="javascript:void(0)"> 3 </a></li>
+                            <li><a href="javascript:void(0)"> 4 </a></li>
+                            <li><a href="javascript:void(0)"> 5 </a></li>
+                            <li>...</li>
+                            <li><a href="javascript:void(0)"> 23 </a></li>
+                            <li><a href="javascript:void(0)"> 24 </a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>-->
+            </div>
+
+        </div>
+    </div>
+</div>

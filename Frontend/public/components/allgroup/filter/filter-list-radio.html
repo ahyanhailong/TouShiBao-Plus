@@ -1,0 +1,24 @@
+<li style="margin-top: 10px;margin-bottom: 10px;padding-right: 10px;position: relative;"
+    class="{{'dropdown1 filter_item '+ (isOpen?'open':'')}}"
+    data-type="{{type}}">
+    <a href="javascript:;" style="height: 30px;" ng-click="handleOpen($event)">
+        <div class="pull-left filter_overflow">
+            <i class="fa fa-times" ng-click="delWhere()"></i>
+            {{filterConfig[type].name}}：<span>{{value}}</span>
+        </div>
+        <span class="fa fa-angle-down pull-right"></span>
+    </a>
+
+    <div class="dropdown-menu padding_15 dropdown_check" role="menu">
+        <div class="padding_15">
+            <filter-list-search></filter-list-search>
+            <div class="list">
+                <div class="radio" ng-repeat="k in getList(type)" ng-click="checkItem(k)">
+                    <span><input type="radio" name="{{type}}" ng-checked="_value == k.value" class="input_check"
+                                 ng-value="k.value"><label></label>&nbsp;&nbsp;{{k.name}}</span>
+                </div>
+            </div>
+        </div>
+        <filter-handle-btn></filter-handle-btn>
+    </div>
+</li>

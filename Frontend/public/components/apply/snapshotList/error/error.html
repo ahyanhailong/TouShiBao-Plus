@@ -1,0 +1,17 @@
+<!--错误&异常分析-->
+<div role="tabpanel" class="tab-pane" id="errorAbnormal">
+    <div class="text-center title">堆栈追踪</div>
+    <div class="content-panel">
+        <ul class="ul-list">
+            <li ng-repeat="item in list track by $index"
+                ng-click="changeIndex($index)"
+                ng-class="{active:$index==currentIndex}"
+                ng-click="changeIndex($index)">
+                {{item.summary}}
+            </li>
+        </ul>
+        <div class="right-content">
+            {{list[currentIndex].detail}}
+        </div>
+    </div>
+</div>

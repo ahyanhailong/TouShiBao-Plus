@@ -1,0 +1,91 @@
+/*错误分析*/
+#abnormal{
+
+}
+#abnormal > .padding-lr-50{padding: 0 50px;}
+#abnormal > .padding-lr-50 .title{height: 58px ;line-height: 58px; text-align: center;font-size: 18px; color: #fff;}
+#abnormal .response-chart{
+ height: 335px;
+ min-height: 335px;
+ margin-top: 0;
+ border-radius: 0;
+}
+#abnormal .pager-widget{
+ border-top: 1px solid #979797;
+}
+
+#abnormal .tab-card >li{
+ float: left;
+ padding: 0 5px;
+}
+#abnormal .tab-card >li.active >a{
+ color: #4FABFC;
+}
+#abnormal .error-chart,#abnormal .abnormal-chart{
+ height: 225px;
+ min-height: 225px;
+ margin-top: 0;
+}
+#abnormal .error-abnormal .left-content{
+ width: 50%;float: left;
+}
+#abnormal .error-abnormal .left-content .tsb-box-show{
+ margin-right: 8px;
+}
+#abnormal .error-abnormal .right-content{
+ width: 50%;float: right;
+}
+#abnormal .error-abnormal .right-content .tsb-box-show{
+ margin-left: 8px;
+}
+#abnormal .error-content ul > li > div{
+ line-height: 35px;
+}
+#abnormal .error-content ul > li > div:first-child{
+ color: #9B9B9B;
+}
+#abnormal .error-content ul > li > div:last-child{
+ color: #FFFFFF;
+}
+
+#abnormal .carousel-control.left{ text-align: left; margin-left: 16px; margin-top: 15px;}
+#abnormal .carousel-control.right{ text-align: right; margin-right: 16px;margin-top: 15px;}
+#abnormal .carousel-caption{color: #fff}
+#abnormal  .silder-content{border: 1px solid rgba(255,255,255,0.18); padding-bottom: 16px;}
+#abnormal  .silder-content .carousel{border-bottom: 1px solid rgba(255,255,255,0.18); padding-bottom: 10px; color: #fff}
+#abnormal .carousel-inner{padding: 10px; margin-top: 16px;}
+#abnormal .car-title{
+ background: #3E3E3E;
+ height: 46px;
+ line-height: 46px;
+ font-size: 16px;
+ text-align: center;
+ width: 250px;
+ border-radius: 4px;
+ margin: 0 auto;
+ position: relative;
+}
+#abnormal .car-title:before{
+ bottom: -24px;
+ left: 48%;
+ content: '';
+ position: absolute;
+ width: 0;
+ height: 0;
+ font-size: 0;
+ border: 15px solid;
+ border-color: #3E3E3E transparent transparent transparent;
+}
+#abnormal .slider-list{
+ padding: 16px;
+}
+#abnormal .slider-list .form-group{font-size: 14px; width: 100%; overflow: hidden;}
+#abnormal .slider-list .form-group >label { color: #9B9B9B;font-weight: normal;}
+#abnormal .slider-list .form-group > div { color: #fff}
+#abnormal .slider-list .table{width: 50%; }
+#abnormal .slider-list .table>thead>tr>th{background: none;color: #fff}
+#abnormal .slider-list .table>tbody>tr>td{background: none; border-bottom: 1px solid rgba(255,255,255,0.18);color: #fff}
+
+.tsb-box-show{
+ padding-bottom: 0;
+}

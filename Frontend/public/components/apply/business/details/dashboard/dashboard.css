@@ -1,0 +1,134 @@
+#dashboard .inner-bg{
+  background:url("../../../../../img/apply/business/dasboard/dasboard-bg.png") no-repeat;
+  background-size: 100%;
+  height: 154px;
+}
+
+/*left*/
+#dashboard .left-content{
+  width: 70%; float: left;
+}
+#dashboard .left-content .tab-card >li{
+  float: left;
+  padding: 0 5px;
+}
+#dashboard .left-content .tab-card >li.active >a{
+  color: #4FABFC;
+}
+#dashboard .left-content .response-chart, #dashboard .right-content .request-chart{
+  height: 340px;
+  min-height: 340px;
+  margin-top: 0;
+}
+
+
+/*模板1*/
+#dashboard .dashboard-execute{
+  width:46%;float: left;
+}
+#dashboard .dashboard-execute .text-number{
+  width: 27%; height: 150px; line-height: 150px; float:left;text-align:center;color: #4FABFC;font-size: 20px;
+}
+#dashboard .dashboard-execute ul.data-state{
+  width: 65%;
+  float: left;
+  margin-left: 4%;
+  color: #9B9B9B
+}
+
+#dashboard .dashboard-execute ul.data-state>li{
+  height: 51px;
+  cursor: pointer;
+}
+#dashboard .dashboard-execute ul.data-state>li:hover{
+  color:#0B78E3;
+}
+#dashboard .dashboard-execute ul.data-state>li >div.content-text{
+  height: 38px;
+  line-height: 44px;
+}
+
+#dashboard .dashboard-toggle{margin-top: 2px;width:52.7888%;float: right}
+#dashboard .dashboard-toggle .table-gray>tbody>tr>td{
+  padding: 15px 8px;
+  background: transparent;
+}
+#dashboard .dashboard-toggle .table-gray>tbody>tr:hover>td,
+#dashboard .dashboard-toggle .table-gray>tbody>tr.active>td{
+  background:rgba(255,255,255,0.2) ;
+  cursor: pointer;
+}
+.table-gray>tbody>tr:hover>td:first-child,
+#dashboard .dashboard-toggle .table-gray>tbody>tr.active>td:first-child{
+  border-left: 4px solid #4FABFC;
+}
+#dashboard .dashboard-toggle .table-gray>tbody>tr>td > a:focus{
+  text-decoration: none;
+}
+
+#dashboard .accordion-collapse{
+ margin-top: 16px;
+}
+#dashboard .accordion-collapse .tsb-box-show{
+  background: #4a4a4a;
+}
+#dashboard .accordion-collapse .div-one{
+  width: 18%; height: 130px; float: left; margin-top: 100px;
+}
+#dashboard .accordion-collapse .div-one{
+  width: 18%; height: 130px; float: left; margin-top: 100px;
+}
+#dashboard .accordion-collapse .div-one .content{
+  padding: 30px 0 20px 0; color: #fff; font-size: 12px; text-align: center;
+}
+#dashboard .accordion-collapse .div-one .content>span{color: #fff; font-size: 16px; margin-left: 10px;}
+#dashboard .accordion-collapse .div-two{
+  width: 5%; height: 70px; float: left;margin-top: 145px; text-align: center; color: #fff; margin-left: 5px;
+}
+#dashboard .accordion-collapse .div-three{
+  width: 25%; height: 235px; float: left; margin-top: 65px;
+}
+#dashboard .accordion-collapse .average-response table>tbody>tr>td{
+  color: #fff;
+}
+#dashboard .accordion-collapse .average-response table>tfoot>tr>td{
+  border-top: 1px solid #565656;
+  color: #fff;
+}
+#dashboard .accordion-collapse .average-response table>tfoot>tr:last-child>td{
+  border-top: 1px solid transparent;
+}
+#dashboard .accordion-collapse .average-response table{
+  margin-bottom:0
+}
+#dashboard .accordion-collapse .div-four{
+  width: 5%; height: 70px; float: left;margin-top: 168px; text-align: center; color: #fff; margin-left: 5px;
+}
+#dashboard .accordion-collapse .div-five{width: 46%; height: 320px; float: right}
+/*right*/
+#dashboard .right-content{width: 30%; float: left;
+}
+#dashboard .left-content .widget,#dashboard .right-content .widget{
+  padding: 16px 16px 0px 16px;
+}
+#dashboard .right-content .time-range{
+  font-size: 14px;color: #BAB9B9;
+  padding-top: 10px;
+}
+
+/*请求统计*/
+#dashboard  .request-total .table>tbody>tr>td{
+padding: 30px 8px;
+}
+/*错误信息*/
+#dashboard .error-info .left-content{width: 30%;}
+#dashboard .error-info .right-content{width: 70%;}
+#dashboard  .error-chart{
+  height: 280px;
+  min-height: 280px;
+  margin-top: 0;
+}
+/*异常元素*/
+#dashboard  .trend-chart{
+  height: 30px; width: 250px;
+}

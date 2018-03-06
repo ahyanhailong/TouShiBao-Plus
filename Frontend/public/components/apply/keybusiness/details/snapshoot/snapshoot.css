@@ -1,0 +1,12 @@
+/*快照分析*/
+#snapshoot{
+
+}
+#snapshoot .response-chart{
+  height: 335px;
+  line-height: 335px;
+  margin-top: 0;
+}
+#snapshoot .tsb-box-show{
+	padding-bottom: 0;
+}

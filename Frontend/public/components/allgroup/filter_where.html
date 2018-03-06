@@ -1,0 +1,53 @@
+<div class="bg_green_light_gary mobile_group">
+    <div class="clearfix mobile_group margin_bottom_5 margin-bottom-5">
+        <div class="dropdown pull-left" id="filter_keys">
+            <button id="dLabel" class="btn btn-default" type="button" data-toggle="dropdown"></button>
+            <ul class="dropdown-menu mobile_filter" role="menu" id="overview_show_filter" style="z-index: 1100;background:#4A4A4A">
+                <li class="filter_show">
+                    <a style="color: #F5FFF2;">
+                        <i class="fa fa-history"></i>
+                        已保存条件
+                    </a>
+
+                    <div class="filter_history">
+                        <div class="history">
+                            <div
+                                    class="filter_history_main"
+                                    ng-repeat="(index,item) in history"
+                                    ng-click="clickHistory(item.id)">
+                                <div class="bule-left-title">条件组合{{item.order}}
+                                    <a ng-click="deleteHistory(item.id,$event)"
+                                       class="fa fa-times-circle fa-lg pull-right delete_overview_filter"></a>
+                                </div>
+                                <div class="filter_history_term">
+                                    <div ng-repeat="(key,list) in item.params_info track by key">
+                                        <span ng-if="key == 'resptime'">{{filterConfig[key].name}}:{{list[0]+'ms-'+list[1]+'ms'}}</span>
+                                        <span ng-if="key != 'resptime'">{{filterConfig[key].name}}:{{list}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="(i,whereItem) in whereList track by $index"
+                    data-type="{{whereItem}}"
+                    ng-click="clickWhere(whereItem)"
+                    class="show_field">
+                    <a>{{filterConfig[whereItem].name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div id="confirm_button" class="pull-right" style="width: 100px; height: 30px;">
+            <span class="save" ng-click="saveHistory()"></span>
+            <span class="delete reset_overview_filter" ng-click="resetWhere()"></span>
+        </div>
+    </div>
+    <div class="mobile_group margin_bottom_5 margin-bottom-5">
+        <ul class="filter_ul clearfix" id="overview_filter">
+            <filter-where-proxy
+                    ng-repeat="(type,value) in wheres"
+                    data-type="{{type}}">
+            </filter-where-proxy>
+        </ul>
+    </div>
+</div>
